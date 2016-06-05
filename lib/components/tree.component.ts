@@ -32,7 +32,7 @@ const _ = require('lodash');
     <div class="tree">
       <TreeNode
         (click)="treeModel.setFocus(true)"
-        *ngFor="#node of treeModel.roots"
+        *ngFor="let node of treeModel.roots"
         [node]="node">
       </TreeNode>
     </div>
