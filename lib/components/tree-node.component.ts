@@ -63,7 +63,7 @@ import { TreeNodeContent } from './tree-node-content.component';
       <div class="tree-children" *ngIf="node.isExpanded">
         <div *ngIf="node.children">
           <TreeNode          
-            *ngFor="#node of node.children"
+            *ngFor="let node of node.children"
             [node]="node">
           </TreeNode>
         </div>
