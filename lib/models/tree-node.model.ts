@@ -32,7 +32,7 @@ export class TreeNode implements ITreeNode {
     this.level = this.parent ? this.parent.level + 1 : 0;
     this.path = this.parent ? [...this.parent.path, this.id] : [];
     
-    if (this.getField('expanded')) this.isExpanded = true;
+    if (this.getField('isExpanded')) this.isExpanded = true;
     if (this.getField('children')) {
       this.children = this.getField('children')
         .map(c => new TreeNode(c, this, treeModel));
