@@ -19,7 +19,7 @@ import * as _ from 'lodash'
   styles: [
     '.tree-children { padding-left: 20px }',
     `.tree {
-      display: inline-block;
+      display: block;
       cursor: pointer;
       -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none;   /* Chrome/Safari/Opera */
