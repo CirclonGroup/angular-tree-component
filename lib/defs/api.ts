@@ -36,9 +36,14 @@ export interface ITreeOptions {
     */
    actionMapping?: any;
    /**
-    * Allow drag and drop on the tree. Default: false
+    * Allow drag from this tree. Default: false
     */
    allowDrag?: boolean;
+  /**
+   * Allow drop on this tree. Default: null
+   * (interpreted as "true" if allowDrag==true and allowDrop==null for backwards compatibility)
+   */
+   allowDrop?: boolean;
    /**
     * deprecated
     */

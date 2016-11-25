@@ -11,6 +11,8 @@ import * as _ from 'lodash';
 
 @Injectable()
 export class TreeModel implements ITreeModel {
+  static _dragNode: { node: TreeNode, index: number } = null;
+
   roots: TreeNode[];
   options: TreeOptions = new TreeOptions();
   nodes: any[];
@@ -20,7 +22,6 @@ export class TreeModel implements ITreeModel {
   activeNodes: TreeNode[];
   _focusedNode: TreeNode = null;
   focusedNodeId: string = null;
-  _dragNode: { node: TreeNode, index: number } = null;
   _dropLocation:{ component:any, node: TreeNode, index: number } = null;
   static focusedTree = null;
   private events: any;
@@ -356,6 +357,9 @@ export class TreeModel implements ITreeModel {
   }
 
   canMoveNode({ from, to }) {
+    // Check that drop is allowed on this tree
+    if (to.node.treeModel.options.options.allowDrop == false)
+      return false;
     // same node:
     if (from.node === to.node && from.index === to.index) {
       return false;
@@ -368,7 +372,7 @@ export class TreeModel implements ITreeModel {
   }
 
   moveNode({ from, to }) {
-    if (!this.canMoveNode({ from , to })) return;
+    if (!this.canMoveNode({from, to})) return;
 
     const fromChildren = from.node.getField('children');
 
@@ -376,27 +380,36 @@ export class TreeModel implements ITreeModel {
     if (!to.node.getField('children')) {
       to.node.setField('children', []);
     }
-    const toChildren = to.node.getField('children');
 
-    const node = fromChildren.splice(from.index, 1)[0];
+    let node = null;
 
-    // Compensate for index if already removed from parent:
-    let toIndex = (from.node === to.node && to.index > from.index) ? to.index - 1 : to.index;
+    // If the source & dest are the same tree then move the node
+    if (from.node.treeModel == to.node.treeModel) {
+      const toChildren = to.node.getField('children');
 
-    toChildren.splice(toIndex, 0, node);
+      node = fromChildren.splice(from.index, 1)[0];
 
-    this.update();
+      // Compensate for index if already removed from parent:
+      let toIndex = (from.node === to.node && to.index > from.index) ? to.index - 1 : to.index;
 
-    this.fireEvent({ eventName: TREE_EVENTS.onMoveNode, node, to });
+      toChildren.splice(toIndex, 0, node);
+
+      this.update();
+    }
+
+    // build "from" node data
+    let fromNode = { index : from.index, node : from.node.children[from.index] };
+
+    // pass additional source node to event
+    this.fireEvent({ eventName: TREE_EVENTS.onMoveNode, node : node, to : to , from : fromNode });
   }
 
-  // TODO: move to a different service:
   setDragNode(dragNode:{ node: TreeNode, index:number }) {
-    this._dragNode = dragNode;
+    TreeModel._dragNode = dragNode;
   }
 
   getDragNode():{ node: TreeNode, index:number } {
-    return this._dragNode || { node:null, index: null };
+    return TreeModel._dragNode || { node:null, index: null };
   }
 
   isDragging() {
