@@ -257,7 +257,7 @@ export class TreeModel implements ITreeModel {
   }
 
   isActive(node) {
-    return this.activeNodeIds[node.id];
+    return this.activeNodeIds[node.id]?true:false;
   }
 
   setActiveNode(node, value, multi = false) {
