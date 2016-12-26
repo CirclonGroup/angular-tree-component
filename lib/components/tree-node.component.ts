@@ -24,7 +24,7 @@ import { ITreeNodeTemplate } from './tree-node-content.component';
     '.node-content-wrapper.is-dragging-over-disabled { opacity: 0.5 }',
     '.tree-node-expanded > .node-wrapper > .toggle-children-wrapper > .toggle-children { transform: rotate(90deg) }',
     '.tree-node-collapsed > .node-wrapper > .toggle-children-wrapper > .toggle-children { transform: rotate(0); }',
-    `.toggle-children-wrapper {
+    `.toggle-children-wrapper, .toggle-children-placeholder-wrapper {
       padding: 2px 3px 5px 1px;
     }`,
     `.toggle-children {
@@ -72,8 +72,10 @@ import { ITreeNodeTemplate } from './tree-node-content.component';
           </span>
           <span
             *ngIf="!node.hasChildren"
-            class="toggle-children-placeholder">
+            class="toggle-children-placeholder-wrapper">
+            <span class="toggle-children-placeholder"></span>
           </span>
+
           <div class="node-content-wrapper"
             #nodeContentWrapper
             (click)="node.mouseAction('click', $event)"
