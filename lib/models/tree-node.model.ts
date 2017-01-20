@@ -18,6 +18,7 @@ export class TreeNode implements ITreeNode {
   path: string[];
   elementRef:ElementRef;
   children: TreeNode[];
+  allowDrop: (any) => boolean;
 
   private _originalNode: any;
   get originalNode() { return this._originalNode };
@@ -31,7 +32,7 @@ export class TreeNode implements ITreeNode {
       this._initChildren();
     }
 
-    this.allowDrop = this.allowDrop.bind(this);
+    this.allowDrop = this.allowDropTemplate.bind(this);
   }
 
   // helper get functions:
@@ -151,7 +152,7 @@ export class TreeNode implements ITreeNode {
     });
   }
 
-  allowDrop(element) {
+  allowDropTemplate(element) {
     return this.options.allowDrop(element, { parent: this, index: 0 });
   }
 
