@@ -20,6 +20,6 @@
   "buildOnSave": false,
   "angularCompilerOptions": {
     "genDir": "compiled",
-    "skipMetadataEmit": true
+    "skipMetadataEmit": false
   }
 }
