@@ -32,7 +32,7 @@ export class TreeNode implements ITreeNode {
       this._initChildren();
     }
 
-    this.allowDrop = this.allowDropTemplate.bind(this);
+    this.allowDrop = this.allowDropUnbound.bind(this);
   }
 
   // helper get functions:
@@ -152,7 +152,7 @@ export class TreeNode implements ITreeNode {
     });
   }
 
-  allowDropTemplate(element) {
+  allowDropUnbound(element) {
     return this.options.allowDrop(element, { parent: this, index: 0 });
   }
 

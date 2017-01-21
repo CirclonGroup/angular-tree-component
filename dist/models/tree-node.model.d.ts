@@ -46,7 +46,7 @@ export declare class TreeNode implements ITreeNode {
     getNodePadding(): string;
     getClass(): string;
     onDrop($event: any): void;
-    allowDropTemplate(element: any): boolean;
+    allowDropUnbound(element: any): boolean;
     loadChildren(): Promise<void>;
     expand(): any;
     collapse(): this;
