@@ -62,10 +62,22 @@ export class TreeComponent implements OnChanges {
   @ContentChild('treeNodeFullTemplate') treeNodeFullTemplate: TemplateRef<any>;
 
   // Will be handled in ngOnChanges
-  @Input() set nodes(nodes:any[]) { };
-  @Input() set options(options:TreeOptions) { };
+  @Input()
+  get nodes(): any[] {
+    return this.treeModel.nodes;
+  }
+  set nodes(nodes:any[]) { };
+  @Input()
+  get options(): TreeOptions {
+    return this.treeModel.options;
+  }
+  set options(options:TreeOptions) { };
 
-  @Input() set focused(value:boolean) {
+  @Input()
+  get focused(): boolean {
+    return TreeModel.focusedTree === this.treeModel;
+  }
+  set focused(value:boolean) {
     this.treeModel.setFocus(value);
   }
 
