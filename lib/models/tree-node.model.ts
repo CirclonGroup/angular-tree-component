@@ -4,6 +4,7 @@ import { TreeOptions } from './tree-options.model';
 import { ITreeNode } from '../defs/api';
 import { TREE_EVENTS } from '../constants/events';
 import { deprecated } from '../deprecated';
+import { Subject, Observable } from 'rxjs/Rx';
 
 import * as _ from 'lodash';
 
@@ -18,9 +19,15 @@ export class TreeNode implements ITreeNode {
   path: string[];
   elementRef: ElementRef;
   children: TreeNode[];
+  allowEdit: () => boolean;
   allowDrop: (draggedElement: any) => boolean;
 
   private _originalNode: any;
+  private clickStream = new Subject();
+  private $clickStream = this.clickStream.asObservable();
+  isEditMode:boolean =  false;
+  editValue:string;
+
   get originalNode() { return this._originalNode; };
 
   constructor(public data: any, public parent: TreeNode, public treeModel: TreeModel) {
@@ -31,8 +38,20 @@ export class TreeNode implements ITreeNode {
     if (this.getField('children')) {
       this._initChildren();
     }
-
+    this.allowEdit = this.allowEditUnbound.bind(this);
     this.allowDrop = this.allowDropUnbound.bind(this);
+
+    this.$clickStream
+      .timeInterval()
+      .filter((interval)=> interval.interval > 500 && interval.interval < 1000)
+      .subscribe((click)=>{
+        if(this.allowEdit()==true){
+          this.editValue = this.data.name;
+          this.isEditMode = true;
+          this.fireEvent({ eventName: TREE_EVENTS.onNodeEdit, node: this, value: this.editValue });
+        }
+    });
+
   }
 
   // helper get functions:
@@ -151,12 +170,16 @@ export class TreeNode implements ITreeNode {
       to: { parent: this, index: 0 }
     });
   }
-
+  allowEditUnbound(){
+    return this.options.allowEdit(this);
+  }
   allowDropUnbound(element) {
     return this.options.allowDrop(element, { parent: this, index: 0 });
   }
 
+  changeToEditMode(){
 
+  }
   // helper methods:
   loadChildren() {
     if (!this.options.getChildren) {
@@ -234,14 +257,20 @@ export class TreeNode implements ITreeNode {
     this.treeModel.setActiveNode(this, value, multi);
     if (value) {
       this.focus();
+    }else{
+      this.isEditMode = false;
     }
 
     return this;
   }
-
+  input_blur(event){
+    this.isEditMode = false;
+    this.fireEvent({ eventName: TREE_EVENTS.onNodeEditCommit, node: this, value: this.editValue });
+  }
   toggleActivated(multi = false) {
-    this.setIsActive(!this.isActive, multi);
-
+    if(!this.isEditMode ){
+      this.setIsActive(!this.isActive, multi);
+    }
     return this;
   }
 
@@ -279,6 +308,7 @@ export class TreeNode implements ITreeNode {
     this.scrollIntoView();
     if (previousNode) {
       this.fireEvent({ eventName: TREE_EVENTS.onBlur, node: previousNode });
+      previousNode.blur();
     }
     this.fireEvent({ eventName: TREE_EVENTS.onFocus, node: this });
 
@@ -286,11 +316,12 @@ export class TreeNode implements ITreeNode {
   }
 
   blur() {
-    let previousNode = this.treeModel.getFocusedNode();
-    this.treeModel.setFocusedNode(null);
-    if (previousNode) {
-      this.fireEvent({ eventName: TREE_EVENTS.onBlur, node: this });
-    }
+    this.isEditMode = false;
+    // let previousNode = this.treeModel.getFocusedNode();
+    // this.treeModel.setFocusedNode(null);
+    // if (previousNode) {
+    //   this.fireEvent({ eventName: TREE_EVENTS.onBlur, node: this });
+    // }
 
     return this;
   }
@@ -328,6 +359,9 @@ export class TreeNode implements ITreeNode {
 
     if (action) {
       action(this.treeModel, this, $event, data);
+      if(actionName === 'click'){
+        this.clickStream.next($event);
+      }
 
       // TODO: remove after deprecation of context menu and dbl click
       if (actionName === 'contextMenu') {

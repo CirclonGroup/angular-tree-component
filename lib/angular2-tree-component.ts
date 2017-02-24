@@ -1,8 +1,11 @@
 import { NgModule }      from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule} from '@angular/forms';
+import { BrowserModule} from '@angular/platform-browser';
 
 import { TREE_ACTIONS, IActionMapping, IActionHandler } from './models/tree-options.model';
 import { ITreeOptions, IAllowDropFn } from './defs/api';
+import { IAllowEditFn } from './defs/api';
 import { KEYS } from './constants/keys';
 import { TreeModel } from './models/tree.model';
 import { TreeNode } from './models/tree-node.model';
@@ -18,6 +21,7 @@ import { TreeNodeExpanderComponent } from './components/tree-node-expander.compo
 import { TreeNodeChildrenComponent } from './components/tree-node-children.component';
 import { TreeDropDirective } from './directives/tree-drop.directive';
 import { TreeDragDirective } from './directives/tree-drag.directive';
+import { FocusInputDirective } from './directives/focus-input.directive';
 import { AdHocComponentFactoryCreator } from './components/adhoc-component-factory.service';
 
 import './polyfills';
@@ -29,6 +33,7 @@ const exportedDirectives = [
   TreeNodeContent,
   TreeDropDirective,
   TreeDragDirective,
+  FocusInputDirective,
   TreeNodeExpanderComponent,
   TreeNodeChildrenComponent,
   TreeNodeDropSlot
@@ -44,12 +49,14 @@ export {
   IActionMapping,
   IActionHandler,
   IAllowDropFn,
+  IAllowEditFn,
   LoadingComponent,
   TreeComponent,
   TreeNodeComponent,
   TreeNodeContent,
   TreeDropDirective,
   TreeDragDirective,
+  FocusInputDirective,
   TreeNodeExpanderComponent,
   TreeNodeChildrenComponent,
   TreeNodeDropSlot
@@ -65,6 +72,8 @@ export {
   ],
   imports: [
     CommonModule,
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     TreeDraggedElement
@@ -79,15 +88,16 @@ export class TreeModule {}
   exports: [
     TreeComponent,
     TreeDropDirective,
-    TreeDragDirective
+    TreeDragDirective,
+    FocusInputDirective
   ],
   imports: [
     CommonModule,
-    TreeModule,
+    TreeModule
   ],
   providers: [
     AdHocComponentFactoryCreator
-  ],
+  ]
 })
 export class DeprecatedTreeModule {
   constructor() {

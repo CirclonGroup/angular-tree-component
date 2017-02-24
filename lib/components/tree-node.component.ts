@@ -1,5 +1,6 @@
-import { Component, Input, ElementRef, AfterViewInit, ViewEncapsulation, TemplateRef } from '@angular/core';
+import { Component, Input, ElementRef, AfterViewInit, ViewEncapsulation, TemplateRef, trigger, transition, style, animate } from '@angular/core';
 import { TreeNode } from '../models/tree-node.model';
+import {inputAnimation, nodeAnimation} from './../animations/tree-edit-node';
 
 @Component({
   selector: 'TreeNode',
@@ -10,7 +11,14 @@ import { TreeNode } from '../models/tree-node.model';
       padding: 2px 5px;
       border-radius: 2px;
       transition: background-color .15s,box-shadow .15s;
+      position:relative;
     }`,
+    `.editBox{
+    }
+    `,
+    `.editBox input{
+    }
+    `,
     '.node-wrapper {display: flex; align-items: flex-start;}',
     '.tree-node-active > .node-wrapper > .node-content-wrapper { background: #beebff }',
     '.tree-node-active.tree-node-focused > .node-wrapper > .node-content-wrapper { background: #beebff }',
@@ -21,6 +29,9 @@ import { TreeNode } from '../models/tree-node.model';
     }`,
     '.node-content-wrapper.is-dragging-over { background: #ddffee; box-shadow: inset 0 0 1px #999; }',
     '.node-content-wrapper.is-dragging-over-disabled { opacity: 0.5 }'
+  ],
+  animations:[
+    inputAnimation, nodeAnimation
   ],
   template: `
     <div
@@ -45,9 +56,11 @@ import { TreeNode } from '../models/tree-node.model';
             [treeAllowDrop]="node.allowDrop"
             [treeDrag]="node"
             [treeDragEnabled]="node.allowDrag()">
-
-            <TreeNodeContent [node]="node" [index]="index" [template]="templates.treeNodeTemplate">
+            <TreeNodeContent *ngIf="node.isEditMode==false" [@showNodeAnimation]="node.isEditMode" [node]="node" [index]="index" [template]="templates.treeNodeTemplate">
             </TreeNodeContent>
+            <div *ngIf="node.isEditMode" [@showInputAnimation]="node.isEditeMode" class="editBox">
+              <input focus-input type="text" [(ngModel)]="node.editValue" (blur)="node.input_blur($event)" (keyup.enter)="node.input_blur($event)"/>
+            </div>
           </div>
         </div>
 
@@ -67,7 +80,6 @@ export class TreeNodeComponent implements AfterViewInit {
 
   constructor(private elementRef: ElementRef) {
   }
-
   ngAfterViewInit() {
     this.node.elementRef = this.elementRef;
   }

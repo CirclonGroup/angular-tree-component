@@ -129,6 +129,14 @@ export class TreeOptions {
       return this.options.allowDrop === undefined ? true : this.options.allowDrop;
     }
   }
+  allowEdit(node): boolean {
+    if (this.options.allowEdit instanceof Function) {
+      return this.options.allowEdit(node);
+    }
+    else {
+      return this.options.allowEdit === undefined ? true : this.options.allowEdit;
+    }
+  }
   nodeClass(node: TreeNode): string {
     return this.options.nodeClass ? this.options.nodeClass(node) : '';
   }

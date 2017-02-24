@@ -3,6 +3,7 @@ import { TreeNode } from './tree-node.model';
 import { TreeOptions } from './tree-options.model';
 import { ITreeModel } from '../defs/api';
 import { TREE_EVENTS } from '../constants/events';
+import { Subject } from 'rxjs/Rx';
 
 import { deprecated } from '../deprecated';
 
@@ -11,7 +12,6 @@ import { first, last, compact, find, includes, remove, indexOf, pullAt, isString
 @Injectable()
 export class TreeModel implements ITreeModel {
   static focusedTree = null;
-
   roots: TreeNode[];
   options: TreeOptions = new TreeOptions();
   nodes: any[];
@@ -30,7 +30,8 @@ export class TreeModel implements ITreeModel {
   private _loadingComponent: any;
   private events: any;
 
-  constructor(public renderer: Renderer) {}
+  constructor(public renderer: Renderer) {
+  }
 
   setData({ nodes, options = null, events = null }: {nodes: any, options: any, events: any}) {
     if (options) {
@@ -135,6 +136,9 @@ export class TreeModel implements ITreeModel {
   }
 
   setFocus(value) {
+    if(!value && TreeModel.focusedTree && TreeModel.focusedTree.getFocusedNode()){
+      TreeModel.focusedTree.getFocusedNode().setIsActive(false);
+    }
     TreeModel.focusedTree = value ? this : null;
   }
 

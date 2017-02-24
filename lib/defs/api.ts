@@ -5,6 +5,9 @@
 export interface IAllowDropFn {
   (element: any, to: {parent: ITreeNode, index: number}): boolean;
 }
+export interface IAllowEditFn{
+  (node:ITreeNode):boolean;
+}
 /**
 * This is the interface of the options input of the tree.
 * See docs for more detailed explanations
@@ -53,6 +56,15 @@ export interface ITreeOptions {
    /**
    * Specify padding per node instead of children padding (to allow full row select for example)
    */
+  /**
+   * Allow editing the label of a node.
+   * Either boolean value, or a function that takes the current node and returns a boolean value.
+   * Will be called when clicking twice on a node with a delay >500ms <1s
+   */
+   allowEdit?: boolean | IAllowEditFn;
+   /**
+    * check if the newly entered node caption is valid and return either a boolean value or a corrected value;
+    */
    levelPadding?: number;
    /**
     * deprecated
