@@ -7,7 +7,8 @@ import { TreeNode } from '../models/tree-node.model';
 import { TreeDraggedElement } from '../models/tree-dragged-element.model';
 import { TreeOptions } from '../models/tree-options.model';
 
-import { includes, pick } from 'lodash-es';
+import { includes } from 'lodash-es/includes';
+import { includes } from 'lodash-es/pick';
 import { deprecatedSelector } from '../deprecated-selector';
 
 @Component({
