@@ -1,7 +1,7 @@
 import {
   Component, Input, ViewEncapsulation, OnInit, OnDestroy, ElementRef
 } from '@angular/core';
-import { reaction, autorun, action } from 'mobx';
+import { reaction, autorun } from 'mobx';
 import { observable, computed } from 'mobx-angular';
 import { TreeVirtualScroll } from '../models/tree-virtual-scroll.model';
 import { TreeNode } from '../models/tree-node.model';
@@ -26,13 +26,10 @@ import { deprecatedSelector } from '../deprecated-selector';
   `
 })
 export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
-  @Input()
-  get nodes() { return this._nodes; }
-  set nodes(nodes) { this.setNodes(nodes); }
+  @Input() @observable nodes: TreeNode[];
 
   @Input() treeModel: TreeModel;
 
-  @observable _nodes;
   private virtualScroll: TreeVirtualScroll; // Cannot inject this, because we might be inside treeNodeTemplateFull
   @Input() templates;
 
@@ -49,10 +46,6 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
 
   constructor(private elementRef: ElementRef) {
     deprecatedSelector('TreeNodeCollection', 'tree-node-collection', elementRef);
-  }
-
-  @action setNodes(nodes) {
-    this._nodes = nodes;
   }
 
   ngOnInit() {

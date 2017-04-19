@@ -43,7 +43,7 @@
     "example:cli2": "./node_modules/.bin/ngc && cp -rf dist example/cli2/node_modules/angular-tree-component/ && cd example/cli2 && ./node_modules/.bin/ng serve",
     "example:cli": "./node_modules/.bin/ngc && cp -rf dist example/cli/node_modules/angular-tree-component/ && cd example/cli && ./node_modules/.bin/ng serve",
     "selenium": "webdriver-manager update && webdriver-manager start",
-    "example:cli:build": "cd example/cli && cp src/index.build.html src/index.html && ./node_modules/.bin/ng build --aot && cp src/index.dev.html src/index.html",
+    "example:cli:build": "cd example/cli && cp src/index.build.html src/index.html && npm install ../.. && ./node_modules/.bin/ng build --aot && cp src/index.dev.html src/index.html",
     "test": "protractor protractor.conf.js",
     "pretest": "npm run e2e:tsc",
     "test:setup": "concurrently --kill-others \"npm run selenium\" \"npm run example:cli\"",
