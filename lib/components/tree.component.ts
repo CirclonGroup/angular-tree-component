@@ -9,9 +9,8 @@ import { TreeOptions } from '../models/tree-options.model';
 import { TreeViewportComponent } from './tree-viewport.component';
 import { deprecatedSelector } from '../deprecated-selector';
 
-import * as _ from 'lodash';
-
-const { includes, pick }  = _;
+import includes from 'lodash-es/includes';
+import pick from 'lodash-es/pick';
 
 @Component({
   selector: 'Tree, tree-root',

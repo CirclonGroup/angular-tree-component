@@ -6,6 +6,7 @@
     "outDir": "dist/",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+	"importHelpers": true,
     "inlineSourceMap": true,
     "inlineSources": true,
     "declaration": true,
