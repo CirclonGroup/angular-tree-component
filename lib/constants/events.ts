@@ -9,6 +9,6 @@ export const TREE_EVENTS = {
   moveNode: 'moveNode',
   event: 'event',
   loadNodeChildren: 'loadNodeChildren',
-  changeFilter: 'changeFilterr',
+  changeFilter: 'changeFilter',
   stateChange: 'stateChange'
 };
