@@ -1,5 +1,5 @@
 import {
-  Component, Input, Output, OnChanges, EventEmitter, Renderer, ElementRef,
+  Component, Input, Output, OnChanges, EventEmitter, Renderer,
   ViewEncapsulation, ContentChild, TemplateRef, HostListener, ViewChild
 } from '@angular/core';
 import { TreeModel } from '../models/tree.model';
@@ -7,7 +7,6 @@ import { TreeNode } from '../models/tree-node.model';
 import { TreeDraggedElement } from '../models/tree-dragged-element.model';
 import { TreeOptions } from '../models/tree-options.model';
 import { TreeViewportComponent } from './tree-viewport.component';
-import { deprecatedSelector } from '../deprecated-selector';
 
 import includes from 'lodash-es/includes';
 import pick from 'lodash-es/pick';
@@ -77,17 +76,9 @@ export class TreeComponent implements OnChanges {
     this.treeModel.setFocus(value);
   }
 
-  @Output() onToggleExpanded;
-  @Output() onActivate;
-  @Output() onDeactivate;
-  @Output() onFocus;
-  @Output() onBlur;
-  @Output() onUpdateData;
-  @Output() onInitialized;
-  @Output() onMoveNode;
-  @Output() onLoadChildren;
-  @Output() onChangeFilter;
-  @Output() onEvent;
+  @Input() set state(state) {
+    this.treeModel.setState(state);
+  }
 
   @Output() toggleExpanded;
   @Output() activate;
@@ -97,18 +88,19 @@ export class TreeComponent implements OnChanges {
   @Output() updateData;
   @Output() initialized;
   @Output() moveNode;
-  @Output() loadChildren;
+  @Output() copyNode;
+  @Output() loadNodeChildren;
   @Output() changeFilter;
   @Output() event;
+  @Output() stateChange;
 
   constructor(
     public treeModel: TreeModel,
     public treeDraggedElement: TreeDraggedElement,
-    private renderer: Renderer,
-    private elementRef: ElementRef) {
+    private renderer: Renderer) {
 
-      deprecatedSelector('Tree', 'tree-root', elementRef);
       treeModel.eventNames.forEach((name) => this[name] = new EventEmitter());
+      treeModel.subscribeToState((state) => this.stateChange.emit(state));
   }
 
   @HostListener('body: keydown', ['$event'])

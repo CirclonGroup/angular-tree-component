@@ -1,16 +1,4 @@
 export const TREE_EVENTS = {
-  onToggleExpanded: 'onToggleExpanded',
-  onActivate: 'onActivate',
-  onDeactivate: 'onDeactivate',
-  onFocus: 'onFocus',
-  onBlur: 'onBlur',
-  onInitialized: 'onInitialized',
-  onUpdateData: 'onUpdateData',
-  onMoveNode: 'onMoveNode',
-  onEvent: 'onEvent',
-  onLoadChildren: 'onLoadChildren',
-  onChangeFilter: 'onChangeFilter',
-
   toggleExpanded: 'toggleExpanded',
   activate: 'activate',
   deactivate: 'deactivate',
@@ -19,11 +7,9 @@ export const TREE_EVENTS = {
   initialized: 'initialized',
   updateData: 'updateData',
   moveNode: 'moveNode',
+  copyNode: 'copyNode',
   event: 'event',
-  loadChildren: 'loadChildren',
-  changeFilter: 'changeFilterr'
+  loadNodeChildren: 'loadNodeChildren',
+  changeFilter: 'changeFilter',
+  stateChange: 'stateChange'
 };
-
-export function newName(name) {
-  return name[2].toLowerCase() + name.slice(3);
-}

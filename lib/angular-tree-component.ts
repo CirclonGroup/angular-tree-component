@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MobxAngularModule } from 'mobx-angular';
 
 import { TREE_ACTIONS, IActionMapping, IActionHandler } from './models/tree-options.model';
-import { ITreeOptions, IAllowDropFn, IAllowDragFn } from './defs/api';
+import { ITreeOptions, IAllowDropFn, IAllowDragFn, ITreeState } from './defs/api';
 import { KEYS } from './constants/keys';
 import { TreeModel } from './models/tree.model';
 import { TreeNode } from './models/tree-node.model';
@@ -47,7 +47,8 @@ export {
   TreeNodeChildrenComponent,
   TreeNodeDropSlot,
   TreeNodeCollectionComponent,
-  TreeViewportComponent
+  TreeViewportComponent,
+  ITreeState
 };
 
 @NgModule({

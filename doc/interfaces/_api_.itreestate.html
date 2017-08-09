@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ITreeNodeDrag | angular-tree-component</title>
+	<title>ITreeState | angular-tree-component</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -60,28 +60,21 @@
 					<a href="../modules/_api_.html">&quot;api&quot;</a>
 				</li>
 				<li>
-					<a href="_api_.itreenodedrag.html">ITreeNodeDrag</a>
+					<a href="_api_.itreestate.html">ITreeState</a>
 				</li>
 			</ul>
-			<h1>Interface ITreeNodeDrag</h1>
+			<h1>Interface ITreeState</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>This is the interface of the TreeNodeDrag service</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ITreeNodeDrag</span>
+						<span class="target">ITreeState</span>
 					</li>
 				</ul>
 			</section>
@@ -90,51 +83,58 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_.itreenodedrag.html#getdragnode" class="tsd-kind-icon">get<wbr>Drag<wbr>Node</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_.itreestate.html#activenodeids" class="tsd-kind-icon">active<wbr>Node<wbr>Ids</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_.itreestate.html#expandednodeids" class="tsd-kind-icon">expanded<wbr>Node<wbr>Ids</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_.itreestate.html#focusednodeid" class="tsd-kind-icon">focused<wbr>Node<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_.itreestate.html#hiddennodeids" class="tsd-kind-icon">hidden<wbr>Node<wbr>Ids</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getdragnode" class="tsd-anchor"></a>
-					<h3>get<wbr>Drag<wbr>Node</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Drag<wbr>Node<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/500tech/angular-tree-component/blob/master/lib/defs/api.ts#L548">api.ts:548</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Gets the current dragged node. Useful for overriding the drop action.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter">
-									<h5>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The index inside parent&#39;s children, of the current dragged node</p>
-									</div>
-								</li>
-								<li class="tsd-parameter">
-									<h5>node<span class="tsd-signature-symbol">: </span><a href="_api_.itreenode.html" class="tsd-signature-type">ITreeNode</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The parent node of the current dragged node</p>
-									</div>
-								</li>
-							</ul>
-						</li>
-					</ul>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="activenodeids" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> active<wbr>Node<wbr>Ids</h3>
+					<div class="tsd-signature tsd-kind-icon">active<wbr>Node<wbr>Ids<span class="tsd-signature-symbol">:</span> <a href="../modules/_api_.html#idtypedictionary" class="tsd-signature-type">IDTypeDictionary</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/500tech/angular-tree-component/blob/master/lib/defs/api.ts#L22">api.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="expandednodeids" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> expanded<wbr>Node<wbr>Ids</h3>
+					<div class="tsd-signature tsd-kind-icon">expanded<wbr>Node<wbr>Ids<span class="tsd-signature-symbol">:</span> <a href="../modules/_api_.html#idtypedictionary" class="tsd-signature-type">IDTypeDictionary</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/500tech/angular-tree-component/blob/master/lib/defs/api.ts#L21">api.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="focusednodeid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> focused<wbr>Node<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">focused<wbr>Node<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="../modules/_api_.html#idtype" class="tsd-signature-type">IDType</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/500tech/angular-tree-component/blob/master/lib/defs/api.ts#L24">api.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="hiddennodeids" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> hidden<wbr>Node<wbr>Ids</h3>
+					<div class="tsd-signature tsd-kind-icon">hidden<wbr>Node<wbr>Ids<span class="tsd-signature-symbol">:</span> <a href="../modules/_api_.html#idtypedictionary" class="tsd-signature-type">IDTypeDictionary</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/500tech/angular-tree-component/blob/master/lib/defs/api.ts#L23">api.ts:23</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -166,24 +166,33 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_api_.itreenode.html" class="tsd-kind-icon">ITree<wbr>Node</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_api_.itreenodedrag.html" class="tsd-kind-icon">ITree<wbr>Node<wbr>Drag</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_api_.itreeoptions.html" class="tsd-kind-icon">ITree<wbr>Options</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_api_.itreenodedrag.html" class="tsd-kind-icon">ITree<wbr>Node<wbr>Drag</a>
+						<a href="_api_.itreestate.html" class="tsd-kind-icon">ITree<wbr>State</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_api_.itreenodedrag.html#getdragnode" class="tsd-kind-icon">get<wbr>Drag<wbr>Node</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_.itreestate.html#activenodeids" class="tsd-kind-icon">active<wbr>Node<wbr>Ids</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_.itreestate.html#expandednodeids" class="tsd-kind-icon">expanded<wbr>Node<wbr>Ids</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_.itreestate.html#focusednodeid" class="tsd-kind-icon">focused<wbr>Node<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_.itreestate.html#hiddennodeids" class="tsd-kind-icon">hidden<wbr>Node<wbr>Ids</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_api_.itreeoptions.html" class="tsd-kind-icon">ITree<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_api_.itreestate.html" class="tsd-kind-icon">ITree<wbr>State</a>
-					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="../modules/_api_.html#idtype" class="tsd-kind-icon">IDType</a>
 					</li>

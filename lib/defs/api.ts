@@ -1,6 +1,8 @@
 /**
  * Welcome to ng2tree
  */
+export type IDType = string | number;
+export type IDTypeDictionary = { [id: string]: boolean } | { [id: number]: boolean };
 
 export interface IAllowDropFn {
   (element: any, to: {parent: ITreeNode, index: number}, $event?: any): boolean;
@@ -13,10 +15,15 @@ export interface INodeHeightFn {
 export interface IAllowDragFn {
   (node: ITreeNode): boolean;
 }
-/**
-* This is the interface of the options input of the tree.
-* See docs for more detailed explanations
-*/
+
+
+export interface ITreeState {
+  expandedNodeIds?: IDTypeDictionary;
+  activeNodeIds?: IDTypeDictionary;
+  hiddenNodeIds?: IDTypeDictionary;
+  focusedNodeId?: IDType;
+}
+
 export interface ITreeOptions {
    /**
     * A string representing the attribute of the node that contains the array of children.
@@ -63,22 +70,6 @@ export interface ITreeOptions {
       ```
     */
    isExpandedField?: string;
-   /**
-    * The name of the node's field that determines if the node's element is displayed or not.
-
-    * **Default value: `isHidden`.**
-
-    For example, if one of your nodes has a `hidden` attribute, that contains true,
-    and you give the following configuration, then it will not be displayed:
-    ```
-    * options = { isHiddenField: 'hidden' }
-    * nodes = [
-    *   { id: 1, hidden: true, name: 'node1'},
-    *   { id: 2, name: 'node2'}
-    * ]
-    ```
-    */
-   isHiddenField?: string;
    /**
     * Function for loading a node's children.
       The function receives a TreeNode, and returns a value or a promise that resolves to the node's children.
@@ -215,11 +206,28 @@ export interface ITreeOptions {
     * **Default Value: true**
     */
     scrollOnSelect?: boolean;
+   /**
+    * Function to clone a node.
+    * Receives a TreeNode object, and returns a node object (only the data).
+    * This callback will be called when copying a node inside the tree,
+    * by either calling copyNode, or by dragging and holding the ctrl key
+    *
+    * For example:
+      ```
+        options: ITreeOptions = {
+          getNodeClone: (node) => ({
+            ...node.data,
+            id: uuid.v4(),
+            name: `copy of ${node.data.name}`
+          })
+        };
+      ```
+    *
+    * **Default Value: clone the node using Object.assign, and remove 'id' property**
+    */
+    getNodeClone?: (node: ITreeNode) => any;
  }
 
-/**
- * This is the interface of a single Tree Node
- */
 export interface ITreeNode {
   // properties
   /**
@@ -260,7 +268,7 @@ export interface ITreeNode {
    * A unique key of this node among its siblings.
    * By default it's the 'id' of the original node, unless stated otherwise in options.idField
    */
-  id: any;
+  id: IDType;
 
   // helpers
   isExpanded: boolean;
@@ -384,9 +392,6 @@ export interface ITreeNode {
   collapseAll();
 }
 
-/**
- * This is the interface of the TreeModel
- */
 export interface ITreeModel {
   // properties
   /**
@@ -457,7 +462,7 @@ export interface ITreeModel {
    * @param     id  node ID to find
    * @returns   The node, if found - null otherwise
    */
-  getNodeById(id: any): ITreeNode;
+  getNodeById(id: IDType): ITreeNode;
   /**
    * @param     predicate - either an object or a function, used as a test condition on all nodes.
    *            Could be every predicate that's supported by lodash's `find` method
@@ -520,8 +525,17 @@ export interface ITreeModel {
    * collapse all nodes
    */
   collapseAll();
-}
+  /**
+   * get tree state
+   */
+  getState(): ITreeState;
+  /**
+   * set tree state
+   */
+  setState(state: ITreeState);
 
+  subscribeToState(fn: (state: ITreeState) => any);
+}
 /**
  * This is the interface of the TreeNodeDrag service
  */

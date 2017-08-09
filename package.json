@@ -1,6 +1,6 @@
 {
   "name": "angular-tree-component",
-  "version": "3.8.0",
+  "version": "4.1.0",
   "description": "A simple yet powerful tree component for Angular2",
   "author": "Adam Klein <adam@500tech.com>",
   "homepage": "https://github.com/500tech/angular-tree-component",
@@ -85,6 +85,7 @@
     "codelyzer": "2.0.0-beta.4",
     "concurrently": "3.4.0",
     "core-js": "^2.4.1",
+    "html-dnd": "1.2.0",
     "http-server": "0.9.0",
     "nightwatch": "0.9.12",
     "protractor": "5.1.1",

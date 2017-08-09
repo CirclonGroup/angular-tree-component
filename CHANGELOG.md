@@ -1,3 +1,22 @@
+<a name="4.1.0"></a>
+# 4.1.0 (2017-XX-XX)
+* Fixed changeFilterr typo
+* Added copyNode on ctrl
+
+<a name="4.0.0"></a>
+# 4.0.0 (2017-29-07)
+* Breaking change - Renamed loadChildren to loadNodeChildren because of AoT
+* Breaking change - removed deprecated event names onXXX
+* Breaking change - removed deprecated component names
+* Fixed bug for Angular Universal
+* added 'drag' action mapping
+
+<a name="3.9.0"></a>
+# 3.9.0 (2017-28-07)
+* Added setHiddenNodeIds
+* Added state 2 way binding
+* Removed isHiddenField
+
 <a name="3.8.0"></a>
 # 3.8.0 (2017-15-07)
 * Added scrollOnFocus

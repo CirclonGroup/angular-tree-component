@@ -172,7 +172,7 @@ export class TreeNode implements ITreeNode {
 
 
   // helper methods:
-  loadChildren() {
+  loadNodeChildren() {
     if (!this.options.getChildren) {
       return Promise.resolve(); // Not getChildren method - for using redux
     }
@@ -188,7 +188,7 @@ export class TreeNode implements ITreeNode {
           });
       }}).then(() => {
         this.fireEvent({
-          eventName: TREE_EVENTS.onLoadChildren,
+          eventName: TREE_EVENTS.loadNodeChildren,
           node: this
         });
       });
@@ -244,7 +244,7 @@ export class TreeNode implements ITreeNode {
       this.treeModel.setExpandedNode(this, value);
 
       if (!this.children && this.hasChildren && value) {
-        return this.loadChildren();
+        return this.loadNodeChildren();
       }
     }
 
@@ -286,9 +286,9 @@ export class TreeNode implements ITreeNode {
       this.scrollIntoView();
     }
     if (previousNode) {
-      this.fireEvent({ eventName: TREE_EVENTS.onBlur, node: previousNode });
+      this.fireEvent({ eventName: TREE_EVENTS.blur, node: previousNode });
     }
-    this.fireEvent({ eventName: TREE_EVENTS.onFocus, node: this });
+    this.fireEvent({ eventName: TREE_EVENTS.focus, node: this });
 
     return this;
   }
@@ -297,7 +297,7 @@ export class TreeNode implements ITreeNode {
     let previousNode = this.treeModel.getFocusedNode();
     this.treeModel.setFocusedNode(null);
     if (previousNode) {
-      this.fireEvent({ eventName: TREE_EVENTS.onBlur, node: this });
+      this.fireEvent({ eventName: TREE_EVENTS.blur, node: this });
     }
 
     return this;

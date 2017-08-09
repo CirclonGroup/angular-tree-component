@@ -1,15 +1,14 @@
 import {
-  Component, Input, ViewEncapsulation, OnInit, OnDestroy, ElementRef
+  Component, Input, ViewEncapsulation, OnInit, OnDestroy
 } from '@angular/core';
 import { reaction, autorun } from 'mobx';
 import { observable, computed, action } from 'mobx-angular';
 import { TreeVirtualScroll } from '../models/tree-virtual-scroll.model';
 import { TreeNode } from '../models/tree-node.model';
 import { TreeModel } from '../models/tree.model';
-import { deprecatedSelector } from '../deprecated-selector';
 
 @Component({
-  selector: 'tree-node-collection, TreeNodeCollection',
+  selector: 'tree-node-collection',
   encapsulation: ViewEncapsulation.None,
   template: `
     <ng-container *mobxAutorun>
@@ -46,10 +45,6 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
   }
 
   _dispose = [];
-
-  constructor(private elementRef: ElementRef) {
-    deprecatedSelector('TreeNodeCollection', 'tree-node-collection', elementRef);
-  }
 
   @action setNodes(nodes) {
     this._nodes = nodes;

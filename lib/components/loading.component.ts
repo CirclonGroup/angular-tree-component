@@ -1,10 +1,9 @@
-import { Component, Input, TemplateRef, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { TreeNode } from '../models/tree-node.model';
-import { deprecatedSelector } from '../deprecated-selector';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
-  selector: 'LoadingComponent, tree-loading-component',
+  selector: 'tree-loading-component',
   template: `
     <span *ngIf="!template">loading...</span>
     <ng-container
@@ -16,8 +15,4 @@ import { deprecatedSelector } from '../deprecated-selector';
 export class LoadingComponent {
   @Input() template: TemplateRef<any>;
   @Input() node: TreeNode;
-
-  constructor(private elementRef: ElementRef) {
-    deprecatedSelector('LoadingComponent', 'tree-loading-component', elementRef);
-  }
 }

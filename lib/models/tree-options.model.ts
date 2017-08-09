@@ -24,7 +24,11 @@ export const TREE_ACTIONS = {
   PREVIOUS_NODE: (tree: TreeModel, node: TreeNode, $event: any) =>  tree.focusPreviousNode(),
   MOVE_NODE: (tree: TreeModel, node: TreeNode, $event: any, {from , to}: {from: any, to: any}) => {
     // default action assumes from = node, to = {parent, index}
-    tree.moveNode(from, to);
+    if ($event.ctrlKey) {
+      tree.copyNode(from, to);
+    } else {
+      tree.moveNode(from, to);
+    }
   }
 };
 
@@ -70,7 +74,6 @@ export class TreeOptions {
   get displayField(): string { return this.options.displayField || 'name'; }
   get idField(): string { return this.options.idField || 'id'; }
   get isExpandedField(): string { return this.options.isExpandedField || 'isExpanded'; }
-  get isHiddenField(): string { return this.options.isHiddenField || 'isHidden'; }
   get getChildren(): any { return this.options.getChildren; }
   get levelPadding(): number { return this.options.levelPadding || 0; }
   get useVirtualScroll(): boolean { return this.options.useVirtualScroll; }
@@ -82,6 +85,14 @@ export class TreeOptions {
 
   constructor(private options: ITreeOptions = {}) {
     this.actionMapping = defaultsDeep({}, this.options.actionMapping, defaultActionMapping);
+  }
+
+  getNodeClone(node: TreeNode): any {
+    if (this.options.getNodeClone) {
+      return this.options.getNodeClone(node);
+    }
+
+    return _.omit(Object.assign({}, node.data), ['id']);
   }
 
   allowDrop(element, to, $event?): boolean {

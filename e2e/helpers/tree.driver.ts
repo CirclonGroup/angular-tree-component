@@ -1,4 +1,5 @@
 import { Key, browser, ElementArrayFinder, ElementFinder, WebElement, by, element, $, $$, promise } from 'protractor';
+import { code as htmlDnd } from 'html-dnd';
 
 function hasClass(element, cls) {
     return element.getAttribute('class').then(function (classes) {
@@ -6,8 +7,31 @@ function hasClass(element, cls) {
     });
 };
 
-export class NodeDriver {
-  constructor(private element: ElementFinder) {}
+export function dragAndDrop(from, to) {
+  browser.executeScript(htmlDnd, from, to, 0, 0);
+}
+
+class BaseDriver {
+  constructor(protected element: ElementFinder) {}
+
+  isPresent(): promise.Promise<boolean> {
+    return this.element.isPresent();
+  }
+
+  getNodes(): ElementArrayFinder {
+    return this.element.$$('tree-node');
+  }
+
+  getNode(name): NodeDriver {
+    const element = this.getNodes().filter((el) => {
+      return el.$('tree-node-content span').getText().then((text) => text === name);
+    }).get(0);
+
+    return new NodeDriver(element);
+  }
+}
+
+export class NodeDriver extends BaseDriver {
 
   isPresent(): promise.Promise<boolean> {
     return this.element.isPresent();
@@ -41,6 +65,10 @@ export class NodeDriver {
     return this.element.$('.tree-children');
   }
 
+  getDropSlot(index = 0): ElementFinder {
+    return this.element.$$('.node-drop-slot').get(index);
+  }
+
   clickExpander(): promise.Promise<void> {
     return this.getExpander().click();
   }
@@ -54,29 +82,23 @@ export class NodeDriver {
   contextMenu() {
 
   }
+  dragToNode(node) {
+    dragAndDrop(
+      this.getNodeContentWrapper(),
+      node.getNodeContentWrapper()
+    );
+  }
+  dragToDropSlot(node) {
+    dragAndDrop(
+      this.getNodeContentWrapper(),
+      node.getDropSlot()
+    );
+  }
 }
 
-export class TreeDriver {
-  element: ElementFinder;
-
+export class TreeDriver extends BaseDriver {
   constructor(elementCss) {
-    this.element = $(elementCss);
-  }
-
-  isPresent(): promise.Promise<boolean> {
-    return this.element.isPresent();
-  }
-
-  getNodes(): ElementArrayFinder {
-    return this.element.$$('tree-node');
-  }
-
-  getNode(name): NodeDriver {
-    const element = this.getNodes().filter((el) => {
-      return el.$('tree-node-content span').getText().then((text) => text === name);
-    }).get(0);
-
-    return new NodeDriver(element);
+    super($(elementCss));
   }
 
   getNodeByIndex(index: number): NodeDriver {
@@ -106,9 +128,6 @@ export class TreeDriver {
   }
   keySpace() {
     this.sendKey(Key.SPACE);
-  }
-  drag(el1, el2) {
-    browser.actions().dragAndDrop(el1, el2).perform();
   }
 }
 

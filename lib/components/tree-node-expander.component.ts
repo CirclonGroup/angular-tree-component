@@ -1,6 +1,5 @@
-import { Component, Input, ViewEncapsulation, ElementRef } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { TreeNode } from '../models/tree-node.model';
-import { deprecatedSelector } from '../deprecated-selector';
 
 @Component({
   selector: 'TreeNodeExpander, tree-node-expander',
@@ -53,8 +52,4 @@ import { deprecatedSelector } from '../deprecated-selector';
 })
 export class TreeNodeExpanderComponent {
   @Input() node: TreeNode;
-
-  constructor(private elementRef: ElementRef) {
-    deprecatedSelector('TreeNodeExpander', 'tree-node-expander', elementRef);
-  }
 }
