@@ -2,7 +2,7 @@
  * Welcome to ng2tree
  */
 export type IDType = string | number;
-export type IDTypeDictionary = { [id: string]: boolean } | { [id: number]: boolean };
+export type IDTypeDictionary = { [id: string]: boolean };
 
 export interface IAllowDropFn {
   (element: any, to: {parent: ITreeNode, index: number}, $event?: any): boolean;
