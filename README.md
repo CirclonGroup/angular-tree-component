@@ -10,24 +10,27 @@ And building your own tree component is not an easy task.
 So, we decided to build one for Angular, with all the features you can think of:
 * Simple to use
 * Well Documented
+* Customizable & Extensible (override field names, custom templates, etc...)
 * Keyboard navigation
 * Async data
 * Drag & Drop
 * Select & Multiselect
 * Filtering
 * Virtual Scrolling
-* Customizable (override field names, custom templates, etc...)
+* Save & restore tree state
 * Event callbacks
 * API for accessing & altering the tree state
 * Easily styled (comes with very minimal styling)
 
-If you like this, support the project by starring it!
-
 ## Angular supported version
 angular-tree-component supports angular 2.X.X releases, 4.X.X releases, and AoT compilation.
 
-## Getting started, demo & full documentation
+## Getting started
 Please refer to the full documentation:  
+[https://angular2-tree.readme.io/docs](https://angular2-tree.readme.io/docs)
+
+## Demo
+You can find working demos inside the docs:
 [https://angular2-tree.readme.io/docs](https://angular2-tree.readme.io/docs)
 
 ## Call for styles
@@ -60,8 +63,8 @@ We would always love to hear suggestions for features & improvements - just open
 
 Some things on our mind down the road:
 * Context menu
-* Save & restore tree state
 * Checkbox & master checkbox support
+* Refactor drag & drop
 * Add more tests
 * Add more examples
 

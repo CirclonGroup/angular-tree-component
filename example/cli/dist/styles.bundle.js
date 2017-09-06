@@ -1,48 +1,6 @@
 webpackJsonp([2,4],{
 
-/***/ 182:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(357);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__(391)(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../node_modules/postcss-loader/index.js!../node_modules/sass-loader/index.js!./styles.scss", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../node_modules/postcss-loader/index.js!../node_modules/sass-loader/index.js!./styles.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 357:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(358)();
-// imports
-
-
-// module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n#tree1 .root1Class {\n  color: blue; }\n\n#tree1 .root2Class {\n  color: red; }\n\n.rtl {\n  direction: rtl; }\n  .rtl .toggle-children-wrapper-collapsed .toggle-children {\n    -webkit-transform: rotate(180deg) !important;\n            transform: rotate(180deg) !important; }\n  .rtl .tree-children {\n    padding-right: 20px;\n    padding-left: 0; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 358:
+/***/ 164:
 /***/ (function(module, exports) {
 
 /*
@@ -99,7 +57,64 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 391:
+/***/ 183:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(359);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(392)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../node_modules/postcss-loader/index.js!../node_modules/sass-loader/index.js!./styles.scss", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../node_modules/postcss-loader/index.js!../node_modules/sass-loader/index.js!./styles.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 358:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(164)();
+// imports
+
+
+// module
+exports.push([module.i, ".tree-children.tree-children-no-padding { padding-left: 0 }\n.tree-children { padding-left: 20px; overflow: hidden }\n.node-drop-slot { display: block; height: 2px }\n.node-drop-slot.is-dragging-over { background: #ddffee; height: 20px; border: 2px dotted #888; }\n.toggle-children-wrapper-expanded .toggle-children { -webkit-transform: rotate(90deg); transform: rotate(90deg) }\n.toggle-children-wrapper-collapsed .toggle-children { -webkit-transform: rotate(0); transform: rotate(0); }\n.toggle-children-wrapper {\n  padding: 2px 3px 5px 1px;\n}\n/* tslint:disable */\n.toggle-children {\n  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABAhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOjY1RTYzOTA2ODZDRjExREJBNkUyRDg4N0NFQUNCNDA3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkYzRkRFQjcxODUzNTExRTU4RTQwRkQwODFEOUZEMEE3IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkYzRkRFQjcwODUzNTExRTU4RTQwRkQwODFEOUZEMEE3IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTk5NzA1OGEtZDI3OC00NDZkLWE4ODgtNGM4MGQ4YWI1NzNmIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6YzRkZmQxMGMtY2NlNS0xMTc4LWE5OGQtY2NkZmM5ODk5YWYwIi8+IDxkYzp0aXRsZT4gPHJkZjpBbHQ+IDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+Z2x5cGhpY29uczwvcmRmOmxpPiA8L3JkZjpBbHQ+IDwvZGM6dGl0bGU+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+5iogFwAAAGhJREFUeNpiYGBgKABigf///zOQg0EARH4A4gZyDIIZ8B/JoAJKDIDhB0CcQIkBRBtEyABkgxwoMQCGD6AbRKoBGAYxQgXIBRuZGKgAKPIC3QLxArnRSHZCIjspk52ZKMrOFBUoAAEGAKnq593MQAZtAAAAAElFTkSuQmCC');\n  height: 8px;\n  width: 9px;\n  background-size: contain;\n  display: inline-block;\n  position: relative;\n  top: 1px;\n  background-repeat: no-repeat;\n  background-position: center;\n}\n.toggle-children-placeholder {\n  display: inline-block;\n  height: 10px;\n  width: 10px;\n  position: relative;\n  top: 1px;\n  padding-right: 3px;\n}\n.node-content-wrapper {\n  display: inline-block;\n  padding: 2px 5px;\n  border-radius: 2px;\n  transition: background-color .15s,box-shadow .15s;\n}\n.node-wrapper {display: -webkit-box;display: -ms-flexbox;display: flex; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start;}\n.node-content-wrapper-active,\n.node-content-wrapper.node-content-wrapper-active:hover,\n.node-content-wrapper-active.node-content-wrapper-focused {\n  background: #beebff;\n}\n.node-content-wrapper-focused { background: #e7f4f9 }\n.node-content-wrapper:hover { background: #f7fbff }\n.node-content-wrapper-active, .node-content-wrapper-focused, .node-content-wrapper:hover {\n  box-shadow: inset 0 0 1px #999;\n}\n.node-content-wrapper.is-dragging-over { background: #ddffee; box-shadow: inset 0 0 1px #999; }\n.node-content-wrapper.is-dragging-over-disabled { opacity: 0.5 }\n\ntree-viewport {\n  height: 100%;\n  overflow: auto;\n  display: block;\n}\n.tree-children { padding-left: 20px }\n.empty-tree-drop-slot .node-drop-slot { height: 20px; min-width: 100px }\n.tree {\n  width: 100%;\n  position:relative;\n  display: inline-block;\n  cursor: pointer;\n  -webkit-touch-callout: none; /* iOS Safari */\n  -webkit-user-select: none;   /* Chrome/Safari/Opera */    /* Konqueror */\n  -moz-user-select: none;      /* Firefox */\n  -ms-user-select: none;       /* IE/Edge */\n  user-select: none;           /* non-prefixed version, currently not supported by any browser */\n}\n\ntree-root .tree-rtl {\n  direction: rtl;\n}\ntree-root .tree-rtl .toggle-children-wrapper-collapsed .toggle-children {\n  -webkit-transform: rotate(180deg) !important;\n          transform: rotate(180deg) !important;\n}\ntree-root .tree-rtl .tree-children {\n  padding-right: 20px;\n  padding-left: 0;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 359:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(164)();
+// imports
+exports.i(__webpack_require__(358), "");
+
+// module
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 392:
 /***/ (function(module, exports) {
 
 /*
@@ -352,13 +367,13 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 399:
+/***/ 400:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(182);
+module.exports = __webpack_require__(183);
 
 
 /***/ })
 
-},[399]);
+},[400]);
 //# sourceMappingURL=styles.bundle.js.map

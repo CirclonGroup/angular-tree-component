@@ -4,6 +4,8 @@ import { KEYS } from '../constants/keys';
 import { ITreeOptions } from '../defs/api';
 
 import defaultsDeep from 'lodash-es/defaultsDeep';
+import get from 'lodash-es/get';
+import omit from 'lodash-es/omit';
 
 export interface IActionHandler {
   (tree: TreeModel, node: TreeNode, $event: any, ...rest);
@@ -81,10 +83,15 @@ export class TreeOptions {
   get animateSpeed(): number { return this.options.animateSpeed || 30; }
   get animateAcceleration(): number { return this.options.animateAcceleration || 1.2; }
   get scrollOnSelect(): boolean { return this.options.scrollOnSelect === undefined ? true : this.options.scrollOnSelect; }
+  get rtl(): boolean { return !!this.options.rtl; }
   actionMapping: IActionMapping;
 
   constructor(private options: ITreeOptions = {}) {
     this.actionMapping = defaultsDeep({}, this.options.actionMapping, defaultActionMapping);
+    if (options.rtl) {
+      this.actionMapping.keys[KEYS.RIGHT] = <IActionHandler>get(options, ['actionMapping', 'keys', KEYS.RIGHT]) || TREE_ACTIONS.DRILL_UP;
+      this.actionMapping.keys[KEYS.LEFT] = <IActionHandler>get(options, ['actionMapping', 'keys', KEYS.LEFT]) || TREE_ACTIONS.DRILL_DOWN;
+    }
   }
 
   getNodeClone(node: TreeNode): any {
@@ -92,7 +99,7 @@ export class TreeOptions {
       return this.options.getNodeClone(node);
     }
 
-    return _.omit(Object.assign({}, node.data), ['id']);
+    return omit(Object.assign({}, node.data), ['id']);
   }
 
   allowDrop(element, to, $event?): boolean {

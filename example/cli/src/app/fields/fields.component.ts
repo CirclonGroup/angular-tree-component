@@ -7,7 +7,10 @@ import { ITreeOptions } from 'angular-tree-component';
     <h3>Overriding displayField & nodeClass</h3>
     <tree-root id="tree1" [focused]="true" [nodes]="nodes1" [options]="options1"></tree-root>
   `,
-  styles: []
+  styles: [
+    '.root1Class { color: blue }',
+    '.root2Class { color: red }'
+  ]
 })
 export class FieldsComponent {
   nodes1 = [

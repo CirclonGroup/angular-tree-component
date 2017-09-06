@@ -13,29 +13,14 @@ import pick from 'lodash-es/pick';
 
 @Component({
   selector: 'Tree, tree-root',
-  encapsulation: ViewEncapsulation.None,
   providers: [TreeModel],
-  styles: [
-    '.tree-children { padding-left: 20px }',
-    '.empty-tree-drop-slot .node-drop-slot { height: 20px; min-width: 100px }',
-    `.tree {
-      width: 100%;
-      position:relative;
-      display: inline-block;
-      cursor: pointer;
-      -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none;   /* Chrome/Safari/Opera */
-      -khtml-user-select: none;    /* Konqueror */
-      -moz-user-select: none;      /* Firefox */
-      -ms-user-select: none;       /* IE/Edge */
-      user-select: none;           /* non-prefixed version, currently not supported by any browser */
-    }`
-  ],
+  styles: [],
   template: `
-    <tree-viewport #viewport>
+    <tree-viewport>
       <div
-        class="tree"
-        [class.node-dragging]="treeDraggedElement.isDragging()">
+        class="angular-tree-component"
+        [class.node-dragging]="treeDraggedElement.isDragging()"
+        [class.angular-tree-component-rtl]="treeModel.options.rtl">
         <tree-node-collection
           *ngIf="treeModel.roots"
           [nodes]="treeModel.roots"
@@ -65,8 +50,6 @@ export class TreeComponent implements OnChanges {
   @ContentChild('treeNodeTemplate') treeNodeTemplate: TemplateRef<any>;
   @ContentChild('treeNodeWrapperTemplate') treeNodeWrapperTemplate: TemplateRef<any>;
   @ContentChild('treeNodeFullTemplate') treeNodeFullTemplate: TemplateRef<any>;
-
-  @ViewChild('viewport') viewportComponent: TreeViewportComponent;
 
   // Will be handled in ngOnChanges
   @Input() set nodes(nodes: any[]) { };
@@ -129,9 +112,5 @@ export class TreeComponent implements OnChanges {
       nodes: changes.nodes && changes.nodes.currentValue,
       events: pick(this, this.treeModel.eventNames)
     });
-  }
-
-  sizeChanged() {
-    this.viewportComponent.setViewport();
   }
 }

@@ -43,7 +43,10 @@ import { ITreeOptions } from 'angular-tree-component';
       </ng-template>
     </tree-root>
   `,
-  styles: []
+  styles: [
+    '.root1Class { color: blue }',
+    '.root2Class { color: red }'
+  ]
 })
 export class TemplatesComponent {
   nodes1 = [

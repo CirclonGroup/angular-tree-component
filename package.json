@@ -1,6 +1,6 @@
 {
   "name": "angular-tree-component",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "description": "A simple yet powerful tree component for Angular2",
   "author": "Adam Klein <adam@500tech.com>",
   "homepage": "https://github.com/500tech/angular-tree-component",
@@ -39,12 +39,12 @@
     "clean:typescript": "rimraf dist",
     "lint": "tslint lib/**/*.ts",
     "rollup": "rollup -c rollup.config.js dist/angular-tree-component.js -o dist/angular-tree-component.umd.js",
-    "build": "npm run lint && npm run clean:typescript && ngc && npm run rollup",
+    "build": "npm run lint && npm run clean:typescript && ngc && npm run rollup && cp-cli lib/angular-tree-component.css dist",
     "example:cli2": "ngc && cd example/cli2 && npm install && npm install ../../ && ng serve",
     "example:cli": "ngc && cd example/cli && npm install && npm install ../../ && ng serve",
     "example:cli:win": ".\\node_modules\\.bin\\ngc && cd example\\cli && npm install && npm install ..\\..\\ && .\\node_modules\\.bin\\ng serve",
     "selenium": "webdriver-manager update && webdriver-manager start",
-    "example:cli:build": "npm run build && cd example/cli && npm install && npm install ../../ && cp src/index.build.html src/index.html && ng build --aot && cp src/index.dev.html src/index.html && mkdir -p 500tech/angular2-tree-component/master/example/cli/ && cp -rf dist 500tech/angular2-tree-component/master/example/cli/",
+    "example:cli:build": "npm run build && cd example/cli && npm install && npm install ../../ && cp-cli src/index.build.html src/index.html && ng build --aot && cp-cli src/index.dev.html src/index.html && mkdir -p 500tech/angular2-tree-component/master/example/cli/ && cp-cli dist 500tech/angular2-tree-component/master/example/cli/",
     "test": "protractor protractor.conf.js",
     "pretest": "npm run e2e:tsc",
     "test:setup": "concurrently --kill-others \"npm run selenium\" \"npm run example:cli\"",
@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "lodash-es": "^4.17.4",
-    "mobx": "^3.1.11",
+    "mobx": "^3.2.2",
     "mobx-angular": "^1.5.0",
     "tslib": "^1.7.1"
   },
@@ -100,7 +100,8 @@
     "tslint": "4.4.2",
     "typedoc": "^0.3.12",
     "typescript": "^2.1.4",
-    "zone.js": "^0.8.4"
+    "zone.js": "^0.8.4",
+    "cp-cli": "^1.1.0"
   },
   "repository": "https://github.com/500tech/angular-tree-component.git",
   "bugs": {

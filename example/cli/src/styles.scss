@@ -1,15 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
-#tree1 {
-    .root1Class { color: blue }
-    .root2Class { color: red }
-}
-.rtl {
-    direction: rtl;
-    .toggle-children-wrapper-collapsed .toggle-children {
-        transform: rotate(180deg) !important;
-    }
-    .tree-children {
-        padding-right: 20px;
-        padding-left: 0;
-    }
-}
+@import '~angular-tree-component/dist/angular-tree-component.css';

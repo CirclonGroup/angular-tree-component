@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-basictree',
   template: `
-    <tree-root class="rtl" [focused]="true" [nodes]="nodes"></tree-root>
+    <tree-root [focused]="true" [nodes]="nodes" [options]="options"></tree-root>
   `,
+  encapsulation: ViewEncapsulation.None,
   styles: []
 })
 export class RtlTreeComponent {
+  options = {
+    rtl: true
+  };
+
   nodes = [
     {
       name: 'עץ תיקיות',

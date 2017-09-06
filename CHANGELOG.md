@@ -1,5 +1,11 @@
+<a name="5.0.0"></a>
+# 5.0.0 (2017-01-09)
+* Breaking change - Moved styles to external CSS
+* Breaking change - Renamed tree class to angular-tree-component
+* Added rtl option
+
 <a name="4.1.0"></a>
-# 4.1.0 (2017-XX-XX)
+# 4.1.0 (2017-03-08)
 * Fixed changeFilterr typo
 * Added copyNode on ctrl
 

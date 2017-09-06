@@ -4,10 +4,7 @@ import { TreeNode } from '../models/tree-node.model';
 @Component({
   selector: 'tree-node-children',
   encapsulation: ViewEncapsulation.None,
-  styles: [
-    '.tree-children.tree-children-no-padding { padding-left: 0 }',
-    '.tree-children { padding-left: 20px; overflow: hidden }'
-  ],
+  styles: [],
   template: `
     <ng-container *mobxAutorun>
       <div [class.tree-children]="true"
