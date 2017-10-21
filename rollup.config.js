@@ -13,6 +13,7 @@ export default {
   sourceMap: true,
   external: [
     '@angular/core',
-    '@angular/common'
+    '@angular/common',
+    'lodash'
   ]
 };
