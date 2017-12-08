@@ -14,7 +14,7 @@ export default {
   external: [
     '@angular/core',
     '@angular/common',
-    'lodash',
+    'lodash-es',
     'mobx', 
     'mobx-angular'
   ],
