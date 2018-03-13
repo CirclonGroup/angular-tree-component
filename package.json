@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "lodash": "4.17.4",
-    "mobx": ">=3",
+    "mobx": "3.6.1",
     "mobx-angular": ">=1"
   },
   "devDependencies": {
