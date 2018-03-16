@@ -25,7 +25,7 @@ export class TreeNode implements ITreeNode {
     if (this.isLeaf) {
       return this.isSelected;
     } else {
-      return every(this.children, (node) => node.isAllSelected);
+      return every(this.children, (node) => node.isSelected && node.isAllSelected);
     }
   };
   @computed get isPartiallySelected() {
