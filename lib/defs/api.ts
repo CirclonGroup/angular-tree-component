@@ -2,7 +2,7 @@
  * Welcome to ng2tree
  */
 export type IDType = string | number;
-export type IDTypeDictionary = { [id: string]: boolean } | { [id: number]: boolean };
+export type IDTypeDictionary = { [id: string]: boolean };
 
 /**
  * See ITreeNode for documentation
