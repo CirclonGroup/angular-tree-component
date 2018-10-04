@@ -3,10 +3,10 @@ import { TreeModel } from './tree.model';
 import { KEYS } from '../constants/keys';
 import { ITreeOptions } from '../defs/api';
 
-import defaultsDeep from 'lodash/defaultsDeep';
-import get from 'lodash/get';
-import omit from 'lodash/omit';
-import isNumber from 'lodash/isNumber';
+import defaultsDeep from 'lodash-es/defaultsDeep';
+import get from 'lodash-es/get';
+import omit from 'lodash-es/omit';
+import isNumber from 'lodash-es/isNumber';
 
 export interface IActionHandler {
   (tree: TreeModel, node: TreeNode, $event: any, ...rest);
