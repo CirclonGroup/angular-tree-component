@@ -285,7 +285,7 @@ export class TreeNode implements ITreeNode {
       reaction(
         () => this.isExpanded,
         (isExpanded) => {
-          if (!this.children && this.hasChildren && isExpanded) {
+          if ((!this.children || this.children.length === 0) && this.hasChildren && isExpanded) {
             this.loadNodeChildren();
           }
         },
