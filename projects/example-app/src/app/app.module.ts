@@ -50,7 +50,7 @@ import { DragOverStylingFullTreeComponent } from './dragover-styling/dragover-st
   imports: [
     BrowserModule,
     FormsModule,
-    TreeModule.forRoot(),
+    TreeModule,
     CommonModule,
     AppRoutingModule
   ],
