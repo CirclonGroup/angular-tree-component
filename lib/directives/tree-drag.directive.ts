@@ -32,6 +32,11 @@ export class TreeDragDirective implements AfterViewInit, DoCheck, OnDestroy {
   }
 
   @HostListener('dragstart', ['$event']) onDragStart(ev) {
+    if (!this.treeDragEnabled) {
+      // in firefox draggable="false" isn't working
+      ev.preventDefault();
+      return false;
+    }
     // setting the data is required by firefox
     ev.dataTransfer.setData('text', ev.target.id);
     this.treeDraggedElement.set(this.draggedElement);
