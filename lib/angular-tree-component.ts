@@ -74,7 +74,7 @@ import './polyfills';
   providers: []
 })
 export class TreeModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<TreeModule> {
     return {
       ngModule: TreeModule,
       providers: [TreeDraggedElement]
