@@ -107,7 +107,7 @@
     "testcafe-browser-provider-saucelabs": "^1.6.1",
     "tslint": "4.4.2",
     "typedoc": "^0.3.12",
-    "typescript": "~3.5.3",
+    "typescript": "~3.7.5",
     "zone.js": "^0.9.1"
   },
   "repository": "https://github.com/500tech/angular-tree-component.git",
