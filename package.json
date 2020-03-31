@@ -70,6 +70,7 @@
   },
   "devDependencies": {
     "@angular-devkit/core": "^8.1.0",
+    "@angular/animations": "^8.2.14",
     "@angular/cli": "^8.3.26",
     "@angular/common": "^8.2.14",
     "@angular/compiler": "^8.2.14",
