@@ -1,0 +1,69 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeMobxAutorunDirective": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Directive",
+              "line": 11,
+              "character": 1
+            },
+            "arguments": [{ "selector": "[treeMobxAutorun]" }]
+          }
+        ],
+        "members": {
+          "treeMobxAutorun": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 16,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "TemplateRef",
+                  "line": 19,
+                  "character": 27,
+                  "arguments": [{ "__symbolic": "reference", "name": "any" }]
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "ViewContainerRef",
+                  "line": 20,
+                  "character": 29
+                }
+              ]
+            }
+          ],
+          "ngOnInit": [{ "__symbolic": "method" }],
+          "shouldDetach": [{ "__symbolic": "method" }],
+          "autoDetect": [{ "__symbolic": "method" }],
+          "ngOnDestroy": [{ "__symbolic": "method" }]
+        }
+      }
+    }
+  }
+]

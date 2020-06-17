@@ -1,0 +1,152 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeNodeCollectionComponent": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Component",
+              "line": 13,
+              "character": 1
+            },
+            "arguments": [
+              {
+                "selector": "tree-node-collection",
+                "encapsulation": {
+                  "__symbolic": "select",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "ViewEncapsulation",
+                    "line": 15,
+                    "character": 17
+                  },
+                  "member": "None"
+                },
+                "template": "\n    <ng-container *treeMobxAutorun=\"{ dontDetach: true }\">\n      <div [style.margin-top]=\"marginTop\">\n        <tree-node\n          *ngFor=\"let node of viewportNodes; let i = index; trackBy: trackNode\"\n          [node]=\"node\"\n          [index]=\"i\"\n          [templates]=\"templates\"\n        >\n        </tree-node>\n      </div>\n    </ng-container>\n  "
+              }
+            ]
+          }
+        ],
+        "members": {
+          "nodes": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 31,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "treeModel": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 39,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "_nodes": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "../mobx-angular/mobx-proxy",
+                  "name": "observable",
+                  "line": 41,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "templates": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 43,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "viewportNodes": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "../mobx-angular/mobx-proxy",
+                  "name": "observable",
+                  "line": 45,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "marginTop": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "../mobx-angular/mobx-proxy",
+                  "name": "computed",
+                  "line": 47,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "setNodes": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "../mobx-angular/mobx-proxy",
+                  "name": "action",
+                  "line": 62,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "ngOnInit": [{ "__symbolic": "method" }],
+          "ngOnDestroy": [{ "__symbolic": "method" }],
+          "trackNode": [{ "__symbolic": "method" }]
+        }
+      }
+    }
+  }
+]

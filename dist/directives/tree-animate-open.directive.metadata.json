@@ -1,0 +1,131 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeAnimateOpenDirective": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Directive",
+              "line": 4,
+              "character": 1
+            },
+            "arguments": [{ "selector": "[treeAnimateOpen]" }]
+          }
+        ],
+        "members": {
+          "animateSpeed": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 10,
+                    "character": 3
+                  },
+                  "arguments": ["treeAnimateOpenSpeed"]
+                }
+              ]
+            }
+          ],
+          "animateAcceleration": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 11,
+                    "character": 3
+                  },
+                  "arguments": ["treeAnimateOpenAcceleration"]
+                }
+              ]
+            }
+          ],
+          "isEnabled": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 12,
+                    "character": 3
+                  },
+                  "arguments": ["treeAnimateOpenEnabled"]
+                }
+              ]
+            }
+          ],
+          "isOpen": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 14,
+                    "character": 3
+                  },
+                  "arguments": ["treeAnimateOpen"]
+                }
+              ]
+            }
+          ],
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "Renderer2",
+                  "line": 30,
+                  "character": 22
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "TemplateRef",
+                  "line": 31,
+                  "character": 25,
+                  "arguments": [{ "__symbolic": "reference", "name": "any" }]
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "ViewContainerRef",
+                  "line": 32,
+                  "character": 30
+                }
+              ]
+            }
+          ],
+          "_show": [{ "__symbolic": "method" }],
+          "_hide": [{ "__symbolic": "method" }],
+          "_animateOpen": [{ "__symbolic": "method" }],
+          "_animateClose": [{ "__symbolic": "method" }]
+        }
+      }
+    }
+  }
+]

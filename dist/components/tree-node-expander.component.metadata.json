@@ -1,0 +1,60 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeNodeExpanderComponent": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Component",
+              "line": 3,
+              "character": 1
+            },
+            "arguments": [
+              {
+                "selector": "tree-node-expander",
+                "encapsulation": {
+                  "__symbolic": "select",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "ViewEncapsulation",
+                    "line": 5,
+                    "character": 17
+                  },
+                  "member": "None"
+                },
+                "styles": [],
+                "template": "\n    <ng-container *treeMobxAutorun=\"{ dontDetach: true }\">\n      <span\n        *ngIf=\"node.hasChildren\"\n        [class.toggle-children-wrapper-expanded]=\"node.isExpanded\"\n        [class.toggle-children-wrapper-collapsed]=\"node.isCollapsed\"\n        class=\"toggle-children-wrapper\"\n        (click)=\"node.mouseAction('expanderClick', $event)\"\n      >\n        <span class=\"toggle-children\"></span>\n      </span>\n      <span *ngIf=\"!node.hasChildren\" class=\"toggle-children-placeholder\">\n      </span>\n    </ng-container>\n  "
+              }
+            ]
+          }
+        ],
+        "members": {
+          "node": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 24,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+]

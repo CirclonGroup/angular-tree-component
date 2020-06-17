@@ -1,0 +1,517 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeModel": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Injectable",
+              "line": 16,
+              "character": 1
+            }
+          }
+        ],
+        "members": {
+          "roots": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 25,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "expandedNodeIds": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 26,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "selectedLeafNodeIds": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 27,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "activeNodeIds": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 28,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "hiddenNodeIds": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 29,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "focusedNodeId": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 30,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "virtualRoot": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 31,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "fireEvent": [{ "__symbolic": "method" }],
+          "subscribe": [{ "__symbolic": "method" }],
+          "getFocusedNode": [{ "__symbolic": "method" }],
+          "getActiveNode": [{ "__symbolic": "method" }],
+          "getActiveNodes": [{ "__symbolic": "method" }],
+          "getVisibleRoots": [{ "__symbolic": "method" }],
+          "getFirstRoot": [{ "__symbolic": "method" }],
+          "getLastRoot": [{ "__symbolic": "method" }],
+          "isNodeFocused": [{ "__symbolic": "method" }],
+          "isEmptyTree": [{ "__symbolic": "method" }],
+          "focusedNode": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 88,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "expandedNodes": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 92,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "activeNodes": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 100,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "hiddenNodes": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 108,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "selectedLeafNodes": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 116,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "getNodeByPath": [{ "__symbolic": "method" }],
+          "getNodeById": [{ "__symbolic": "method" }],
+          "getNodeBy": [{ "__symbolic": "method" }],
+          "isExpanded": [{ "__symbolic": "method" }],
+          "isHidden": [{ "__symbolic": "method" }],
+          "isActive": [{ "__symbolic": "method" }],
+          "isSelected": [{ "__symbolic": "method" }],
+          "ngOnDestroy": [{ "__symbolic": "method" }],
+          "dispose": [{ "__symbolic": "method" }],
+          "unsubscribeAll": [{ "__symbolic": "method" }],
+          "setData": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 198,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "update": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 212,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "setFocusedNode": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 238,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "setFocus": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 242,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "doForAll": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 246,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "focusNextNode": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 250,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "focusPreviousNode": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 256,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "focusDrillDown": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 262,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "focusDrillUp": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 273,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "setActiveNode": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 285,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "setSelectedNode": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 303,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "setExpandedNode": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 314,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "expandAll": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 319,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "collapseAll": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 323,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "setIsHidden": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 327,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "setHiddenNodeIds": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 331,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "performKeyAction": [{ "__symbolic": "method" }],
+          "filterNodes": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 348,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "clearFilter": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 374,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "moveNode": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 379,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "copyNode": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 413,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "getState": [{ "__symbolic": "method" }],
+          "setState": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 446,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "subscribeToState": [{ "__symbolic": "method" }],
+          "canMoveNode": [{ "__symbolic": "method" }],
+          "calculateExpandedNodes": [{ "__symbolic": "method" }],
+          "_filterNode": [{ "__symbolic": "method" }],
+          "_calculateExpandedNodes": [{ "__symbolic": "method" }],
+          "_setActiveNodeSingle": [{ "__symbolic": "method" }],
+          "_setActiveNodeMulti": [{ "__symbolic": "method" }]
+        },
+        "statics": { "focusedTree": null }
+      }
+    }
+  }
+]

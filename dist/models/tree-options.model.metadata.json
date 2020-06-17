@@ -1,0 +1,148 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "IActionHandler": { "__symbolic": "interface" },
+      "ɵ0": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 15,
+        "character": 17
+      },
+      "ɵ1": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 16,
+        "character": 23
+      },
+      "ɵ2": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 17,
+        "character": 19
+      },
+      "ɵ3": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 18,
+        "character": 12
+      },
+      "ɵ4": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 19,
+        "character": 14
+      },
+      "ɵ5": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 20,
+        "character": 10
+      },
+      "ɵ6": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 21,
+        "character": 12
+      },
+      "ɵ7": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 22,
+        "character": 9
+      },
+      "ɵ8": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 23,
+        "character": 19
+      },
+      "ɵ9": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 24,
+        "character": 10
+      },
+      "ɵ10": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 25,
+        "character": 12
+      },
+      "ɵ11": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 26,
+        "character": 14
+      },
+      "ɵ12": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 27,
+        "character": 12
+      },
+      "ɵ13": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 28,
+        "character": 13
+      },
+      "ɵ14": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 29,
+        "character": 17
+      },
+      "ɵ15": {
+        "__symbolic": "error",
+        "message": "Lambda not supported",
+        "line": 30,
+        "character": 13
+      },
+      "TREE_ACTIONS": {
+        "TOGGLE_ACTIVE": { "__symbolic": "reference", "name": "ɵ0" },
+        "TOGGLE_ACTIVE_MULTI": { "__symbolic": "reference", "name": "ɵ1" },
+        "TOGGLE_SELECTED": { "__symbolic": "reference", "name": "ɵ2" },
+        "ACTIVATE": { "__symbolic": "reference", "name": "ɵ3" },
+        "DEACTIVATE": { "__symbolic": "reference", "name": "ɵ4" },
+        "SELECT": { "__symbolic": "reference", "name": "ɵ5" },
+        "DESELECT": { "__symbolic": "reference", "name": "ɵ6" },
+        "FOCUS": { "__symbolic": "reference", "name": "ɵ7" },
+        "TOGGLE_EXPANDED": { "__symbolic": "reference", "name": "ɵ8" },
+        "EXPAND": { "__symbolic": "reference", "name": "ɵ9" },
+        "COLLAPSE": { "__symbolic": "reference", "name": "ɵ10" },
+        "DRILL_DOWN": { "__symbolic": "reference", "name": "ɵ11" },
+        "DRILL_UP": { "__symbolic": "reference", "name": "ɵ12" },
+        "NEXT_NODE": { "__symbolic": "reference", "name": "ɵ13" },
+        "PREVIOUS_NODE": { "__symbolic": "reference", "name": "ɵ14" },
+        "MOVE_NODE": { "__symbolic": "reference", "name": "ɵ15" }
+      },
+      "IActionMapping": { "__symbolic": "interface" },
+      "TreeOptions": {
+        "__symbolic": "class",
+        "members": {
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "reference",
+                  "module": "../defs/api",
+                  "name": "ITreeOptions",
+                  "line": 102,
+                  "character": 31
+                }
+              ]
+            }
+          ],
+          "getNodeClone": [{ "__symbolic": "method" }],
+          "allowDrop": [{ "__symbolic": "method" }],
+          "allowDrag": [{ "__symbolic": "method" }],
+          "nodeClass": [{ "__symbolic": "method" }],
+          "nodeHeight": [{ "__symbolic": "method" }]
+        }
+      }
+    }
+  }
+]

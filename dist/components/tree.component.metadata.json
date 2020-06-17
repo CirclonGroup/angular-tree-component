@@ -1,0 +1,547 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeComponent": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Component",
+              "line": 9,
+              "character": 1
+            },
+            "arguments": [
+              {
+                "selector": "Tree, tree-root",
+                "providers": [
+                  {
+                    "__symbolic": "reference",
+                    "module": "../models/tree.model",
+                    "name": "TreeModel",
+                    "line": 11,
+                    "character": 14
+                  }
+                ],
+                "styles": [],
+                "template": "\n      <tree-viewport #viewport>\n          <div\n                  class=\"angular-tree-component\"\n                  [class.node-dragging]=\"treeDraggedElement.isDragging()\"\n                  [class.angular-tree-component-rtl]=\"treeModel.options.rtl\">\n              <tree-node-collection\n                      *ngIf=\"treeModel.roots\"\n                      [nodes]=\"treeModel.roots\"\n                      [treeModel]=\"treeModel\"\n                      [templates]=\"{\n            loadingTemplate: loadingTemplate,\n            treeNodeTemplate: treeNodeTemplate,\n            treeNodeWrapperTemplate: treeNodeWrapperTemplate,\n            treeNodeFullTemplate: treeNodeFullTemplate\n          }\">\n              </tree-node-collection>\n              <tree-node-drop-slot\n                      class=\"empty-tree-drop-slot\"\n                      *ngIf=\"treeModel.isEmptyTree()\"\n                      [dropIndex]=\"0\"\n                      [node]=\"treeModel.virtualRoot\">\n              </tree-node-drop-slot>\n          </div>\n      </tree-viewport>\n  "
+              }
+            ]
+          }
+        ],
+        "members": {
+          "loadingTemplate": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "ContentChild",
+                    "line": 44,
+                    "character": 3
+                  },
+                  "arguments": ["loadingTemplate", { "static": false }]
+                }
+              ]
+            }
+          ],
+          "treeNodeTemplate": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "ContentChild",
+                    "line": 45,
+                    "character": 3
+                  },
+                  "arguments": ["treeNodeTemplate", { "static": false }]
+                }
+              ]
+            }
+          ],
+          "treeNodeWrapperTemplate": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "ContentChild",
+                    "line": 46,
+                    "character": 3
+                  },
+                  "arguments": ["treeNodeWrapperTemplate", { "static": false }]
+                }
+              ]
+            }
+          ],
+          "treeNodeFullTemplate": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "ContentChild",
+                    "line": 47,
+                    "character": 3
+                  },
+                  "arguments": ["treeNodeFullTemplate", { "static": false }]
+                }
+              ]
+            }
+          ],
+          "viewportComponent": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "ViewChild",
+                    "line": 48,
+                    "character": 3
+                  },
+                  "arguments": ["viewport", { "static": false }]
+                }
+              ]
+            }
+          ],
+          "nodes": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 51,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "options": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 54,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "focused": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 57,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "state": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 61,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "toggleExpanded": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 65,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "activate": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 66,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "deactivate": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 67,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "nodeActivate": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 68,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "nodeDeactivate": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 69,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "select": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 70,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "deselect": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 71,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "focus": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 72,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "blur": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 73,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "updateData": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 74,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "initialized": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 75,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "moveNode": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 76,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "copyNode": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 77,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "loadNodeChildren": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 78,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "changeFilter": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 79,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "event": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 80,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "stateChange": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 81,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "reference",
+                  "module": "../models/tree.model",
+                  "name": "TreeModel",
+                  "line": 84,
+                  "character": 22
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "../models/tree-dragged-element.model",
+                  "name": "TreeDraggedElement",
+                  "line": 85,
+                  "character": 31
+                }
+              ]
+            }
+          ],
+          "onKeydown": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "HostListener",
+                    "line": 91,
+                    "character": 3
+                  },
+                  "arguments": ["body: keydown", ["$event"]]
+                }
+              ]
+            }
+          ],
+          "onMousedown": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "HostListener",
+                    "line": 102,
+                    "character": 3
+                  },
+                  "arguments": ["body: mousedown", ["$event"]]
+                }
+              ]
+            }
+          ],
+          "ngOnChanges": [{ "__symbolic": "method" }],
+          "sizeChanged": [{ "__symbolic": "method" }]
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeVirtualScroll": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Injectable",
+              "line": 8,
+              "character": 1
+            }
+          }
+        ],
+        "members": {
+          "yBlocks": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 12,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "x": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 13,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "viewportHeight": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 14,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "y": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 17,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "totalHeight": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 21,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "reference",
+                  "module": "./tree.model",
+                  "name": "TreeModel",
+                  "line": 25,
+                  "character": 33
+                }
+              ]
+            }
+          ],
+          "fireEvent": [{ "__symbolic": "method" }],
+          "init": [{ "__symbolic": "method" }],
+          "isEnabled": [{ "__symbolic": "method" }],
+          "_setYBlocks": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 51,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "recalcPositions": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 55,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "_getPositionAfter": [{ "__symbolic": "method" }],
+          "_getPositionAfterNode": [{ "__symbolic": "method" }],
+          "clear": [{ "__symbolic": "method" }],
+          "setViewport": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 84,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "scrollIntoView": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 93,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "getViewportNodes": [{ "__symbolic": "method" }],
+          "fixScroll": [{ "__symbolic": "method" }]
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,60 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeNodeCheckboxComponent": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Component",
+              "line": 3,
+              "character": 1
+            },
+            "arguments": [
+              {
+                "selector": "tree-node-checkbox",
+                "encapsulation": {
+                  "__symbolic": "select",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "ViewEncapsulation",
+                    "line": 5,
+                    "character": 17
+                  },
+                  "member": "None"
+                },
+                "styles": [],
+                "template": "\n    <ng-container *treeMobxAutorun=\"{ dontDetach: true }\">\n      <input\n        class=\"tree-node-checkbox\"\n        type=\"checkbox\"\n        (click)=\"node.mouseAction('checkboxClick', $event)\"\n        [checked]=\"node.isSelected\"\n        [indeterminate]=\"node.isPartiallySelected\"\n      />\n    </ng-container>\n  "
+              }
+            ]
+          }
+        ],
+        "members": {
+          "node": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 20,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+]

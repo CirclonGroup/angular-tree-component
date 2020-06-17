@@ -1,0 +1,94 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeNodeComponent": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Component",
+              "line": 8,
+              "character": 1
+            },
+            "arguments": [
+              {
+                "selector": "TreeNode, tree-node",
+                "encapsulation": {
+                  "__symbolic": "select",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "ViewEncapsulation",
+                    "line": 10,
+                    "character": 17
+                  },
+                  "member": "None"
+                },
+                "styles": [],
+                "template": "\n    <ng-container *treeMobxAutorun=\"{ dontDetach: true }\">\n      <div\n        *ngIf=\"!templates.treeNodeFullTemplate\"\n        [class]=\"node.getClass()\"\n        [class.tree-node]=\"true\"\n        [class.tree-node-expanded]=\"node.isExpanded && node.hasChildren\"\n        [class.tree-node-collapsed]=\"node.isCollapsed && node.hasChildren\"\n        [class.tree-node-leaf]=\"node.isLeaf\"\n        [class.tree-node-active]=\"node.isActive\"\n        [class.tree-node-focused]=\"node.isFocused\"\n      >\n        <tree-node-drop-slot\n          *ngIf=\"index === 0\"\n          [dropIndex]=\"node.index\"\n          [node]=\"node.parent\"\n        ></tree-node-drop-slot>\n\n        <tree-node-wrapper\n          [node]=\"node\"\n          [index]=\"index\"\n          [templates]=\"templates\"\n        ></tree-node-wrapper>\n\n        <tree-node-children\n          [node]=\"node\"\n          [templates]=\"templates\"\n        ></tree-node-children>\n        <tree-node-drop-slot\n          [dropIndex]=\"node.index + 1\"\n          [node]=\"node.parent\"\n        ></tree-node-drop-slot>\n      </div>\n      <ng-container\n        [ngTemplateOutlet]=\"templates.treeNodeFullTemplate\"\n        [ngTemplateOutletContext]=\"{\n          $implicit: node,\n          node: node,\n          index: index,\n          templates: templates\n        }\"\n      >\n      </ng-container>\n    </ng-container>\n  "
+              }
+            ]
+          }
+        ],
+        "members": {
+          "node": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 59,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "index": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 60,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "templates": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 61,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+]

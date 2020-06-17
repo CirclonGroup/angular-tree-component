@@ -1,0 +1,195 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeDropDirective": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Directive",
+              "line": 17,
+              "character": 1
+            },
+            "arguments": [{ "selector": "[treeDrop]" }]
+          }
+        ],
+        "members": {
+          "allowDragoverStyling": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 21,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "onDropCallback": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 22,
+                    "character": 3
+                  },
+                  "arguments": ["treeDrop"]
+                }
+              ]
+            }
+          ],
+          "onDragOverCallback": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 23,
+                    "character": 3
+                  },
+                  "arguments": ["treeDropDragOver"]
+                }
+              ]
+            }
+          ],
+          "onDragLeaveCallback": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 24,
+                    "character": 3
+                  },
+                  "arguments": ["treeDropDragLeave"]
+                }
+              ]
+            }
+          ],
+          "onDragEnterCallback": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Output",
+                    "line": 25,
+                    "character": 3
+                  },
+                  "arguments": ["treeDropDragEnter"]
+                }
+              ]
+            }
+          ],
+          "treeAllowDrop": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 32,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "allowDrop": [{ "__symbolic": "method" }],
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "ElementRef",
+                  "line": 43,
+                  "character": 26
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "Renderer2",
+                  "line": 43,
+                  "character": 56
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "../models/tree-dragged-element.model",
+                  "name": "TreeDraggedElement",
+                  "line": 43,
+                  "character": 95
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "NgZone",
+                  "line": 43,
+                  "character": 131
+                }
+              ]
+            }
+          ],
+          "ngAfterViewInit": [{ "__symbolic": "method" }],
+          "ngOnDestroy": [{ "__symbolic": "method" }],
+          "onDragOver": [{ "__symbolic": "method" }],
+          "onDragEnter": [{ "__symbolic": "method" }],
+          "onDragLeave": [{ "__symbolic": "method" }],
+          "onDrop": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "HostListener",
+                    "line": 102,
+                    "character": 3
+                  },
+                  "arguments": ["drop", ["$event"]]
+                }
+              ]
+            }
+          ],
+          "addClass": [{ "__symbolic": "method" }],
+          "removeClass": [{ "__symbolic": "method" }],
+          "addDisabledClass": [{ "__symbolic": "method" }],
+          "removeDisabledClass": [{ "__symbolic": "method" }]
+        }
+      }
+    }
+  }
+]

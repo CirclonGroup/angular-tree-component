@@ -1,0 +1,79 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeNodeDropSlot": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Component",
+              "line": 3,
+              "character": 1
+            },
+            "arguments": [
+              {
+                "selector": "TreeNodeDropSlot, tree-node-drop-slot",
+                "encapsulation": {
+                  "__symbolic": "select",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "ViewEncapsulation",
+                    "line": 5,
+                    "character": 17
+                  },
+                  "member": "None"
+                },
+                "styles": [],
+                "template": "\n    <div\n      class=\"node-drop-slot\"\n      (treeDrop)=\"onDrop($event)\"\n      [treeAllowDrop]=\"allowDrop.bind(this)\"\n      [allowDragoverStyling]=\"true\">\n    </div>\n  "
+              }
+            ]
+          }
+        ],
+        "members": {
+          "node": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 17,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "dropIndex": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 18,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "onDrop": [{ "__symbolic": "method" }],
+          "allowDrop": [{ "__symbolic": "method" }]
+        }
+      }
+    }
+  }
+]

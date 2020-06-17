@@ -1,0 +1,297 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeNode": {
+        "__symbolic": "class",
+        "members": {
+          "isHidden": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 13,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "isExpanded": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 14,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "isActive": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 15,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "isFocused": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 16,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "isSelected": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 17,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "isAllSelected": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 24,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "isPartiallySelected": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 31,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "children": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 35,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "index": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 36,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "position": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 37,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "height": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "observable",
+                  "line": 38,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "level": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 39,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "path": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 42,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                { "__symbolic": "reference", "name": "any" },
+                { "__symbolic": "reference", "name": "TreeNode" },
+                {
+                  "__symbolic": "reference",
+                  "module": "./tree.model",
+                  "name": "TreeModel",
+                  "line": 54,
+                  "character": 75
+                },
+                { "__symbolic": "reference", "name": "number" }
+              ]
+            }
+          ],
+          "fireEvent": [{ "__symbolic": "method" }],
+          "getField": [{ "__symbolic": "method" }],
+          "setField": [{ "__symbolic": "method" }],
+          "_findAdjacentSibling": [{ "__symbolic": "method" }],
+          "findNextSibling": [{ "__symbolic": "method" }],
+          "findPreviousSibling": [{ "__symbolic": "method" }],
+          "getVisibleChildren": [{ "__symbolic": "method" }],
+          "visibleChildren": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "computed",
+                  "line": 120,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "getFirstChild": [{ "__symbolic": "method" }],
+          "getLastChild": [{ "__symbolic": "method" }],
+          "findNextNode": [{ "__symbolic": "method" }],
+          "findPreviousNode": [{ "__symbolic": "method" }],
+          "_getLastOpenDescendant": [{ "__symbolic": "method" }],
+          "_getParentsChildren": [{ "__symbolic": "method" }],
+          "getIndexInParent": [{ "__symbolic": "method" }],
+          "isDescendantOf": [{ "__symbolic": "method" }],
+          "getNodePadding": [{ "__symbolic": "method" }],
+          "getClass": [{ "__symbolic": "method" }],
+          "onDrop": [{ "__symbolic": "method" }],
+          "allowDrag": [{ "__symbolic": "method" }],
+          "loadNodeChildren": [{ "__symbolic": "method" }],
+          "expand": [{ "__symbolic": "method" }],
+          "collapse": [{ "__symbolic": "method" }],
+          "doForAll": [{ "__symbolic": "method" }],
+          "expandAll": [{ "__symbolic": "method" }],
+          "collapseAll": [{ "__symbolic": "method" }],
+          "ensureVisible": [{ "__symbolic": "method" }],
+          "toggleExpanded": [{ "__symbolic": "method" }],
+          "setIsExpanded": [{ "__symbolic": "method" }],
+          "autoLoadChildren": [{ "__symbolic": "method" }],
+          "dispose": [{ "__symbolic": "method" }],
+          "setIsActive": [{ "__symbolic": "method" }],
+          "isSelectable": [{ "__symbolic": "method" }],
+          "setIsSelected": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 319,
+                  "character": 3
+                }
+              ]
+            }
+          ],
+          "toggleSelected": [{ "__symbolic": "method" }],
+          "toggleActivated": [{ "__symbolic": "method" }],
+          "setActiveAndVisible": [{ "__symbolic": "method" }],
+          "scrollIntoView": [{ "__symbolic": "method" }],
+          "focus": [{ "__symbolic": "method" }],
+          "blur": [{ "__symbolic": "method" }],
+          "setIsHidden": [{ "__symbolic": "method" }],
+          "hide": [{ "__symbolic": "method" }],
+          "show": [{ "__symbolic": "method" }],
+          "mouseAction": [{ "__symbolic": "method" }],
+          "getSelfHeight": [{ "__symbolic": "method" }],
+          "_initChildren": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "reference",
+                  "module": "mobx",
+                  "name": "action",
+                  "line": 405,
+                  "character": 3
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+]

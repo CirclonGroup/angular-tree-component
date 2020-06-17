@@ -1,0 +1,19 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "IDType": { "__symbolic": "interface" },
+      "IDTypeDictionary": { "__symbolic": "interface" },
+      "TreeNode": { "__symbolic": "interface" },
+      "IAllowDropFn": { "__symbolic": "interface" },
+      "INodeHeightFn": { "__symbolic": "interface" },
+      "IAllowDragFn": { "__symbolic": "interface" },
+      "ITreeState": { "__symbolic": "interface" },
+      "ITreeOptions": { "__symbolic": "interface" },
+      "ITreeNode": { "__symbolic": "interface" },
+      "ITreeModel": { "__symbolic": "interface" },
+      "ITreeNodeDrag": { "__symbolic": "interface" }
+    }
+  }
+]

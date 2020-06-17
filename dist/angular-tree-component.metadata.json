@@ -1,0 +1,451 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeModule": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "NgModule",
+              "line": 37,
+              "character": 1
+            },
+            "arguments": [
+              {
+                "declarations": [
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree.component",
+                    "name": "TreeComponent",
+                    "line": 39,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node.component",
+                    "name": "TreeNodeComponent",
+                    "line": 40,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-content.component",
+                    "name": "TreeNodeContent",
+                    "line": 41,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/loading.component",
+                    "name": "LoadingComponent",
+                    "line": 42,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./directives/tree-drop.directive",
+                    "name": "TreeDropDirective",
+                    "line": 43,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./directives/tree-drag.directive",
+                    "name": "TreeDragDirective",
+                    "line": 44,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-expander.component",
+                    "name": "TreeNodeExpanderComponent",
+                    "line": 45,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-children.component",
+                    "name": "TreeNodeChildrenComponent",
+                    "line": 46,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-drop-slot.component",
+                    "name": "TreeNodeDropSlot",
+                    "line": 47,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-collection.component",
+                    "name": "TreeNodeCollectionComponent",
+                    "line": 48,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-viewport.component",
+                    "name": "TreeViewportComponent",
+                    "line": 49,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-wrapper.component",
+                    "name": "TreeNodeWrapperComponent",
+                    "line": 50,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-checkbox.component",
+                    "name": "TreeNodeCheckboxComponent",
+                    "line": 51,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./directives/tree-animate-open.directive",
+                    "name": "TreeAnimateOpenDirective",
+                    "line": 52,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./mobx-angular/tree-mobx-autorun.directive",
+                    "name": "TreeMobxAutorunDirective",
+                    "line": 53,
+                    "character": 4
+                  }
+                ],
+                "exports": [
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree.component",
+                    "name": "TreeComponent",
+                    "line": 56,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node.component",
+                    "name": "TreeNodeComponent",
+                    "line": 57,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-content.component",
+                    "name": "TreeNodeContent",
+                    "line": 58,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/loading.component",
+                    "name": "LoadingComponent",
+                    "line": 59,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./directives/tree-drop.directive",
+                    "name": "TreeDropDirective",
+                    "line": 60,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./directives/tree-drag.directive",
+                    "name": "TreeDragDirective",
+                    "line": 61,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-expander.component",
+                    "name": "TreeNodeExpanderComponent",
+                    "line": 62,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-children.component",
+                    "name": "TreeNodeChildrenComponent",
+                    "line": 63,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-drop-slot.component",
+                    "name": "TreeNodeDropSlot",
+                    "line": 64,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-collection.component",
+                    "name": "TreeNodeCollectionComponent",
+                    "line": 65,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-viewport.component",
+                    "name": "TreeViewportComponent",
+                    "line": 66,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-wrapper.component",
+                    "name": "TreeNodeWrapperComponent",
+                    "line": 67,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./components/tree-node-checkbox.component",
+                    "name": "TreeNodeCheckboxComponent",
+                    "line": 68,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./directives/tree-animate-open.directive",
+                    "name": "TreeAnimateOpenDirective",
+                    "line": 69,
+                    "character": 4
+                  },
+                  {
+                    "__symbolic": "reference",
+                    "module": "./mobx-angular/tree-mobx-autorun.directive",
+                    "name": "TreeMobxAutorunDirective",
+                    "line": 70,
+                    "character": 4
+                  }
+                ],
+                "imports": [
+                  {
+                    "__symbolic": "reference",
+                    "module": "@angular/common",
+                    "name": "CommonModule",
+                    "line": 72,
+                    "character": 12
+                  }
+                ],
+                "providers": []
+              }
+            ]
+          }
+        ],
+        "statics": {
+          "forRoot": {
+            "__symbolic": "function",
+            "parameters": [],
+            "value": {
+              "ngModule": { "__symbolic": "reference", "name": "TreeModule" },
+              "providers": [
+                {
+                  "__symbolic": "reference",
+                  "module": "./models/tree-dragged-element.model",
+                  "name": "TreeDraggedElement",
+                  "line": 79,
+                  "character": 18
+                }
+              ]
+            }
+          }
+        }
+      },
+      "TreeModel": {
+        "__symbolic": "reference",
+        "module": "./models/tree.model",
+        "name": "TreeModel",
+        "line": 85,
+        "character": 2
+      },
+      "TreeNode": {
+        "__symbolic": "reference",
+        "module": "./models/tree-node.model",
+        "name": "TreeNode",
+        "line": 86,
+        "character": 2
+      },
+      "TreeDraggedElement": {
+        "__symbolic": "reference",
+        "module": "./models/tree-dragged-element.model",
+        "name": "TreeDraggedElement",
+        "line": 87,
+        "character": 2
+      },
+      "TreeVirtualScroll": {
+        "__symbolic": "reference",
+        "module": "./models/tree-virtual-scroll.model",
+        "name": "TreeVirtualScroll",
+        "line": 88,
+        "character": 2
+      },
+      "ITreeOptions": {
+        "__symbolic": "reference",
+        "module": "./defs/api",
+        "name": "ITreeOptions",
+        "line": 89,
+        "character": 2
+      },
+      "TREE_ACTIONS": {
+        "__symbolic": "reference",
+        "module": "./models/tree-options.model",
+        "name": "TREE_ACTIONS",
+        "line": 90,
+        "character": 2
+      },
+      "KEYS": {
+        "__symbolic": "reference",
+        "module": "./constants/keys",
+        "name": "KEYS",
+        "line": 91,
+        "character": 2
+      },
+      "IActionMapping": {
+        "__symbolic": "reference",
+        "module": "./models/tree-options.model",
+        "name": "IActionMapping",
+        "line": 92,
+        "character": 2
+      },
+      "IActionHandler": {
+        "__symbolic": "reference",
+        "module": "./models/tree-options.model",
+        "name": "IActionHandler",
+        "line": 93,
+        "character": 2
+      },
+      "IAllowDropFn": {
+        "__symbolic": "reference",
+        "module": "./defs/api",
+        "name": "IAllowDropFn",
+        "line": 94,
+        "character": 2
+      },
+      "IAllowDragFn": {
+        "__symbolic": "reference",
+        "module": "./defs/api",
+        "name": "IAllowDragFn",
+        "line": 95,
+        "character": 2
+      },
+      "LoadingComponent": {
+        "__symbolic": "reference",
+        "module": "./components/loading.component",
+        "name": "LoadingComponent",
+        "line": 96,
+        "character": 2
+      },
+      "TreeAnimateOpenDirective": {
+        "__symbolic": "reference",
+        "module": "./directives/tree-animate-open.directive",
+        "name": "TreeAnimateOpenDirective",
+        "line": 97,
+        "character": 2
+      },
+      "TreeComponent": {
+        "__symbolic": "reference",
+        "module": "./components/tree.component",
+        "name": "TreeComponent",
+        "line": 98,
+        "character": 2
+      },
+      "TreeNodeComponent": {
+        "__symbolic": "reference",
+        "module": "./components/tree-node.component",
+        "name": "TreeNodeComponent",
+        "line": 99,
+        "character": 2
+      },
+      "TreeNodeWrapperComponent": {
+        "__symbolic": "reference",
+        "module": "./components/tree-node-wrapper.component",
+        "name": "TreeNodeWrapperComponent",
+        "line": 100,
+        "character": 2
+      },
+      "TreeNodeContent": {
+        "__symbolic": "reference",
+        "module": "./components/tree-node-content.component",
+        "name": "TreeNodeContent",
+        "line": 101,
+        "character": 2
+      },
+      "TreeDropDirective": {
+        "__symbolic": "reference",
+        "module": "./directives/tree-drop.directive",
+        "name": "TreeDropDirective",
+        "line": 102,
+        "character": 2
+      },
+      "TreeDragDirective": {
+        "__symbolic": "reference",
+        "module": "./directives/tree-drag.directive",
+        "name": "TreeDragDirective",
+        "line": 103,
+        "character": 2
+      },
+      "TreeNodeExpanderComponent": {
+        "__symbolic": "reference",
+        "module": "./components/tree-node-expander.component",
+        "name": "TreeNodeExpanderComponent",
+        "line": 104,
+        "character": 2
+      },
+      "TreeNodeChildrenComponent": {
+        "__symbolic": "reference",
+        "module": "./components/tree-node-children.component",
+        "name": "TreeNodeChildrenComponent",
+        "line": 105,
+        "character": 2
+      },
+      "TreeNodeDropSlot": {
+        "__symbolic": "reference",
+        "module": "./components/tree-node-drop-slot.component",
+        "name": "TreeNodeDropSlot",
+        "line": 106,
+        "character": 2
+      },
+      "TreeNodeCollectionComponent": {
+        "__symbolic": "reference",
+        "module": "./components/tree-node-collection.component",
+        "name": "TreeNodeCollectionComponent",
+        "line": 107,
+        "character": 2
+      },
+      "TreeViewportComponent": {
+        "__symbolic": "reference",
+        "module": "./components/tree-viewport.component",
+        "name": "TreeViewportComponent",
+        "line": 108,
+        "character": 2
+      },
+      "TreeNodeCheckboxComponent": {
+        "__symbolic": "reference",
+        "module": "./components/tree-node-checkbox.component",
+        "name": "TreeNodeCheckboxComponent",
+        "line": 109,
+        "character": 2
+      },
+      "ITreeState": {
+        "__symbolic": "reference",
+        "module": "./defs/api",
+        "name": "ITreeState",
+        "line": 110,
+        "character": 2
+      }
+    }
+  }
+]

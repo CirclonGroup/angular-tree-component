@@ -1,0 +1,73 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeViewportComponent": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Component",
+              "line": 14,
+              "character": 1
+            },
+            "arguments": [
+              {
+                "selector": "tree-viewport",
+                "styles": [],
+                "providers": [
+                  {
+                    "__symbolic": "reference",
+                    "module": "../models/tree-virtual-scroll.model",
+                    "name": "TreeVirtualScroll",
+                    "line": 17,
+                    "character": 14
+                  }
+                ],
+                "template": "\n    <ng-container *treeMobxAutorun=\"{ dontDetach: true }\">\n      <div [style.height]=\"getTotalHeight()\">\n        <ng-content></ng-content>\n      </div>\n    </ng-container>\n  "
+              }
+            ]
+          }
+        ],
+        "members": {
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "ElementRef",
+                  "line": 33,
+                  "character": 24
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "NgZone",
+                  "line": 34,
+                  "character": 20
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "../models/tree-virtual-scroll.model",
+                  "name": "TreeVirtualScroll",
+                  "line": 35,
+                  "character": 26
+                }
+              ]
+            }
+          ],
+          "ngOnInit": [{ "__symbolic": "method" }],
+          "ngAfterViewInit": [{ "__symbolic": "method" }],
+          "ngOnDestroy": [{ "__symbolic": "method" }],
+          "getTotalHeight": [{ "__symbolic": "method" }]
+        }
+      }
+    }
+  }
+]

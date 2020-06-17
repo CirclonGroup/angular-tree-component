@@ -1,0 +1,29 @@
+import { action as mobxAction } from 'mobx';
+import { computed as mobxComputed } from 'mobx';
+import { observable as mobxObservable } from 'mobx';
+// Re-export mobx operators to be able to use inside components with AOT:
+export function actionInternal() {
+  var args = [];
+  for (var _i = 0; _i < arguments.length; _i++) {
+    args[_i] = arguments[_i];
+  }
+  return mobxAction.apply(void 0, args);
+}
+export var action = Object.assign(actionInternal, mobxAction);
+function computedInternal() {
+  var args = [];
+  for (var _i = 0; _i < arguments.length; _i++) {
+    args[_i] = arguments[_i];
+  }
+  return mobxComputed.apply(void 0, args);
+}
+export var computed = Object.assign(computedInternal, mobxComputed);
+function observableInternal() {
+  var args = [];
+  for (var _i = 0; _i < arguments.length; _i++) {
+    args[_i] = arguments[_i];
+  }
+  return mobxObservable.apply(void 0, args);
+}
+export var observable = Object.assign(observableInternal, mobxObservable);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibW9ieC1wcm94eS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL2xpYi9tb2J4LWFuZ3VsYXIvbW9ieC1wcm94eS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsTUFBTSxJQUFJLFVBQVUsRUFBRSxNQUFNLE1BQU0sQ0FBQztBQUM1QyxPQUFPLEVBQUUsUUFBUSxJQUFJLFlBQVksRUFBRSxNQUFNLE1BQU0sQ0FBQztBQUNoRCxPQUFPLEVBQUUsVUFBVSxJQUFJLGNBQWMsRUFBRSxNQUFNLE1BQU0sQ0FBQztBQUVwRCx5RUFBeUU7QUFDekUsTUFBTSxVQUFVLGNBQWM7SUFBQyxjQUFPO1NBQVAsVUFBTyxFQUFQLHFCQUFPLEVBQVAsSUFBTztRQUFQLHlCQUFPOztJQUNwQyxPQUFRLFVBQWtCLGVBQUksSUFBSSxFQUFFO0FBQ3RDLENBQUM7QUFDRCxNQUFNLENBQUMsSUFBTSxNQUFNLEdBQXNCLE1BQU0sQ0FBQyxNQUFNLENBQ3BELGNBQWMsRUFDZCxVQUFVLENBQ0osQ0FBQztBQUVULFNBQVMsZ0JBQWdCO0lBQUMsY0FBTztTQUFQLFVBQU8sRUFBUCxxQkFBTyxFQUFQLElBQU87UUFBUCx5QkFBTzs7SUFDL0IsT0FBUSxZQUFvQixlQUFJLElBQUksRUFBRTtBQUN4QyxDQUFDO0FBQ0QsTUFBTSxDQUFDLElBQU0sUUFBUSxHQUF3QixNQUFNLENBQUMsTUFBTSxDQUN4RCxnQkFBZ0IsRUFDaEIsWUFBWSxDQUNOLENBQUM7QUFFVCxTQUFTLGtCQUFrQjtJQUFDLGNBQU87U0FBUCxVQUFPLEVBQVAscUJBQU8sRUFBUCxJQUFPO1FBQVAseUJBQU87O0lBQ2pDLE9BQVEsY0FBc0IsZUFBSSxJQUFJLEVBQUU7QUFDMUMsQ0FBQztBQUVELE1BQU0sQ0FBQyxJQUFNLFVBQVUsR0FBMEIsTUFBTSxDQUFDLE1BQU0sQ0FDNUQsa0JBQWtCLEVBQ2xCLGNBQWMsQ0FDUixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgYWN0aW9uIGFzIG1vYnhBY3Rpb24gfSBmcm9tICdtb2J4JztcbmltcG9ydCB7IGNvbXB1dGVkIGFzIG1vYnhDb21wdXRlZCB9IGZyb20gJ21vYngnO1xuaW1wb3J0IHsgb2JzZXJ2YWJsZSBhcyBtb2J4T2JzZXJ2YWJsZSB9IGZyb20gJ21vYngnO1xuXG4vLyBSZS1leHBvcnQgbW9ieCBvcGVyYXRvcnMgdG8gYmUgYWJsZSB0byB1c2UgaW5zaWRlIGNvbXBvbmVudHMgd2l0aCBBT1Q6XG5leHBvcnQgZnVuY3Rpb24gYWN0aW9uSW50ZXJuYWwoLi4uYXJncykge1xuICByZXR1cm4gKG1vYnhBY3Rpb24gYXMgYW55KSguLi5hcmdzKTtcbn1cbmV4cG9ydCBjb25zdCBhY3Rpb246IHR5cGVvZiBtb2J4QWN0aW9uID0gT2JqZWN0LmFzc2lnbihcbiAgYWN0aW9uSW50ZXJuYWwsXG4gIG1vYnhBY3Rpb25cbikgYXMgYW55O1xuXG5mdW5jdGlvbiBjb21wdXRlZEludGVybmFsKC4uLmFyZ3MpIHtcbiAgcmV0dXJuIChtb2J4Q29tcHV0ZWQgYXMgYW55KSguLi5hcmdzKTtcbn1cbmV4cG9ydCBjb25zdCBjb21wdXRlZDogdHlwZW9mIG1vYnhDb21wdXRlZCA9IE9iamVjdC5hc3NpZ24oXG4gIGNvbXB1dGVkSW50ZXJuYWwsXG4gIG1vYnhDb21wdXRlZFxuKSBhcyBhbnk7XG5cbmZ1bmN0aW9uIG9ic2VydmFibGVJbnRlcm5hbCguLi5hcmdzKSB7XG4gIHJldHVybiAobW9ieE9ic2VydmFibGUgYXMgYW55KSguLi5hcmdzKTtcbn1cblxuZXhwb3J0IGNvbnN0IG9ic2VydmFibGU6IHR5cGVvZiBtb2J4T2JzZXJ2YWJsZSA9IE9iamVjdC5hc3NpZ24oXG4gIG9ic2VydmFibGVJbnRlcm5hbCxcbiAgbW9ieE9ic2VydmFibGVcbikgYXMgYW55O1xuIl19

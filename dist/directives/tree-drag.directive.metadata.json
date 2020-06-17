@@ -1,0 +1,136 @@
+[
+  {
+    "__symbolic": "module",
+    "version": 4,
+    "metadata": {
+      "TreeDragDirective": {
+        "__symbolic": "class",
+        "decorators": [
+          {
+            "__symbolic": "call",
+            "expression": {
+              "__symbolic": "reference",
+              "module": "@angular/core",
+              "name": "Directive",
+              "line": 5,
+              "character": 1
+            },
+            "arguments": [{ "selector": "[treeDrag]" }]
+          }
+        ],
+        "members": {
+          "draggedElement": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 9,
+                    "character": 3
+                  },
+                  "arguments": ["treeDrag"]
+                }
+              ]
+            }
+          ],
+          "treeDragEnabled": [
+            {
+              "__symbolic": "property",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "Input",
+                    "line": 10,
+                    "character": 3
+                  }
+                }
+              ]
+            }
+          ],
+          "__ctor__": [
+            {
+              "__symbolic": "constructor",
+              "parameters": [
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "ElementRef",
+                  "line": 13,
+                  "character": 26
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "Renderer2",
+                  "line": 13,
+                  "character": 56
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "../models/tree-dragged-element.model",
+                  "name": "TreeDraggedElement",
+                  "line": 13,
+                  "character": 95
+                },
+                {
+                  "__symbolic": "reference",
+                  "module": "@angular/core",
+                  "name": "NgZone",
+                  "line": 13,
+                  "character": 131
+                }
+              ]
+            }
+          ],
+          "ngAfterViewInit": [{ "__symbolic": "method" }],
+          "ngDoCheck": [{ "__symbolic": "method" }],
+          "ngOnDestroy": [{ "__symbolic": "method" }],
+          "onDragStart": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "HostListener",
+                    "line": 33,
+                    "character": 3
+                  },
+                  "arguments": ["dragstart", ["$event"]]
+                }
+              ]
+            }
+          ],
+          "onDrag": [{ "__symbolic": "method" }],
+          "onDragEnd": [
+            {
+              "__symbolic": "method",
+              "decorators": [
+                {
+                  "__symbolic": "call",
+                  "expression": {
+                    "__symbolic": "reference",
+                    "module": "@angular/core",
+                    "name": "HostListener",
+                    "line": 48,
+                    "character": 3
+                  },
+                  "arguments": ["dragend"]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+]
