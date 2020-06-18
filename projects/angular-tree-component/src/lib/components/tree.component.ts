@@ -2,6 +2,7 @@ import { Component, ContentChild, EventEmitter, HostListener, Input, OnChanges, 
 import { TreeModel } from '../models/tree.model';
 import { TreeDraggedElement } from '../models/tree-dragged-element.model';
 import { TreeOptions } from '../models/tree-options.model';
+import { ITreeOptions } from '../defs/api';
 import { TreeViewportComponent } from './tree-viewport.component';
 
 import includes from 'lodash/includes';
@@ -52,7 +53,7 @@ export class TreeComponent implements OnChanges {
   @Input() set nodes(nodes: any[]) {
   };
 
-  @Input() set options(options: TreeOptions) {
+  @Input() set options(options: ITreeOptions) {
   };
 
   @Input() set focused(value: boolean) {
