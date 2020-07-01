@@ -23,14 +23,13 @@ angular-tree-component supports angular 2 and above, and AoT compilation.
 
 ## Contributing
 
-run `npm run example:cli` and open [localhost:4200](http://localhost:4200) to test your code before submitting a pull request.
-
-Windows users - if it doesn't work try `npm run example:cli:win`.
+Run `npm run build` (`npm run build:win` for windows users) to build. Run `npm start:example-app` and open [localhost:4200](http://localhost:4200) to test your code before submitting a pull request.
 
 To run tests locally - make sure port 4200 is available and run:
 
 ```
-$ npm run example:cli  # Wait until webpack finishes and http://localhost:4200 is available
+$ npm run build              # build:win for windows; wait until build finished 
+$ npm run start:example-app  # Wait until webpack finishes and http://localhost:4200 is available
 $ npm run test:dev
 ```
 
@@ -39,4 +38,4 @@ Please check the issues / project before starting to work on a feature / bug to 
 ## Contributors
 
 This project exists thanks to all the people who contribute.
-<a href="https://github.com/500tech/angular-tree-component/graphs/contributors"><img src="https://opencollective.com/angular-tree-component/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/CirclonGroup/angular-tree-component/graphs/contributors"><img src="https://opencollective.com/angular-tree-component/contributors.svg?width=890&button=false" /></a>
