@@ -34,13 +34,18 @@
     "angular2 tree component"
   ],
   "scripts": {
+    "lint:lib": "ng lint angular-tree-component",
+    "build:lib": "npm run lint:lib && npm run clean:dist && ng build angular-tree-component",
+    "clean:dist": "rimraf dist",
+    "copy:files": "cp ./README.md ./dist/angular-tree-component && cp ./LICENSE ./dist/angular-tree-component",
+    "copy:files:win": "copy README.md .\\dist\\angular-tree-component && copy LICENSE .\\dist\\angular-tree-component",
     "doc": "typedoc --module commonjs --out doc lib/defs/api.ts",
     "clean": "npm run clean:typescript && rimraf node_modules && npm cache clean",
     "clean:typescript": "rimraf dist",
     "lint": "tslint lib/**/*.ts",
     "rollup": "./node_modules/.bin/rollup -c rollup.config.js dist/angular-tree-component.js -o dist/angular-tree-component.umd.js",
-    "build": "npm run lint && npm run clean:typescript && ./node_modules/.bin/ngc && npm run rollup && cp lib/angular-tree-component.css dist",
-    "build:win": "npm run lint && npm run clean:typescript && .\\node_modules\\.bin\\ngc && npm run rollup && copy lib\\angular-tree-component.css dist",
+    "build": "npm run lint && npm run clean:typescript && ng build angular-tree-component && cp ./projects/angular-tree-component/src/lib/angular-tree-component.css dist/angular-tree-component",
+    "build:win": "npm run lint && npm run clean:typescript && ng build angular-tree-component && copy .\\projects\\angular-tree-component\\src\\lib\\angular-tree-component.css dist\\angular-tree-component",
     "start:example-app": "ng serve",
     "example:cli": "./node_modules/.bin/ngc && cp lib/angular-tree-component.css dist && cd example/cli && npm install && cp -rf ../../dist node_modules/angular-tree-component/ && ./node_modules/.bin/ng serve",
     "example:cli:win": ".\\node_modules\\.bin\\ngc && cd example\\cli && npm install && npm install ..\\..\\ && .\\node_modules\\.bin\\ng serve",
@@ -68,10 +73,12 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "mobx": "^4.15.1"
+    "mobx": "^4.15.1",
+    "tslib": "^1.10.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.28",
+    "@angular-devkit/build-ng-packagr": "~0.803.17",
     "@angular-devkit/core": "^8.1.0",
     "@angular/cli": "^8.1.1",
     "@angular/common": "^8.1.0",
@@ -89,7 +96,7 @@
     "@types/node": "^6.0.38",
     "@types/rx": "2.5.34",
     "@types/webpack": "^1.12.29",
-    "codelyzer": "2.0.0-beta.4",
+    "codelyzer": "^5.2.2",
     "concurrently": "3.4.0",
     "core-js": "^2.4.1",
     "growl": "~> 1.10.0",
@@ -98,6 +105,7 @@
     "http-server": "0.9.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.7",
+    "ng-packagr": "^5.4.0",
     "nightwatch": "0.9.12",
     "prettier": "^1.19.1",
     "jasmine-core": "~3.4.0",
@@ -116,7 +124,8 @@
     "rxjs": "^6.2.2",
     "testcafe": "^1.0.1",
     "testcafe-browser-provider-saucelabs": "^1.6.1",
-    "tslint": "4.4.2",
+    "tsickle": "^0.37.0",
+    "tslint": "^6.1.2",
     "typedoc": "^0.3.12",
     "typescript": "~3.5.3",
     "zone.js": "^0.9.1"

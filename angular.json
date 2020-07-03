@@ -105,6 +105,41 @@
           }
         }
       }
+    },
+    "angular-tree-component": {
+      "projectType": "library",
+      "root": "projects/angular-tree-component",
+      "sourceRoot": "projects/angular-tree-component/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular-tree-component/tsconfig.lib.json",
+            "project": "projects/angular-tree-component/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-tree-component/src/test.ts",
+            "tsConfig": "projects/angular-tree-component/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-tree-component/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-tree-component/tsconfig.lib.json",
+              "projects/angular-tree-component/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "example-app"
 }

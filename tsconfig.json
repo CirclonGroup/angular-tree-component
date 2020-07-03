@@ -13,13 +13,24 @@
     "declaration": true,
     "skipLibCheck": true,
     "stripInternal": true,
-    "lib": ["es2015", "dom"],
+    "lib": [
+      "es2015",
+      "dom"
+    ],
     "paths": {
-      "angular-tree-component": ["dist/angular-tree-component"],
-      "angular-tree-component/*": ["dist/angular-tree-component/*"]
+      "angular-tree-component": [
+        "dist/angular-tree-component",
+        "dist/angular-tree-component"
+      ],
+      "angular-tree-component/*": [
+        "dist/angular-tree-component/*",
+        "dist/angular-tree-component/*"
+      ]
     }
   },
-  "files": ["lib/angular-tree-component"],
+  "files": [
+    "lib/angular-tree-component"
+  ],
   "compileOnSave": false,
   "buildOnSave": false,
   "angularCompilerOptions": {

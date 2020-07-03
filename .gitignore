@@ -31,6 +31,7 @@ Thumbs.db
 # Node Files #
 /node_modules
 /bower_components
+/projects/**/node_modules
 npm-debug.log
 
 # Coverage #
@@ -49,6 +50,7 @@ npm-debug.log
 /public/dist/
 /src/*/dist/
 .webpack.json
+/projects/**/package-lock.json
 
 # Doc #
 
