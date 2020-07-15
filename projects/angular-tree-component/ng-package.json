@@ -6,21 +6,7 @@
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
       "mobx": "mobx",
-      "lodash/defaultsDeep": "lodash",
-      "lodash/get": "lodash",
-      "lodash/omit": "lodash",
-      "lodash/isNumber": "lodash",
-      "lodash/first": "lodash",
-      "lodash/last": "lodash",
-      "lodash/some": "lodash",
-      "lodash/every": "lodash",
-      "lodash/compact": "lodash",
-      "lodash/find": "lodash",
-      "lodash/isString": "lodash",
-      "lodash/isFunction": "lodash",
-      "lodash/throttle": "lodash",
-      "lodash/includes": "lodash",
-      "lodash/pick": "lodash"
+      "lodash-es": "lodash-es"
     }
   }
 }

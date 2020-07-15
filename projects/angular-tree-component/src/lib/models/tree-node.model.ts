@@ -4,10 +4,7 @@ import { TreeOptions } from './tree-options.model';
 import { ITreeNode } from '../defs/api';
 import { TREE_EVENTS } from '../constants/events';
 
-import first from 'lodash/first';
-import last from 'lodash/last';
-import some from 'lodash/some';
-import every from 'lodash/every';
+import { first, last, some, every } from 'lodash-es';
 
 export class TreeNode implements ITreeNode {
   private handler: IReactionDisposer;

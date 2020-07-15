@@ -7,12 +7,7 @@ import { TreeVirtualScroll } from './tree-virtual-scroll.model';
 import { ITreeModel, IDType, IDTypeDictionary } from '../defs/api';
 import { TREE_EVENTS } from '../constants/events';
 
-import first from 'lodash/first';
-import last from 'lodash/last';
-import compact from 'lodash/compact';
-import find from 'lodash/find';
-import isString from 'lodash/isString';
-import isFunction from 'lodash/isFunction';
+import { first, last, compact, find, isString, isFunction } from 'lodash-es';
 
 @Injectable()
 export class TreeModel implements ITreeModel, OnDestroy {

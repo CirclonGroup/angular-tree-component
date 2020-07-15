@@ -5,8 +5,7 @@ import { TreeOptions } from '../models/tree-options.model';
 import { ITreeOptions } from '../defs/api';
 import { TreeViewportComponent } from './tree-viewport.component';
 
-import includes from 'lodash/includes';
-import pick from 'lodash/pick';
+import { includes, pick } from 'lodash-es';
 
 @Component({
   selector: 'Tree, tree-root',

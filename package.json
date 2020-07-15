@@ -70,7 +70,7 @@
   ],
   "dependencies": {
     "core-js": "^2.5.4",
-    "lodash": "^4.17.11",
+    "lodash-es": "^4.17.15",
     "mobx": "^4.15.1",
     "tslib": "^1.10.0"
   },
@@ -90,7 +90,6 @@
     "@angular/router": "^9.0.0",
     "@types/jasmine": "2.5.38",
     "@types/jasminewd2": "~2.0.3",
-    "@types/lodash": "^4.14.62",
     "@types/node": "^12.11.7",
     "@types/rx": "2.5.34",
     "@types/webpack": "^1.12.29",
