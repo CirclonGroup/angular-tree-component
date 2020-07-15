@@ -8,5 +8,6 @@
       "mobx": "mobx",
       "lodash-es": "lodash-es"
     }
-  }
+  },
+  "whitelistedNonPeerDependencies": ["core-js", "lodash-es", "mobx"]
 }
