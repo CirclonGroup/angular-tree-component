@@ -1,40 +1,23 @@
+/*
+  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
+  It is not intended to be used to perform a compilation.
+
+  To learn more about this file see: https://angular.io/config/solution-tsconfig.
+*/
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "module": "es2015",
-    "moduleResolution": "node",
-    "target": "es5",
-    "outDir": "dist/",
-    "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "declaration": true,
-    "skipLibCheck": true,
-    "stripInternal": true,
-    "lib": [
-      "es2015",
-      "dom"
-    ],
-    "paths": {
-      "angular-tree-component": [
-        "dist/angular-tree-component",
-        "dist/angular-tree-component"
-      ],
-      "angular-tree-component/*": [
-        "dist/angular-tree-component/*",
-        "dist/angular-tree-component/*"
-      ]
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/example-app/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/example-app/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/angular-tree-component/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/angular-tree-component/tsconfig.spec.json"
     }
-  },
-  "files": [
-    "lib/angular-tree-component"
-  ],
-  "compileOnSave": false,
-  "buildOnSave": false,
-  "angularCompilerOptions": {
-    "skipTemplateCodegen": true,
-    "enableIvy": false
-  }
+  ]
 }
