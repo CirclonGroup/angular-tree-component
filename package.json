@@ -42,6 +42,7 @@
     "rollup": "./node_modules/.bin/rollup -c rollup.config.js dist/angular-tree-component.js -o dist/angular-tree-component.umd.js",
     "build": "npm run lint && npm run clean:typescript && ng build angular-tree-component",
     "build:win": "npm run lint && npm run clean:typescript && ng build angular-tree-component",
+    "prepublish:lib:win": "npm run build:lib && npm run copy:files:win",
     "start:example-app": "ng serve",
     "example:cli": "./node_modules/.bin/ngc && cp lib/angular-tree-component.css dist && cd example/cli && npm install && cp -rf ../../dist node_modules/angular-tree-component/ && ./node_modules/.bin/ng serve",
     "example:cli:win": ".\\node_modules\\.bin\\ngc && cd example\\cli && npm install && npm install ..\\..\\ && .\\node_modules\\.bin\\ng serve",

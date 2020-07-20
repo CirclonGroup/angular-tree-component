@@ -1,6 +1,14 @@
 {
   "name": "@circlon/angular-tree-component",
+  "author": "Circlon Group <os-group@circlon.de>",
+  "homepage": "https://github.com/CirclonGroup/angular-tree-component",
+  "license": "MIT",
   "version": "9.0.2",
+  "repository": "https://github.com/CirclonGroup/angular-tree-component.git",
+  "bugs": {
+    "url": "https://github.com/CirclonGroup/angular-tree-component/issues"
+  },
+  "readme": "https://github.com/CirclonGroup/angular-tree-component/blob/master/README.md",
   "peerDependencies": {
     "core-js": "^2.5.4"
   },
