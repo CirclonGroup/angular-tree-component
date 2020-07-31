@@ -1,20 +1,28 @@
-PLEASE READ CAREFULLY!
+## I'm submitting a...
 
-# Reproduce
-Please reproduce here if reporting a bug, or requesting help:
-https://stackblitz.com/edit/angular-wxansn
+<!-- Check one of the following options with "x" -->
+<pre><code>
+[ ] Regression (a behavior that used to work and stopped working in a new release)
+[ ] Bug report  <!-- Please search GitHub for a similar issue or PR before submitting -->
+[ ] Feature request
+[ ] Documentation issue or request
+</code></pre>
 
-# Additional Info
-- paste your package.json
-- which browser
-- paste your code
+## What is the current behavior?
 
-# Use the Slack Channel
-The fastest way to get an answer is via the slack channel:
-https://angular-tree-component.herokuapp.com/
+<!-- Describe the current behavior. -->
 
-You will also get updates on releases, bugfixes and other announcements.
+## Expected behavior:
 
-# Search Docs First
-Please look for an answer in the docs before submitting an issue:
-angular2-tree.readme.io.
+<!-- Describe what the desired behavior would be. -->
+
+## Minimal reproduction of the problem with instructions:
+
+<!--
+For bug reports please provide the *STEPS TO REPRODUCE* and if possible a *MINIMAL DEMO* of the problem via
+https://stackblitz.com/edit/atc-issue-template
+-->
+
+## Version of affected browser(s),operating system(s), npm, node and angular-tree-component:
+
+## Other information:
