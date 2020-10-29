@@ -1,0 +1,23 @@
+@import "styles/constants";
+@import "styles/mixins";
+@import "styles/typography";
+@import "styles/code";
+@import "styles/scrollbar";
+@import "styles/alert";
+@import "styles/images";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "styles/angular-tree-component.css";
+
+// primary: #355677
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.demo-container {
+  background-color: #fff;
+  border: 0.5px solid #DBDBDB;
+  border-radius: 5px;
+  color: #444444;
+  margin: 16px auto;
+  padding: 16px;
+}

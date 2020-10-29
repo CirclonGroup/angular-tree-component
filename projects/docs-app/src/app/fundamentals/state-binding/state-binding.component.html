@@ -1,0 +1,53 @@
+<h1>2-way binding to state</h1>
+
+<p>You can control the tree state using 2-way binding.</p>
+<p>The state includes the following:</p>
+
+<table>
+    <tr>
+        <td>expandedNodeIds</td>
+        <td>dictionary of node IDs to booleans</td>
+    </tr>
+    <tr>
+        <td>selectedLeafNodeIds</td>
+        <td>dictionary of node IDs to booleans</td>
+    </tr>
+    <tr>
+        <td>activeNodeIds</td>
+        <td>dictionary of node IDs to booleans</td>
+    </tr>
+    <tr>
+        <td>hiddenNodeIds</td>
+        <td>dictionary of node IDs to booleans</td>
+    </tr>
+    <tr>
+        <td>focusedNodeId</td>
+        <td>node ID</td>
+    </tr>
+</table>
+
+<p>You can change the state reference and the tree will respond automatically, and also access the tree state at any time, as it is always updated via the 2-way binding.</p>
+
+<p>Example:</p>
+
+<code-example>{{ example }}</code-example>
+
+
+<h2>!important note</h2>
+<p>You must have an 'id' property on the nodes in order for this to work. Otherwise - the tree will automatically generate internal IDs which change every time you change the nodes array.</p>
+
+
+<h2>Persist state to localstorage</h2>
+<p>This example is using the 2 way binding to tree state to auto save & restore from localstorage:</p>
+<code-example>{{ localStorage }}</code-example>
+
+<h3>Demo</h3>
+
+<div class="demo-container">
+    <app-state-binding-demo></app-state-binding-demo>
+</div>
+
+
+<h2>Using API</h2>
+<p>Alternatively, you can use <code>getState</code>, <code>setState</code> and <code>subscribe</code> on treeModel API. <code>subscribe</code> will callback a function every time state changes.</p>
+<code-example>{{ api }}</code-example>

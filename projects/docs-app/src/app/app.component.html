@@ -1,0 +1,29 @@
+<mat-toolbar class="toolbar mat-primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-icon svgIcon="tree-logo" aria-hidden="false" class="main-logo"></mat-icon>
+    <span>Angular Tree Component</span>
+    <span class="example-spacer"></span>
+    <a href="https://github.com/CirclonGroup/angular-tree-component" title="GitHub" target="_blank" class="toolbar-link">
+        <mat-icon svgIcon="github" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+    </a>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened class="sidenav">
+        <div class="sidenav-menu">
+            <app-nav-item *ngFor="let navEntry of nav"
+                          [node]="navEntry" [selectedNodes]="currentNodes"></app-nav-item>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content" [ngClass]="{'sidenav-open': sidenav.opened}">
+        <main role="main" class="main-content">
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<footer>
+    <app-footer></app-footer>
+</footer>

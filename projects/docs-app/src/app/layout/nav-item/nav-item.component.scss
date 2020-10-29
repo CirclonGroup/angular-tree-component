@@ -1,0 +1,112 @@
+@import "../../../styles/constants";
+@import "../../../styles/mixins";
+@import "../../../styles/typography";
+
+:host {
+  display: block;
+}
+
+.vertical-menu-item {
+  box-sizing: border-box;
+  color: $darkgray;
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  max-width: 260px;
+  overflow-wrap: break-word;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-decoration: none;
+  text-align: left;
+  word-wrap: break-word;
+
+  &:hover {
+    background-color: $lightgray;
+    color: $accentblue;
+    text-shadow: 0 0 5px #ffffff;
+  }
+
+  &:focus {
+    outline: $accentblue auto 2px;
+  }
+
+  .node-title {
+    flex: 1;
+  }
+
+  //icons _within_ nav
+  .mat-icon {
+    margin: 4px;
+  }
+}
+
+.vertical-menu-item.selected {
+  color: $accentblue;
+}
+
+button.vertical-menu-item {
+  border: none;
+  background-color: transparent;
+  margin-right: 0;
+  width: 100%;
+}
+
+.heading-children.expanded {
+  visibility: visible;
+  opacity: 1;
+  max-height: 4000px; // Arbitrary max-height. Can increase if needed. Must have measurement to transition height.
+  transition: visibility 500ms, opacity 500ms, max-height 500ms;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.heading-children.collapsed {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 1px; // Must have measurement to transition height.
+  transition: visibility 275ms, opacity 275ms, max-height 280ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.level-1 {
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 14px;
+  padding-left: 14px;
+  transition: background-color 0.2s;
+}
+
+.level-2 {
+  color: $mediumgray;
+  font-family: $main-font;
+  font-weight: 400;
+  font-size: 14px;
+  padding-left: 12px;
+  text-transform: none;
+}
+
+.level-3 {
+  color: $mediumgray;
+  font-family: $main-font;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.level-4 {
+  color: $mediumgray;
+  font-family: $main-font;
+  font-size: 14px;
+  padding-left: 8px;
+}
+
+.level-1.expanded .mat-icon, .level-2.expanded .mat-icon {
+  @include rotate(90deg);
+}
+
+.level-1:not(.expanded) .mat-icon, .level-2:not(.expanded) .mat-icon {
+  @include rotate(0deg);
+}
+

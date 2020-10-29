@@ -1,0 +1,66 @@
+<h1>Custom Templates</h1>
+
+<p>You can customize the tree's templates using embedded <code>ng-template</code> tags.</p>
+
+<h2>Demo</h2>
+
+<div class="demo-container">
+    <app-templates-demo></app-templates-demo>
+</div>
+
+
+<h2>#treeNodeTemplate</h2>
+
+<p>Use #treeNodeTemplate for the content of the node.</p>
+<p>You will have access to the following variables:</p>
+
+<table>
+    <tr>
+        <th>Variable</th>
+        <th>Description</th>
+    </tr>
+
+    <tr>
+        <td>node</td>
+        <td>Node of type TreeNode. Exposes many useful methods, as well as a <code>data</code> attribute with the original node's data.</td>
+    </tr>
+
+    <tr>
+        <td>index</td>
+        <td>The index of the current node in the parent's children.</td>
+    </tr>
+</table>
+
+<p>For example:</p>
+
+<code-example>{{ template }}</code-example>
+
+
+<h2>#treeNodeWrapperTemplate</h2>
+
+<p>This option is useful in case all you need to further customise the expander location and the node's event listeners.</p>
+<p>Start by specifying the following template, and make sure the tree still renders as expected.</p>
+<p>Then remove / change whatever you need:</p>
+
+<code-example>{{ treeNodeWrapper }}</code-example>
+
+
+<h2>#loadingTemplate</h2>
+
+<p>For asynchronous data loading, use #loadingTemplate to customize the message that appears while loading the children.</p>
+<p>For example:</p>
+
+<code-example>{{ treeLoading }}</code-example>
+
+<h2>#treeNodeFullTemplate</h2>
+
+<p>This option is useful in case all other customisation options are not suitable for you.</p>
+<p>It allows for full customisation of the node, as it replaces the internal template for the TreeNode component.</p>
+<p>Start by specifying the following template, and make sure the tree still renders as expected.</p>
+<p>Then remove / change whatever you need:</p>
+
+<code-example>{{ fullTemplate }}</code-example>
+
+<div class="alert is-important">
+    <p>Do not remove <code>let-templates="templates"</code> and passing <code>[templates]="templates"</code> to <code>tree-node-children</code>. If you do that, the children of your nodes will not receive the custom template you provided.</p>
+</div>

@@ -42,6 +42,8 @@
     "prepublish:lib:win": "npm run build:lib && npm run copy:files:win",
     "start:example-app": "ng serve",
     "start:example-app:es5": "ng serve --configuration=es5",
+    "start:docs-app": "ng serve --project=docs-app",
+    "build:docs-app": "ng build docs-app",
     "example:cli:build": "npm run build && cd example/cli && npm install && cp -rf ../../dist node_modules/angular-tree-component/ && cp src/index.build.html src/index.html && ./node_modules/.bin/ng build --aot && cp src/index.dev.html src/index.html && mkdir -p 500tech/angular-tree-component/master/example/cli/ && cp -rf dist 500tech/angular-tree-component/master/example/cli/",
     "test:ci:local": "testcafe chrome:headless e2e/*.testcafe.js --app \"ng serve\" -r xunit:./xunit/res.xml -c 4 --assertion-timeout 10000 --app-init-delay 20000 --page-load-timeout 10000 --selector-timeout 20000",
     "test:dev": "testcafe chrome:headless e2e/*.testcafe.js",
@@ -59,6 +61,10 @@
     "Adam Klein <adam@500tech.com>"
   ],
   "dependencies": {
+    "@angular/animations": "^10.0.0 || ^11.0.0-0",
+    "@angular/cdk": "^10.1.3",
+    "@angular/forms": "^10.0.0 || ^11.0.0-0",
+    "@angular/material": "^10.1.3",
     "lodash-es": "^4.17.15",
     "mobx": "~4.14.1"
   },
@@ -71,6 +77,7 @@
     "@angular/compiler": "^10.0.4",
     "@angular/compiler-cli": "^10.0.4",
     "@angular/core": "^10.0.4",
+    "@angular/elements": "^10.0.4",
     "@angular/forms": "^10.0.4",
     "@angular/platform-browser": "^10.0.4",
     "@angular/platform-browser-dynamic": "^10.0.4",
@@ -132,11 +139,5 @@
     "*.ts": [
       "tslint"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "post-commit": "git reset",
-      "pre-commit": "lint-staged"
-    }
   }
 }

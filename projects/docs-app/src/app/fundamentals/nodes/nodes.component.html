@@ -1,0 +1,55 @@
+<h1>Nodes</h1>
+
+<p>Inputs to Tree component:</p>
+
+<code-example>&lt;tree-root [nodes]=nodes [options]="options"&gt;&lt;/tree-root&gt;</code-example>
+
+<h2>nodes</h2>
+
+<p>Array of root nodes of the tree.</p>
+<p>Each node may contain the following fields:</p>
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Description</th>
+    </tr>
+
+    <tr>
+        <td>id</td>
+        <td>
+            Unique ID for the node.<br>
+            If one is not supplied it will be created by the tree library.
+        </td>
+    </tr>
+
+    <tr>
+        <td>name</td>
+        <td>Will be displayed by default in the tree.</td>
+    </tr>
+
+    <tr>
+        <td>children</td>
+        <td>An array of the node's children.<br>
+            Each child is an object with the same structure as the parent node.</td>
+    </tr>
+
+    <tr>
+        <td>hasChildren</td>
+        <td>For async data load. Denotes that this node might have children, even when 'children' attr is empty.</td>
+    </tr>
+
+    <tr>
+        <td>isExpanded</td>
+        <td>Determines whether the node starts as expanded by default. Notice that this field is not bindable, meaning that changing it doesn't affect the tree and vice versa.</td>
+    </tr>
+</table>
+
+<p>Example:</p>
+
+<code-example language="json">{{ nodes }}</code-example>
+
+<h2>Focused</h2>
+
+<p>Whether the tree should be focused. Key navigation only works when the tree is focused.</p>
+<p>Default value: <code>false</code>.</p>

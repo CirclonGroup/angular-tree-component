@@ -21,6 +21,12 @@
     },
     {
       "path": "./projects/angular-tree-component/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/docs-app/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/docs-app/tsconfig.spec.json"
     }
   ]
 }

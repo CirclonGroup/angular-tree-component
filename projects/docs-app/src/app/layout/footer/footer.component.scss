@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 40px;
+
+  >* {
+    color: #fff;
+  }
+}
+
+.footer-blocks {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  margin: 0 0 40px;
+}
+
+.footer-block {
+  margin: 0 24px;
+  vertical-align: top;
+}
+
+a {
+  color: #fff;
+}
+
+h3 {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+    padding: 4px 0;
+    text-align: left;
+  }
+}

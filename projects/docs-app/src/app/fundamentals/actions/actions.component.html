@@ -1,0 +1,103 @@
+<h1>Customize Actions</h1>
+
+<h2>Demo</h2>
+
+<div class="demo-container">
+    <app-actions-demo></app-actions-demo>
+</div>
+
+<h2>Override key and mouse actions</h2>
+
+<p>Angular Tree Component comes with a default mapping of mouse events and key events to actions. For example - click on the node activates / deactivates it, click on the expander expands / collapses it, pressing space or enter will toggle the node activation (same as click), etc.</p>
+<p>Using the <code>actionMapping</code> option, you can override how the tree reacts to mouse and key events, by providing a custom mapping.</p>
+
+<code-example>{{ actionMapping }}</code-example>
+
+
+<h2>actionMapping (IActionMapping)</h2>
+
+<p>The <code>actionMapping</code> attribute needs to implement the <code>IActionMapping</code> interface, which is an object that maps predefined mouse events, and key codes, to callbacks.</p>
+
+
+<h2>The callback (IActionHandler)</h2>
+
+<p>The callback always receives three parameters: <code>TreeModel</code>, <code>TreeNode</code>, and <code>$event</code>.</p>
+
+
+<h2>TREE_ACTIONS</h2>
+
+<p>Notice the <code>TREE_ACTIONS</code> object. It holds predefined callbacks that do common actions.</p>
+<p>The available attributes are:</p>
+
+<ul>
+    <li><code>TOGGLE_ACTIVE</code></li>
+    <li><code>TOGGLE_ACTIVE_MULTI</code></li>
+    <li><code>ACTIVATE</code></li>
+    <li><code>DEACTIVATE</code></li>
+    <li><code>TOGGLE_SELECTED</code></li>
+    <li><code>SELECT</code></li>
+    <li><code>DESELECT</code></li>
+    <li><code>FOCUS</code></li>
+    <li><code>TOGGLE_EXPANDED</code></li>
+    <li><code>EXPAND</code></li>
+    <li><code>COLLAPSE</code></li>
+    <li><code>DRILL_DOWN</code></li>
+    <li><code>DRILL_UP</code></li>
+    <li><code>NEXT_NODE</code></li>
+    <li><code>PREVIOUS_NODE</code></li>
+    <li><code>MOVE_NODE</code></li>
+</ul>
+
+
+<h2>Mouse actions</h2>
+
+<p>In mouse actions, the <code>TreeNode</code> parameter of the callback is the node that the event was activated on (e.g. clicked on).</p>
+<p>The possible attributes for <code>actionMapping.mouse</code> are:</p>
+
+<ul>
+    <li><code>click</code></li>
+    <li><code>dblClick</code></li>
+    <li><code>expanderClick</code></li>
+    <li><code>checkboxClick</code></li>
+    <li><code>contextMenu</code> (right click)</li>
+    <li><code>dragStart</code></li>
+    <li><code>drag</code></li>
+    <li><code>dragOver</code></li>
+    <li><code>dragEnd</code></li>
+    <li><code>dragLeave</code></li>
+    <li><code>dragEnter</code></li>
+    <li><code>drop</code></li>
+</ul>
+
+<code-example>{{ mouseActions }}</code-example>
+
+
+<h2>Shift+Click (Alt / Ctrl)</h2>
+
+<p>If you want to perform actions based on modifier keys, use <code>$event.shiftKey</code>, <code>$event.ctrlKey</code> etc., provided on the third callback argument - <code>$event</code>.</p>
+
+
+<h2>Keyboard events</h2>
+
+<p>In keyboard events, the <code>TreeNode</code> parameter of the callback is the currently focused node. In case no node is focused, this will be <code>null</code>.</p>
+<p>The attributes for <code>actionMapping.keys</code> are integers which represent the key code (e.g. 32 for Space)</p>
+<p>Angular Tree Component exposes a <code>KEYS</code> constant with predefined common key codes:</p>
+
+<code-example language="json">{{ keys }}</code-example>
+
+<p>So you can use those, or pass any keycode you'd like.</p>
+<p>For example:</p>
+
+<code-example>{{ keysExample }}</code-example>
+
+
+<h2>Default mapping</h2>
+
+<p>Here is the default mapping that ships with Angular Tree Component:</p>
+
+<code-example>{{ defaultMapping }}</code-example>
+
+
+<h2>Context menu</h2>
+
+<p>In case you want to open your own context menu, you must first run <code>$event.preventDefault()</code> within the callback.</p>
