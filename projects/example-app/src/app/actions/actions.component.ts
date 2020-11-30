@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TreeNode, TreeModel, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from 'angular-tree-component';
+import { TreeNode, TreeModel, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from '@circlon/angular-tree-component';
 
 const actionMapping: IActionMapping = {
   mouse: {

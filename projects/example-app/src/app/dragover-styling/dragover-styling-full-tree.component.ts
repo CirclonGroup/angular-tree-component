@@ -6,7 +6,7 @@ import {
   KEYS,
   IActionMapping,
   ITreeOptions
-} from 'angular-tree-component';
+} from '@circlon/angular-tree-component';
 
 const actionMapping: IActionMapping = {
   mouse: {
@@ -112,7 +112,7 @@ const actionMapping: IActionMapping = {
   `
 })
 export class DragOverStylingFullTreeComponent implements OnInit {
-  nodes: any[];
+  nodes: any[] = null as any;
   nodes2 = [{ name: 'root' }, { name: 'root2' }];
   asyncChildren = new Array(4).fill(null).map((item, n) => ({
     name: 'async child2.' + n,

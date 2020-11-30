@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ITreeState, ITreeOptions } from 'angular-tree-component';
+import { ITreeState, ITreeOptions } from '@circlon/angular-tree-component';
 import { v4 } from 'uuid';
 
 @Component({

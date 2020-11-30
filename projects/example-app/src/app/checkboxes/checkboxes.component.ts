@@ -1,4 +1,4 @@
-import { ITreeOptions } from 'angular-tree-component';
+import { ITreeOptions } from '@circlon/angular-tree-component';
 import { Component } from '@angular/core';
 
 @Component({

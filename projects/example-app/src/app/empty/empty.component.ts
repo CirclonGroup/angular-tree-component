@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 })
 export class EmptyComponent {
   nodes: any[] = [];
-  nodes2: any[] | null = null;
+  nodes2: any[] = null as any;
 
   loadNodes() {
     this.nodes = [{ name: 'node' }];

@@ -1,5 +1,5 @@
-import { Component, HostListener } from '@angular/core';
-import { ITreeOptions, TREE_ACTIONS, TreeNode, TreeModel } from 'angular-tree-component';
+import { Component } from '@angular/core';
+import { ITreeOptions, TREE_ACTIONS, TreeNode, TreeModel } from '@circlon/angular-tree-component';
 
 @Component({
   selector: 'app-contextmenu',
@@ -54,9 +54,9 @@ import { ITreeOptions, TREE_ACTIONS, TreeNode, TreeModel } from 'angular-tree-co
   ]
 })
 export class ContextmenuComponent {
-  contextMenu: {node: TreeNode, x: number, y: number} = null;
-  sourceNode: TreeNode = null;
-  editNode: TreeNode = null;
+  contextMenu: {node: TreeNode, x: number, y: number} = null as any;
+  sourceNode: TreeNode = null as any;
+  editNode: TreeNode = null as any;
   doCut = false;
   nodes = [
     {
@@ -103,7 +103,7 @@ export class ContextmenuComponent {
   };
 
   closeMenu = () => {
-    this.contextMenu = null;
+    this.contextMenu = null as any;
   }
 
   edit = () => {
@@ -112,7 +112,7 @@ export class ContextmenuComponent {
   }
 
   stopEdit = () => {
-    this.editNode = null;
+    this.editNode = null as any;
   }
 
   copy = () => {
@@ -135,7 +135,7 @@ export class ContextmenuComponent {
       ? this.sourceNode.treeModel.moveNode(this.sourceNode, { parent: this.contextMenu.node, index: 0 })
       : this.sourceNode.treeModel.copyNode(this.sourceNode, { parent: this.contextMenu.node, index: 0 });
 
-    this.sourceNode = null;
+    this.sourceNode = null as any;
     this.closeMenu();
   }
 

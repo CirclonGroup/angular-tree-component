@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TreeNode, TreeModel, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from 'angular-tree-component';
+import { TreeNode, TreeModel, TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from '@circlon/angular-tree-component';
 
 const actionMapping: IActionMapping = {
   mouse: {
@@ -116,7 +116,7 @@ const actionMapping: IActionMapping = {
   `
 })
 export class FullTreeComponent implements OnInit {
-  nodes: any[];
+  nodes: any[] = [];
   nodes2 = [{name: 'root'}, {name: 'root2'}];
   asyncChildren = new Array(4).fill(null).map((item, n) => ({
     name: 'async child2.' + n,
