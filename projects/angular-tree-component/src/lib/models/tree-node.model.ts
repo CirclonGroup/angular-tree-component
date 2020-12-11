@@ -389,10 +389,10 @@ export class TreeNode implements ITreeNode {
     this.treeModel.setFocus(true);
 
     const actionMapping = this.options.actionMapping.mouse;
-    const action = actionMapping[actionName];
+    const mouseAction = actionMapping[actionName];
 
-    if (action) {
-      action(this.treeModel, this, $event, data);
+    if (mouseAction) {
+      mouseAction(this.treeModel, this, $event, data);
     }
   }
 

@@ -331,10 +331,10 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
 
   performKeyAction(node, $event) {
-    const action = this.options.actionMapping.keys[$event.keyCode];
-    if (action) {
+    const keyAction = this.options.actionMapping.keys[$event.keyCode];
+    if (keyAction) {
       $event.preventDefault();
-      action(this, node, $event);
+      keyAction(this, node, $event);
       return true;
     } else {
       return false;
