@@ -4,7 +4,7 @@
   "homepage": "https://github.com/CirclonGroup/angular-tree-component",
   "description": "A simple yet powerful tree component for Angular",
   "license": "MIT",
-  "version": "10.0.0",
+  "version": "10.0.2",
   "repository": "https://github.com/CirclonGroup/angular-tree-component.git",
   "bugs": {
     "url": "https://github.com/CirclonGroup/angular-tree-component/issues"
@@ -39,7 +39,7 @@
     "@angular/core": ">=10.0.0 <11.0.0"
   },
   "dependencies": {
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.20",
     "mobx": "~4.14.1",
     "tslib": "^2.0.0"
   },

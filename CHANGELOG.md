@@ -1,4 +1,18 @@
-<a name="10.0.0-beta.0"></a>
+<a name="10.0.2"></a>
+# 10.0.2 (2020-12-21)
+
+### Bug Fixes
+
+* update lodash-es ([#862](https://github.com/CirclonGroup/angular-tree-component/issues/862)) ([22e0d85](https://github.com/CirclonGroup/angular-tree-component/commit/22e0d85)), closes ([#862](https://github.com/CirclonGroup/angular-tree-component/issues/862))
+
+<a name="10.0.1"></a>
+# 10.0.1 (2020-12-11)
+
+### Bug Fixes
+
+* do not load whole child collection with virtual scroll ([#463](https://github.com/CirclonGroup/angular-tree-component/issues/463)) ([a62fc73](https://github.com/CirclonGroup/angular-tree-component/commit/a62fc73))
+
+<a name="10.0.0"></a>
 # 10.0.0 (2020-07-29)
 
 ### Code Refactoring

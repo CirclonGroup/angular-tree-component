@@ -129,6 +129,13 @@ export class TreeVirtualScroll {
 
     if (!this.viewportHeight || !visibleNodes.length) return [];
 
+    // When loading children async this method is called before their height and position is calculated.
+    // In that case firstIndex === 0 and lastIndex === visibleNodes.length - 1 (e.g. 1000),
+    // which means that it loops through every visibleNodes item and push them into viewportNodes array.
+    // We can prevent nodes from being pushed to the array and wait for the appropriate calculations to take place
+    const lastVisibleNode = visibleNodes.slice(-1)[0]
+    if (!lastVisibleNode.height && lastVisibleNode.position === 0) return [];
+
     // Search for first node in the viewport using binary search
     // Look for first node that starts after the beginning of the viewport (with buffer)
     // Or that ends after the beginning of the viewport
@@ -144,19 +151,6 @@ export class TreeVirtualScroll {
     }, firstIndex);
 
     const viewportNodes = [];
-
-    // Loading async top nodes' children is too long.
-    // It happens when first node is visible withing viewport range (including Y_OFFSET).
-    // In that case firstIndex == 0 and lastIndex == visibleNodes.length - 1 (e.g. 1000),
-    // which means that it loops through every visibleNodes item and push them into viewportNodes array.
-    // lastIndex should not equal visibleNodes.length - 1, but something around 50-100 (depending on the viewport)
-    const nodeHeight = visibleNodes[0].treeModel.options.options.nodeHeight;
-    const renderedNodesMaxLength = (Y_OFFSET * 2 + this.viewportHeight) / nodeHeight;
-
-    // Something is probably wrong, prevent nodes from being pushed to an array.
-    if (lastIndex - firstIndex > renderedNodesMaxLength) {
-      return [];
-    }
 
     for (let i = firstIndex; i <= lastIndex; i++) {
       viewportNodes.push(visibleNodes[i]);

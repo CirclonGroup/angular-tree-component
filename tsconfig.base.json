@@ -13,6 +13,7 @@
     "declaration": true,
     "skipLibCheck": true,
     "stripInternal": true,
+    "typeRoots": ["node_modules/@types"],
     "lib": [
       "es2017",
       "dom"
@@ -28,9 +29,6 @@
       ]
     }
   },
-  "files": [
-    "lib/angular-tree-component"
-  ],
   "compileOnSave": false,
   "buildOnSave": false,
   "angularCompilerOptions": {
