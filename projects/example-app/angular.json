@@ -118,5 +118,8 @@
       }
     }
   },
-  "defaultProject": "cli6"
+  "defaultProject": "cli6",
+  "cli": {
+    "analytics": "d2dafc27-04f2-4dd3-bd4e-027255fadbb4"
+  }
 }
