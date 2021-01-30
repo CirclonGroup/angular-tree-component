@@ -27,6 +27,7 @@ import { Logger } from '../../shared/logger.service';
  * Renders code provided through the `updateCode` method.
  */
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'aio-code',
   template: `
     <pre class="prettyprint lang-{{language}}">
@@ -85,7 +86,7 @@ export class CodeComponent implements OnChanges {
     this._header = header;
     this.ariaLabel = this.header ? `Copy code snippet from ${this.header}` : '';
   }
-  get header(): string|undefined { return this._header; }
+  get header(): string | undefined { return this._header; }
   private _header: string | undefined;
 
   @Output() codeFormatted = new EventEmitter<void>();
@@ -97,7 +98,7 @@ export class CodeComponent implements OnChanges {
     private snackbar: MatSnackBar,
     private pretty: PrettyPrinter,
     private copier: CopierService,
-    private logger: Logger) {}
+    private logger: Logger) { }
 
   ngOnChanges() {
     // If some inputs have changed and there is code displayed, update the view with the latest

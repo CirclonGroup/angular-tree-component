@@ -12,10 +12,10 @@ export interface DragElementEvent extends DragEvent { target: Element; }
 export class TreeDragDirective implements AfterViewInit, DoCheck, OnDestroy {
   @Input('treeDrag') draggedElement: TreeNode;
   @Input() treeDragEnabled: boolean;
-  private readonly dragEventHandler: (ev: DragEvent) => void;
+  private readonly dragEventHandler: (event: DragEvent) => void;
 
   constructor(
-    private el: ElementRef,
+    private element: ElementRef,
     private renderer: Renderer2,
     private treeDraggedElement: TreeDraggedElement<TreeNode>,
     private ngZone: NgZone
@@ -23,39 +23,39 @@ export class TreeDragDirective implements AfterViewInit, DoCheck, OnDestroy {
     this.dragEventHandler = this.onDrag.bind(this);
   }
 
-  ngAfterViewInit() {
-    let el: HTMLElement = this.el.nativeElement;
+  ngAfterViewInit(): void {
+    const element: HTMLElement = this.element.nativeElement;
     this.ngZone.runOutsideAngular(() => {
-      el.addEventListener('drag', this.dragEventHandler);
+      element.addEventListener('drag', this.dragEventHandler);
     });
   }
 
-  ngDoCheck() {
-    this.renderer.setAttribute(this.el.nativeElement, 'draggable', this.treeDragEnabled ? 'true' : 'false');
+  ngDoCheck(): void {
+    this.renderer.setAttribute(this.element.nativeElement, 'draggable', this.treeDragEnabled ? 'true' : 'false');
   }
 
-  ngOnDestroy() {
-    let el: HTMLElement = this.el.nativeElement;
-    el.removeEventListener('drag', this.dragEventHandler);
+  ngOnDestroy(): void {
+    const element: HTMLElement = this.element.nativeElement;
+    element.removeEventListener('drag', this.dragEventHandler);
   }
 
   @HostListener('dragstart', ['$event'])
-  onDragStart(ev: DragElementEvent) {
+  onDragStart(event: DragElementEvent) {
     // setting the data is required by firefox
-    ev.dataTransfer.setData('text', ev.target.id);
+    event.dataTransfer.setData('text', event.target.id);
     this.treeDraggedElement.set(this.draggedElement);
     if (this.draggedElement.mouseAction) {
-      this.draggedElement.mouseAction('dragStart', ev);
+      this.draggedElement.mouseAction('dragStart', event);
     }
   }
 
-  onDrag(ev) {
+  onDrag(event: DragEvent) {
     if (this.draggedElement.mouseAction) {
-      this.draggedElement.mouseAction('drag', ev);
+      this.draggedElement.mouseAction('drag', event);
     }
   }
 
-  @HostListener('dragend') onDragEnd() {
+  @HostListener('dragend') onDragEnd(): void {
     if (this.draggedElement.mouseAction) {
       this.draggedElement.mouseAction('dragEnd');
     }

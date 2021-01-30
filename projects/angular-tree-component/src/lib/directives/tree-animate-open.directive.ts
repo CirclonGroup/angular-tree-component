@@ -1,4 +1,4 @@
-import { Directive, Input, Renderer2, TemplateRef, ViewContainerRef, EmbeddedViewRef } from '@angular/core';
+import { Directive, Input, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
 
 const EASE_ACCELERATION = 1.005;
 
@@ -46,8 +46,8 @@ export class TreeAnimateOpenDirective<T extends HTMLElement, C> {
   }
 
   private _animateOpen(): void {
-    let delta = this.animateSpeed;
-    let ease = this.animateAcceleration;
+    let delta: number = this.animateSpeed;
+    let ease: number = this.animateAcceleration;
     let maxHeight = 0;
 
     // set height to 0

@@ -253,8 +253,7 @@
           "options": {
             "tsConfig": [
               "projects/docs-app/tsconfig.app.json",
-              "projects/docs-app/tsconfig.spec.json",
-              "projects/docs-app/e2e/tsconfig.json"
+              "projects/docs-app/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

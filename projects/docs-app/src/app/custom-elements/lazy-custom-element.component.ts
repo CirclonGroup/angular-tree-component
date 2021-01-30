@@ -3,6 +3,7 @@ import { ElementsLoader } from './elements-loader';
 import { Logger } from '../shared/logger.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'aio-lazy-ce',
   template: '',
 })
@@ -13,7 +14,7 @@ export class LazyCustomElementComponent implements OnInit {
     private elementRef: ElementRef,
     private elementsLoader: ElementsLoader,
     private logger: Logger,
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (!this.selector || /[^\w-]/.test(this.selector)) {

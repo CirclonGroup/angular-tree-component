@@ -1,4 +1,4 @@
-import { IDType, ITreeEvent } from './../defs/api';
+import { DropEvent, IDType, ITreeEvent } from './../defs/api';
 import { observable, computed, reaction, autorun, action, IReactionDisposer } from 'mobx';
 import { TreeModel } from './tree.model';
 import { TreeOptions } from './tree-options.model';
@@ -94,48 +94,48 @@ export class TreeNode<T = any> implements ITreeNode {
   }
 
   // traversing:
-  _findAdjacentSibling(steps, skipHidden = false) {
+  _findAdjacentSibling(steps: number, skipHidden = false): TreeNode {
     const siblings = this._getParentsChildren(skipHidden);
     const index = siblings.indexOf(this);
 
     return siblings.length > index + steps ? siblings[index + steps] : null;
   }
 
-  findNextSibling(skipHidden = false) {
+  findNextSibling(skipHidden = false): TreeNode {
     return this._findAdjacentSibling(+1, skipHidden);
   }
 
-  findPreviousSibling(skipHidden = false) {
+  findPreviousSibling(skipHidden = false): TreeNode {
     return this._findAdjacentSibling(-1, skipHidden);
   }
 
-  getVisibleChildren() {
+  getVisibleChildren(): TreeNode[] {
     return this.visibleChildren;
   }
 
-  @computed get visibleChildren() {
+  @computed get visibleChildren(): TreeNode[] {
     return (this.children || []).filter((node) => !node.isHidden);
   }
 
-  getFirstChild(skipHidden = false) {
+  getFirstChild(skipHidden = false): TreeNode {
     let children = skipHidden ? this.visibleChildren : this.children;
 
     return first(children || []);
   }
 
-  getLastChild(skipHidden = false) {
+  getLastChild(skipHidden = false): TreeNode {
     let children = skipHidden ? this.visibleChildren : this.children;
 
     return last(children || []);
   }
 
-  findNextNode(goInside = true, skipHidden = false) {
+  findNextNode(goInside = true, skipHidden = false): TreeNode {
     return goInside && this.isExpanded && this.getFirstChild(skipHidden) ||
       this.findNextSibling(skipHidden) ||
       this.parent && this.parent.findNextNode(false, skipHidden);
   }
 
-  findPreviousNode(skipHidden = false) {
+  findPreviousNode(skipHidden = false): TreeNode {
     let previousSibling = this.findPreviousSibling(skipHidden);
     if (!previousSibling) {
       return this.realParent;
@@ -143,14 +143,14 @@ export class TreeNode<T = any> implements ITreeNode {
     return previousSibling._getLastOpenDescendant(skipHidden);
   }
 
-  _getLastOpenDescendant(skipHidden = false) {
+  _getLastOpenDescendant(skipHidden = false): TreeNode {
     const lastChild = this.getLastChild(skipHidden);
     return (this.isCollapsed || !lastChild)
       ? this
       : lastChild._getLastOpenDescendant(skipHidden);
   }
 
-  private _getParentsChildren(skipHidden = false): any[] {
+  private _getParentsChildren(skipHidden = false): TreeNode[] {
     const children = this.parent &&
       (skipHidden ? this.parent.getVisibleChildren() : this.parent.children);
 
@@ -161,7 +161,7 @@ export class TreeNode<T = any> implements ITreeNode {
     return this._getParentsChildren(skipHidden).indexOf(this);
   }
 
-  isDescendantOf(node: TreeNode) {
+  isDescendantOf(node: TreeNode): boolean {
     if (this === node) return true;
     else return this.parent && this.parent.isDescendantOf(node);
   }
@@ -174,14 +174,14 @@ export class TreeNode<T = any> implements ITreeNode {
     return [this.options.nodeClass(this), `tree-node-level-${this.level}`].join(' ');
   }
 
-  onDrop($event) {
+  onDrop($event: DropEvent): void {
     this.mouseAction('drop', $event.event, {
       from: $event.element,
       to: { parent: this, index: 0, dropOnNode: true }
     });
   }
 
-  allowDrop = (element, $event?) => {
+  allowDrop = (element: TreeNode, $event?: DragEvent) => {
     return this.options.allowDrop(element, { parent: this, index: 0 }, $event);
   }
 
@@ -189,18 +189,18 @@ export class TreeNode<T = any> implements ITreeNode {
     return this.options.allowDragoverStyling;
   }
 
-  allowDrag() {
+  allowDrag(): boolean {
     return this.options.allowDrag(this);
   }
 
 
   // helper methods:
-  loadNodeChildren() {
+  async loadNodeChildren(): Promise<void> {
     if (!this.options.getChildren) {
       return Promise.resolve(); // Not getChildren method - for using redux
     }
     return Promise.resolve(this.options.getChildren(this))
-      .then((children) => {
+      .then((children: TreeNode[]) => {
         if (children) {
           this.setField('children', children);
           this._initChildren();
@@ -221,7 +221,7 @@ export class TreeNode<T = any> implements ITreeNode {
       });
   }
 
-  expand() {
+  expand(): this {
     if (!this.isExpanded) {
       this.toggleExpanded();
     }
@@ -229,7 +229,7 @@ export class TreeNode<T = any> implements ITreeNode {
     return this;
   }
 
-  collapse() {
+  collapse(): this {
     if (this.isExpanded) {
       this.toggleExpanded();
     }
@@ -237,7 +237,7 @@ export class TreeNode<T = any> implements ITreeNode {
     return this;
   }
 
-  doForAll(fn: (node: ITreeNode) => any) {
+  doForAll(fn: (node: ITreeNode) => any): void {
     Promise.resolve(fn(this)).then(() => {
       if (this.children) {
         this.children.forEach((child) => child.doForAll(fn));
@@ -245,15 +245,15 @@ export class TreeNode<T = any> implements ITreeNode {
     });
   }
 
-  expandAll() {
+  expandAll(): void {
     this.doForAll((node) => node.expand());
   }
 
-  collapseAll() {
+  collapseAll(): void {
     this.doForAll((node) => node.collapse());
   }
 
-  ensureVisible() {
+  ensureVisible(): this {
     if (this.realParent) {
       this.realParent.expand();
       this.realParent.ensureVisible();
@@ -262,13 +262,13 @@ export class TreeNode<T = any> implements ITreeNode {
     return this;
   }
 
-  toggleExpanded() {
+  toggleExpanded(): this {
     this.setIsExpanded(!this.isExpanded);
 
     return this;
   }
 
-  setIsExpanded(value) {
+  setIsExpanded(value: boolean): this {
     if (this.hasChildren) {
       this.treeModel.setExpandedNode(this, value);
     }
@@ -276,7 +276,7 @@ export class TreeNode<T = any> implements ITreeNode {
     return this;
   };
 
-  autoLoadChildren() {
+  autoLoadChildren(): void {
     this.handler =
       reaction(
         () => this.isExpanded,
@@ -291,7 +291,7 @@ export class TreeNode<T = any> implements ITreeNode {
 
   dispose(): void {
     if (this.children) {
-      this.children.forEach((child) => child.dispose());
+      this.children.forEach((child: TreeNode) => child.dispose());
     }
     if (this.handler) {
       this.handler();
@@ -317,7 +317,7 @@ export class TreeNode<T = any> implements ITreeNode {
     if (this.isSelectable()) {
       this.treeModel.setSelectedNode(this, value);
     } else {
-      this.visibleChildren.forEach((child) => child.setIsSelected(value));
+      this.visibleChildren.forEach((child: TreeNode) => child.setIsSelected(value));
     }
 
     return this;
@@ -329,13 +329,13 @@ export class TreeNode<T = any> implements ITreeNode {
     return this;
   }
 
-  toggleActivated(multi = false) {
+  toggleActivated(multi = false): this {
     this.setIsActive(!this.isActive, multi);
 
     return this;
   }
 
-  setActiveAndVisible(multi = false) {
+  setActiveAndVisible(multi = false): this {
     this.setIsActive(true, multi)
       .ensureVisible();
 
@@ -344,11 +344,11 @@ export class TreeNode<T = any> implements ITreeNode {
     return this;
   }
 
-  scrollIntoView(force = false) {
+  scrollIntoView(force = false): void {
     this.treeModel.virtualScroll.scrollIntoView(this, force);
   }
 
-  focus(scroll = true) {
+  focus(scroll = true): this {
     let previousNode = this.treeModel.getFocusedNode();
     this.treeModel.setFocusedNode(this);
     if (scroll) {
@@ -362,7 +362,7 @@ export class TreeNode<T = any> implements ITreeNode {
     return this;
   }
 
-  blur() {
+  blur(): this {
     let previousNode = this.treeModel.getFocusedNode();
     this.treeModel.setFocusedNode(null);
     if (previousNode) {
@@ -372,15 +372,15 @@ export class TreeNode<T = any> implements ITreeNode {
     return this;
   }
 
-  setIsHidden(value) {
+  setIsHidden(value: boolean): void {
     this.treeModel.setIsHidden(this, value);
   }
 
-  hide() {
+  hide(): void {
     this.setIsHidden(true);
   }
 
-  show() {
+  show(): void {
     this.setIsHidden(false);
   }
 
@@ -395,16 +395,16 @@ export class TreeNode<T = any> implements ITreeNode {
     }
   }
 
-  getSelfHeight() {
+  getSelfHeight(): number {
     return this.options.nodeHeight(this);
   }
 
-  @action _initChildren() {
+  @action _initChildren(): void {
     this.children = this.getField<TreeNode[]>('children')
-      .map((c, index) => new TreeNode(c, this, this.treeModel, index));
+      .map((child: TreeNode, index: number) => new TreeNode(child, this, this.treeModel, index));
   }
 }
 
-function uuid() {
+function uuid(): number {
   return Math.floor(Math.random() * 10000000000000);
 }

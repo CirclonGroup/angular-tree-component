@@ -27,10 +27,10 @@ export class VirtualscrollComponent {
   };
 
   constructor() {
-    this.nodes = new Array(1000).fill(null).map((item, i) => ({
+    this.nodes = new Array(1000).fill(null).map((node, i) => ({
       id: `${i}`,
       name: `rootDynamic${i}`,
-      children: new Array(100).fill(null).map((item, n) => ({
+      children: new Array(100).fill(null).map((child, n) => ({
         id: `${i}.${n}`,
         name: `rootChildDynamic${i}.${n}`
       }))

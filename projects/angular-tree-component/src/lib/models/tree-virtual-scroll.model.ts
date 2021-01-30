@@ -1,26 +1,27 @@
 import { Injectable } from '@angular/core';
-import { observable, computed, action, autorun, reaction } from 'mobx';
+import { observable, computed, action, autorun, reaction, IReactionDisposer } from 'mobx';
 import { TreeModel } from './tree.model';
 import { TREE_EVENTS } from '../constants/events';
 import { ITreeEvent } from '../defs/api';
+import { TreeNode } from './tree-node.model';
 
 const Y_OFFSET = 500; // Extra pixels outside the viewport, in each direction, to render nodes in
 const Y_EPSILON = 150; // Minimum pixel change required to recalculate the rendered nodes
 
 @Injectable()
 export class TreeVirtualScroll {
-  private _dispose: any;
+  private _dispose: IReactionDisposer[];
 
   @observable yBlocks = 0;
   @observable x = 0;
   @observable viewportHeight: number = null;
   viewport = null;
 
-  @computed get y() {
+  @computed get y(): number {
     return this.yBlocks * Y_EPSILON;
   }
 
-  @computed get totalHeight() {
+  @computed get totalHeight(): number {
     return this.treeModel.virtualRoot ? this.treeModel.virtualRoot.height : 0;
   }
 
@@ -33,7 +34,7 @@ export class TreeVirtualScroll {
     this.treeModel.fireEvent(event);
   }
 
-  init() {
+  init(): void {
     const fn = this.recalcPositions.bind(this);
 
     fn();
@@ -46,30 +47,30 @@ export class TreeVirtualScroll {
     this.treeModel.subscribe(TREE_EVENTS.loadNodeChildren, fn);
   }
 
-  isEnabled() {
+  isEnabled(): boolean {
     return this.treeModel.options.useVirtualScroll;
   }
 
-  @action private _setYBlocks(value) {
+  @action private _setYBlocks(value: number): void {
     this.yBlocks = value;
   }
 
-  @action recalcPositions() {
+  @action recalcPositions(): void {
     this.treeModel.virtualRoot.height = this._getPositionAfter(this.treeModel.getVisibleRoots(), 0);
   }
 
-  private _getPositionAfter(nodes, startPos) {
-    let position = startPos;
+  private _getPositionAfter(nodes: TreeNode[], startPos: number): number {
+    let position: number = startPos;
 
-    nodes.forEach((node) => {
+    nodes.forEach((node: TreeNode) => {
       node.position = position;
       position = this._getPositionAfterNode(node, position);
     });
     return position;
   }
 
-  private _getPositionAfterNode(node, startPos) {
-    let position = node.getSelfHeight() + startPos;
+  private _getPositionAfterNode(node: TreeNode, startPos: number): number {
+    let position: number = node.getSelfHeight() + startPos;
 
     if (node.children && node.isExpanded) { // TBD: consider loading component as well
       position = this._getPositionAfter(node.visibleChildren, position);
@@ -79,11 +80,11 @@ export class TreeVirtualScroll {
   }
 
 
-  clear() {
-    this._dispose.forEach((d) => d());
+  clear(): void {
+    this._dispose.forEach((dispose: IReactionDisposer) => dispose());
   }
 
-  @action setViewport(viewport) {
+  @action setViewport(viewport: HTMLElement): void {
     Object.assign(this, {
       viewport,
       x: viewport.scrollLeft,
@@ -92,12 +93,12 @@ export class TreeVirtualScroll {
     });
   }
 
-  @action scrollIntoView(node, force, scrollToMiddle = true) {
+  @action scrollIntoView(node: TreeNode, force: boolean, scrollToMiddle = true): void {
     if (node.options.scrollContainer) {
-      const scrollContainer = node.options.scrollContainer;
-      const scrollContainerHeight = scrollContainer.getBoundingClientRect().height;
-      const scrollContainerTop = scrollContainer.getBoundingClientRect().top;
-      const nodeTop = this.viewport.getBoundingClientRect().top + node.position - scrollContainerTop;
+      const scrollContainer: HTMLElement = node.options.scrollContainer;
+      const scrollContainerHeight: number = scrollContainer.getBoundingClientRect().height;
+      const scrollContainerTop: number = scrollContainer.getBoundingClientRect().top;
+      const nodeTop: number = this.viewport.getBoundingClientRect().top + node.position - scrollContainerTop;
 
       if (force || // force scroll to node
         nodeTop < scrollContainer.scrollTop || // node is above scroll container
@@ -112,8 +113,8 @@ export class TreeVirtualScroll {
         node.position + node.getSelfHeight() > this.y + this.viewportHeight) { // node is below viewport
         if (this.viewport) {
           this.viewport.scrollTop = scrollToMiddle ?
-          node.position - this.viewportHeight / 2 : // scroll to middle
-          node.position; // scroll to start
+            node.position - this.viewportHeight / 2 : // scroll to middle
+            node.position; // scroll to start
 
           this._setYBlocks(Math.floor(this.viewport.scrollTop / Y_EPSILON));
         }
@@ -121,10 +122,10 @@ export class TreeVirtualScroll {
     }
   }
 
-  getViewportNodes(nodes) {
+  getViewportNodes(nodes: TreeNode[]): TreeNode[] {
     if (!nodes) return [];
 
-    const visibleNodes = nodes.filter((node) => !node.isHidden);
+    const visibleNodes: TreeNode[] = nodes.filter((node) => !node.isHidden);
 
     if (!this.isEnabled()) return visibleNodes;
 
@@ -134,46 +135,46 @@ export class TreeVirtualScroll {
     // In that case firstIndex === 0 and lastIndex === visibleNodes.length - 1 (e.g. 1000),
     // which means that it loops through every visibleNodes item and push them into viewportNodes array.
     // We can prevent nodes from being pushed to the array and wait for the appropriate calculations to take place
-    const lastVisibleNode = visibleNodes.slice(-1)[0]
+    const lastVisibleNode: TreeNode = visibleNodes.slice(-1)[0]
     if (!lastVisibleNode.height && lastVisibleNode.position === 0) return [];
 
     // Search for first node in the viewport using binary search
     // Look for first node that starts after the beginning of the viewport (with buffer)
     // Or that ends after the beginning of the viewport
-    const firstIndex = binarySearch(visibleNodes, (node) => {
+    const firstIndex: number = binarySearch(visibleNodes, (node: TreeNode) => {
       return (node.position + Y_OFFSET > this.y) ||
-             (node.position + node.height > this.y);
+        (node.position + node.height > this.y);
     });
 
     // Search for last node in the viewport using binary search
     // Look for first node that starts after the end of the viewport (with buffer)
-    const lastIndex = binarySearch(visibleNodes, (node) => {
+    const lastIndex: number = binarySearch(visibleNodes, (node: TreeNode) => {
       return node.position - Y_OFFSET > this.y + this.viewportHeight;
     }, firstIndex);
 
-    const viewportNodes = [];
+    const viewportNodes: TreeNode[] = [];
 
-    for (let i = firstIndex; i <= lastIndex; i++) {
+    for (let i: number = firstIndex; i <= lastIndex; i++) {
       viewportNodes.push(visibleNodes[i]);
     }
 
     return viewportNodes;
   }
 
-  fixScroll() {
-    const maxY = Math.max(0, this.totalHeight - this.viewportHeight);
+  fixScroll(): void {
+    const maxY: number = Math.max(0, this.totalHeight - this.viewportHeight);
 
     if (this.y < 0) this._setYBlocks(0);
     if (this.y > maxY) this._setYBlocks(maxY / Y_EPSILON);
   }
 }
 
-function binarySearch(nodes, condition, firstIndex = 0) {
-  let index = firstIndex;
-  let toIndex = nodes.length - 1;
+function binarySearch(nodes: TreeNode[], condition: (node: TreeNode) => boolean, firstIndex = 0): number {
+  let index: number = firstIndex;
+  let toIndex: number = nodes.length - 1;
 
   while (index !== toIndex) {
-    let midIndex = Math.floor((index + toIndex) / 2);
+    let midIndex: number = Math.floor((index + toIndex) / 2);
 
     if (condition(nodes[midIndex])) {
       toIndex = midIndex;

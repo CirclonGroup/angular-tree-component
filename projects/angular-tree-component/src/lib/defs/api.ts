@@ -1,21 +1,21 @@
 import { ElementRef } from '@angular/core';
 import { TreeNode } from '../models/tree-node.model';
 import { IActionMapping } from '../models/tree-options.model';
+import { TreeModel } from '../models/tree.model';
 /**
  * Welcome to ng2tree
  */
 export type IDType = string | number;
 export type IDTypeDictionary = { [id: string]: boolean, [id: number]: boolean };
-export type DragFromSpot = { parent: ITreeNode; index: number; }
-export type DragToSpot = DragFromSpot & { dropOnNode: boolean; }
-
-export type DraggedNode = { parent: TreeNode, index: number }
+export type DragFromSpot = { parent: TreeNode; index: number; }
+export type DragToSpot = DragFromSpot & { dropOnNode?: boolean; }
+export type DropEvent = { event: DragEvent; element: TreeNode; }
 export type ITreeEvent = {
   eventName: string,
-  node?: ITreeNode,
-  treeModel?: ITreeModel,
-  to?: DraggedNode,
-  from?: DraggedNode,
+  node?: TreeNode,
+  treeModel?: TreeModel,
+  to?: DragToSpot,
+  from?: DragFromSpot,
   isExpanded?: boolean
 }
 
@@ -275,7 +275,7 @@ export interface ITreeOptions {
    *
    * **Default Value: clone the node using Object.assign, and remove 'id' property**
    */
-  getNodeClone?: (node: TreeNode) => TreeNode;
+  getNodeClone?: (node: TreeNode) => any;
   /**
    * Makes the tree right-to-left.
    * This include direction, expander style, and change key binding (right key collapse and left key expands instead of vice-versa)
