@@ -1,3 +1,4 @@
+import { IDType } from './../defs/api';
 import {
   Component,
   Input,
@@ -5,7 +6,7 @@ import {
   OnInit,
   OnDestroy
 } from '@angular/core';
-import { reaction } from 'mobx';
+import { comparer, IReactionDisposer, reaction } from 'mobx';
 import { observable, computed, action } from '../mobx-angular/mobx-proxy';
 import { TreeVirtualScroll } from '../models/tree-virtual-scroll.model';
 import { TreeNode } from '../models/tree-node.model';
@@ -39,7 +40,7 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
 
   @Input() treeModel: TreeModel;
 
-  @observable _nodes;
+  @observable _nodes: TreeNode[];
   private virtualScroll: TreeVirtualScroll; // Cannot inject this, because we might be inside treeNodeTemplateFull
   @Input() templates;
 
@@ -51,20 +52,20 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
     const relativePosition =
       firstNode && firstNode.parent
         ? firstNode.position -
-          firstNode.parent.position -
-          firstNode.parent.getSelfHeight()
+        firstNode.parent.position -
+        firstNode.parent.getSelfHeight()
         : 0;
 
     return `${relativePosition}px`;
   }
 
-  _dispose = [];
+  _dispose: IReactionDisposer[] = [];
 
-  @action setNodes(nodes) {
+  @action setNodes(nodes: TreeNode[]) {
     this._nodes = nodes;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.virtualScroll = this.treeModel.virtualScroll;
     this._dispose = [
       // return node indexes so we can compare structurally,
@@ -72,12 +73,12 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
         () => {
           return this.virtualScroll
             .getViewportNodes(this.nodes)
-            .map(n => n.index);
+            .map((node: TreeNode) => node.index);
         },
         nodeIndexes => {
-          this.viewportNodes = nodeIndexes.map(i => this.nodes[i]);
+          this.viewportNodes = nodeIndexes.map((index: number) => this.nodes[index]);
         },
-        { compareStructural: true, fireImmediately: true } as any
+        { equals: comparer.structural, fireImmediately: true }
       ),
       reaction(
         () => this.nodes,
@@ -88,11 +89,11 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
     ];
   }
 
-  ngOnDestroy() {
-    this._dispose.forEach(d => d());
+  ngOnDestroy(): void {
+    this._dispose.forEach(dispose => dispose());
   }
 
-  trackNode(index, node) {
+  trackNode(index: number, node: TreeNode): IDType {
     return node.id;
   }
 }

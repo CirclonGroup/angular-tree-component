@@ -14,11 +14,11 @@ import { ITreeOptions } from 'angular-tree-component';
         <div [class]="node.data.className + 'Loading'">Loading {{ node.data.title }}...</div>
       </ng-template>
     </tree-root>
-    
+
     <h3>treeNodeWrapper</h3>
     <tree-root id="tree3" [focused]="true" [nodes]="nodes2" [options]="options1">
       <ng-template #treeNodeWrapperTemplate let-node let-index="index">
-        <span [class]="node.data.className + 'Index'">{{ index }}</span>      
+        <span [class]="node.data.className + 'Index'">{{ index }}</span>
          <input type="checkbox"><span>&rarr;</span>
          <span [class]="node.data.className" [class.title]="true">{{ node.data.title }}</span>
       </ng-template>

@@ -1,31 +1,31 @@
 import { TreeNode } from './tree-node.model';
 import { TreeModel } from './tree.model';
 import { KEYS } from '../constants/keys';
-import { ITreeOptions } from '../defs/api';
+import { DraggedNode, IDType, ITreeOptions } from '../defs/api';
 
-import { defaultsDeep, get, omit, isNumber } from 'lodash-es';
+import { defaultsDeep, get, omit, isNumber, clone } from 'lodash-es';
 
-export interface IActionHandler {
-  (tree: TreeModel, node: TreeNode, $event: any, ...rest);
+export interface IActionHandler<T = never> {
+  (tree: TreeModel, node: TreeNode, $event: Event, ...rest: T[]);
 }
 
 export const TREE_ACTIONS = {
-  TOGGLE_ACTIVE: (tree: TreeModel, node: TreeNode, $event: any) => node && node.toggleActivated(),
-  TOGGLE_ACTIVE_MULTI: (tree: TreeModel, node: TreeNode, $event: any) => node && node.toggleActivated(true),
-  TOGGLE_SELECTED: (tree: TreeModel, node: TreeNode, $event: any) => node && node.toggleSelected(),
-  ACTIVATE: (tree: TreeModel, node: TreeNode, $event: any) => node.setIsActive(true),
-  DEACTIVATE: (tree: TreeModel, node: TreeNode, $event: any) => node.setIsActive(false),
-  SELECT: (tree: TreeModel, node: TreeNode, $event: any) => node.setIsSelected(true),
-  DESELECT: (tree: TreeModel, node: TreeNode, $event: any) => node.setIsSelected(false),
-  FOCUS: (tree: TreeModel, node: TreeNode, $event: any) => node.focus(),
-  TOGGLE_EXPANDED: (tree: TreeModel, node: TreeNode, $event: any) => node.hasChildren && node.toggleExpanded(),
-  EXPAND: (tree: TreeModel, node: TreeNode, $event: any) => node.expand(),
-  COLLAPSE: (tree: TreeModel, node: TreeNode, $event: any) => node.collapse(),
-  DRILL_DOWN: (tree: TreeModel, node: TreeNode, $event: any) => tree.focusDrillDown(),
-  DRILL_UP: (tree: TreeModel, node: TreeNode, $event: any) => tree.focusDrillUp(),
-  NEXT_NODE: (tree: TreeModel, node: TreeNode, $event: any) =>  tree.focusNextNode(),
-  PREVIOUS_NODE: (tree: TreeModel, node: TreeNode, $event: any) =>  tree.focusPreviousNode(),
-  MOVE_NODE: (tree: TreeModel, node: TreeNode, $event: any, {from , to}: {from: any, to: any}) => {
+  TOGGLE_ACTIVE: (tree: TreeModel, node: TreeNode, $event: Event) => node && node.toggleActivated(),
+  TOGGLE_ACTIVE_MULTI: (tree: TreeModel, node: TreeNode, $event: Event) => node && node.toggleActivated(true),
+  TOGGLE_SELECTED: (tree: TreeModel, node: TreeNode, $event: Event) => node && node.toggleSelected(),
+  ACTIVATE: (tree: TreeModel, node: TreeNode, $event: Event) => node.setIsActive(true),
+  DEACTIVATE: (tree: TreeModel, node: TreeNode, $event: Event) => node.setIsActive(false),
+  SELECT: (tree: TreeModel, node: TreeNode, $event: Event) => node.setIsSelected(true),
+  DESELECT: (tree: TreeModel, node: TreeNode, $event: Event) => node.setIsSelected(false),
+  FOCUS: (tree: TreeModel, node: TreeNode, $event: Event) => node.focus(),
+  TOGGLE_EXPANDED: (tree: TreeModel, node: TreeNode, $event: Event) => node.hasChildren && node.toggleExpanded(),
+  EXPAND: (tree: TreeModel, node: TreeNode, $event: Event) => node.expand(),
+  COLLAPSE: (tree: TreeModel, node: TreeNode, $event: Event) => node.collapse(),
+  DRILL_DOWN: (tree: TreeModel, node: TreeNode, $event: Event) => tree.focusDrillDown(),
+  DRILL_UP: (tree: TreeModel, node: TreeNode, $event: Event) => tree.focusDrillUp(),
+  NEXT_NODE: (tree: TreeModel, node: TreeNode, $event: Event) =>  tree.focusNextNode(),
+  PREVIOUS_NODE: (tree: TreeModel, node: TreeNode, $event: Event) =>  tree.focusPreviousNode(),
+  MOVE_NODE: (tree: TreeModel, node: TreeNode, $event: MouseEvent, {from , to}: {from: any, to: any}) => {
     // default action assumes from = node, to = {parent, index}
     if ($event.ctrlKey) {
       tree.copyNode(from, to);
@@ -82,7 +82,7 @@ export class TreeOptions {
   get displayField(): string { return this.options.displayField || 'name'; }
   get idField(): string { return this.options.idField || 'id'; }
   get isExpandedField(): string { return this.options.isExpandedField || 'isExpanded'; }
-  get getChildren(): any { return this.options.getChildren; }
+  get getChildren(): (node: TreeNode) => TreeNode[] | Promise<TreeNode[]> { return this.options.getChildren; }
   get levelPadding(): number { return this.options.levelPadding || 0; }
   get useVirtualScroll(): boolean { return this.options.useVirtualScroll; }
   get animateExpand(): boolean { return this.options.animateExpand; }
@@ -90,7 +90,7 @@ export class TreeOptions {
   get animateAcceleration(): number { return this.options.animateAcceleration || 1.2; }
   get scrollOnActivate(): boolean { return this.options.scrollOnActivate === undefined ? true : this.options.scrollOnActivate; }
   get rtl(): boolean { return !!this.options.rtl; }
-  get rootId(): any {return this.options.rootId; }
+  get rootId(): IDType {return this.options.rootId; }
   get useCheckbox(): boolean { return this.options.useCheckbox; }
   get useTriState(): boolean { return this.options.useTriState === undefined ? true : this.options.useTriState; }
   get scrollContainer(): HTMLElement { return this.options.scrollContainer; }
@@ -105,15 +105,15 @@ export class TreeOptions {
     }
   }
 
-  getNodeClone(node: TreeNode): any {
+  getNodeClone<T>(node: TreeNode<T>): TreeNode<T> {
     if (this.options.getNodeClone) {
       return this.options.getNodeClone(node);
     }
 
-    return omit(Object.assign({}, node.data), ['id']);
+    return clone(node);
   }
 
-  allowDrop(element, to, $event?): boolean {
+  allowDrop(element: TreeNode, to: DraggedNode, $event?: DragEvent): boolean {
     if (this.options.allowDrop instanceof Function) {
       return this.options.allowDrop(element, to, $event);
     }

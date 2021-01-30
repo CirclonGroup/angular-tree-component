@@ -1,4 +1,4 @@
-import { Component, ContentChild, EventEmitter, HostListener, Input, OnChanges, Output, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ContentChild, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
 import { TreeModel } from '../models/tree.model';
 import { TreeDraggedElement } from '../models/tree-dragged-element.model';
 import { TreeOptions } from '../models/tree-options.model';
@@ -6,6 +6,9 @@ import { ITreeOptions } from '../defs/api';
 import { TreeViewportComponent } from './tree-viewport.component';
 
 import { includes, pick } from 'lodash-es';
+import { TreeNode } from '../models/tree-node.model';
+
+export interface ElementTargetEvent extends Event { target: Element; }
 
 @Component({
   selector: 'Tree, tree-root',
@@ -83,7 +86,7 @@ export class TreeComponent implements OnChanges {
 
   constructor(
     public treeModel: TreeModel,
-    public treeDraggedElement: TreeDraggedElement) {
+    public treeDraggedElement: TreeDraggedElement<TreeNode>) {
 
     treeModel.eventNames.forEach((name) => this[name] = new EventEmitter());
     treeModel.subscribeToState((state) => this.stateChange.emit(state));
@@ -101,7 +104,7 @@ export class TreeComponent implements OnChanges {
   }
 
   @HostListener('body: mousedown', ['$event'])
-  onMousedown($event) {
+  onMousedown($event: ElementTargetEvent) {
     function isOutsideClick(startElement: Element, nodeName: string) {
       return !startElement ? true : startElement.localName === nodeName ? false : isOutsideClick(startElement.parentElement, nodeName);
     }
@@ -111,7 +114,7 @@ export class TreeComponent implements OnChanges {
     }
   }
 
-  ngOnChanges(changes) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes.options || changes.nodes) {
       this.treeModel.setData({
         options: changes.options && changes.options.currentValue,
@@ -121,7 +124,7 @@ export class TreeComponent implements OnChanges {
     }
   }
 
-  sizeChanged() {
+  sizeChanged(): void {
     this.viewportComponent.setViewport();
   }
 }

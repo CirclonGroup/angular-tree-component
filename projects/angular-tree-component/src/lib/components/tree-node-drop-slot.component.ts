@@ -18,14 +18,14 @@ export class TreeNodeDropSlot {
   @Input() node: TreeNode;
   @Input() dropIndex: number;
 
-  onDrop($event) {
+  onDrop($event: { event: DragEvent, element: TreeNode }): void {
     this.node.mouseAction('drop', $event.event, {
       from: $event.element,
       to: { parent: this.node, index: this.dropIndex }
     });
   }
 
-  allowDrop(element, $event) {
+  allowDrop(element: TreeNode, $event: DragEvent): boolean {
     return this.node.options.allowDrop(element, { parent: this.node, index: this.dropIndex }, $event);
   }
 }

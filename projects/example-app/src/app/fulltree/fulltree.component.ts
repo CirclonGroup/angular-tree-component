@@ -117,7 +117,7 @@ const actionMapping: IActionMapping = {
 })
 export class FullTreeComponent implements OnInit {
   nodes: any[];
-  nodes2 = [{name: 'root'}, {name: 'root2'}];
+  nodes2 = [{ name: 'root' }, { name: 'root2' }];
   asyncChildren = new Array(4).fill(null).map((item, n) => ({
     name: 'async child2.' + n,
     subTitle: 'async child ' + n,

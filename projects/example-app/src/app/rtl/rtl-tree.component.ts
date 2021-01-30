@@ -25,9 +25,11 @@ export class RtlTreeComponent {
       name: 'עוד עץ',
       children: [
         { name: 'עלה', children: [] },
-        { name: 'ענף', children: [
-          {name: 'בן של ענף'}
-        ] }
+        {
+          name: 'ענף', children: [
+            { name: 'בן של ענף' }
+          ]
+        }
       ]
     }
   ];

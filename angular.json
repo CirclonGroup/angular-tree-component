@@ -27,7 +27,9 @@
               "projects/example-app/src/favicon.ico",
               "projects/example-app/src/assets"
             ],
-            "styles": ["projects/example-app/src/styles.scss"],
+            "styles": [
+              "projects/example-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -110,7 +112,9 @@
               "projects/example-app/tsconfig.app.json",
               "projects/example-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -143,7 +147,9 @@
               "projects/angular-tree-component/tsconfig.lib.json",
               "projects/angular-tree-component/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -172,7 +178,9 @@
               "projects/docs-app/src/favicon.ico",
               "projects/docs-app/src/assets"
             ],
-            "styles": ["projects/docs-app/src/styles.scss"],
+            "styles": [
+              "projects/docs-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -234,7 +242,9 @@
               "projects/docs-app/src/favicon.ico",
               "projects/docs-app/src/assets"
             ],
-            "styles": ["projects/docs-app/src/styles.scss"],
+            "styles": [
+              "projects/docs-app/src/styles.scss"
+            ],
             "scripts": []
           }
         },
@@ -246,11 +256,16 @@
               "projects/docs-app/tsconfig.spec.json",
               "projects/docs-app/e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "example-app"
+  "defaultProject": "example-app",
+  "cli": {
+    "analytics": "22021a32-ac9a-4cbd-a0bc-3fd5f28c9849"
+  }
 }

@@ -1,10 +1,10 @@
-import { Component , Input , ViewEncapsulation , TemplateRef } from '@angular/core';
+import { Component, Input, ViewEncapsulation, TemplateRef } from '@angular/core';
 import { TreeNode } from '../models/tree-node.model';
 
 @Component({
-  selector: 'tree-node-wrapper' ,
-  encapsulation: ViewEncapsulation.None ,
-  styles: [] ,
+  selector: 'tree-node-wrapper',
+  encapsulation: ViewEncapsulation.None,
+  styles: [],
   template: `
       <div *ngIf="!templates.treeNodeWrapperTemplate" class="node-wrapper" [style.padding-left]="node.getNodePadding()">
           <tree-node-checkbox *ngIf="node.options.useCheckbox" [node]="node"></tree-node-checkbox>

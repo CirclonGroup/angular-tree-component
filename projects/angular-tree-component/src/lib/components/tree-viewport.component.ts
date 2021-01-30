@@ -37,11 +37,11 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
     this.scrollEventHandler = this.setViewport.bind(this);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.virtualScroll.init();
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     setTimeout(() => {
       this.setViewport();
       this.virtualScroll.fireEvent({ eventName: TREE_EVENTS.initialized });
@@ -52,13 +52,13 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.virtualScroll.clear();
     let el: HTMLElement = this.elementRef.nativeElement;
     el.removeEventListener('scroll', this.scrollEventHandler);
   }
 
-  getTotalHeight() {
+  getTotalHeight(): string {
     return (
       (this.virtualScroll.isEnabled() &&
         this.virtualScroll.totalHeight + 'px') ||

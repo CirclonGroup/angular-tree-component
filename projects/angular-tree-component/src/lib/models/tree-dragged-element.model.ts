@@ -3,18 +3,18 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class TreeDraggedElement {
-  _draggedElement: any = null;
+export class TreeDraggedElement<T> {
+  _draggedElement: T = null;
 
-  set(draggedElement: any) {
+  set(draggedElement: T) {
     this._draggedElement = draggedElement;
   }
 
-  get(): any {
+  get(): T {
     return this._draggedElement;
   }
 
-  isDragging() {
+  isDragging(): boolean {
     return !!this.get();
   }
 }

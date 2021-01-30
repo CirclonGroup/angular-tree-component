@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { observable, computed, action, autorun, reaction } from 'mobx';
 import { TreeModel } from './tree.model';
 import { TREE_EVENTS } from '../constants/events';
+import { ITreeEvent } from '../defs/api';
 
 const Y_OFFSET = 500; // Extra pixels outside the viewport, in each direction, to render nodes in
 const Y_EPSILON = 150; // Minimum pixel change required to recalculate the rendered nodes
@@ -12,7 +13,7 @@ export class TreeVirtualScroll {
 
   @observable yBlocks = 0;
   @observable x = 0;
-  @observable viewportHeight = null;
+  @observable viewportHeight: number = null;
   viewport = null;
 
   @computed get y() {
@@ -28,7 +29,7 @@ export class TreeVirtualScroll {
     this._dispose = [autorun(() => this.fixScroll())];
   }
 
-  fireEvent(event) {
+  fireEvent(event: ITreeEvent): void {
     this.treeModel.fireEvent(event);
   }
 

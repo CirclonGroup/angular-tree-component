@@ -1,17 +1,25 @@
 import { AfterViewInit, Directive, DoCheck, ElementRef, HostListener, Input, NgZone, OnDestroy, Renderer2 } from '@angular/core';
 import { TreeDraggedElement } from '../models/tree-dragged-element.model';
+import { TreeNode } from '../models/tree-node.model';
 
 const DRAG_OVER_CLASS = 'is-dragging-over';
+
+export interface DragElementEvent extends DragEvent { target: Element; }
 
 @Directive({
   selector: '[treeDrag]'
 })
 export class TreeDragDirective implements AfterViewInit, DoCheck, OnDestroy {
-  @Input('treeDrag') draggedElement;
-  @Input() treeDragEnabled;
+  @Input('treeDrag') draggedElement: TreeNode;
+  @Input() treeDragEnabled: boolean;
   private readonly dragEventHandler: (ev: DragEvent) => void;
 
-  constructor(private el: ElementRef, private renderer: Renderer2, private treeDraggedElement: TreeDraggedElement, private ngZone: NgZone) {
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private treeDraggedElement: TreeDraggedElement<TreeNode>,
+    private ngZone: NgZone
+  ) {
     this.dragEventHandler = this.onDrag.bind(this);
   }
 
@@ -31,7 +39,8 @@ export class TreeDragDirective implements AfterViewInit, DoCheck, OnDestroy {
     el.removeEventListener('drag', this.dragEventHandler);
   }
 
-  @HostListener('dragstart', ['$event']) onDragStart(ev) {
+  @HostListener('dragstart', ['$event'])
+  onDragStart(ev: DragElementEvent) {
     // setting the data is required by firefox
     ev.dataTransfer.setData('text', ev.target.id);
     this.treeDraggedElement.set(this.draggedElement);

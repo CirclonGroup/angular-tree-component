@@ -1,3 +1,4 @@
+import { IDType, ITreeEvent } from './../defs/api';
 import { observable, computed, reaction, autorun, action, IReactionDisposer } from 'mobx';
 import { TreeModel } from './tree.model';
 import { TreeOptions } from './tree-options.model';
@@ -6,27 +7,27 @@ import { TREE_EVENTS } from '../constants/events';
 
 import { first, last, some, every } from 'lodash-es';
 
-export class TreeNode implements ITreeNode {
+export class TreeNode<T = any> implements ITreeNode {
   private handler: IReactionDisposer;
-  @computed get isHidden() { return this.treeModel.isHidden(this); };
-  @computed get isExpanded() { return this.treeModel.isExpanded(this); };
-  @computed get isActive() { return this.treeModel.isActive(this); };
-  @computed get isFocused() { return this.treeModel.isNodeFocused(this); };
-  @computed get isSelected() {
+  @computed get isHidden(): boolean { return this.treeModel.isHidden(this); };
+  @computed get isExpanded(): boolean { return this.treeModel.isExpanded(this); };
+  @computed get isActive(): boolean { return this.treeModel.isActive(this); };
+  @computed get isFocused(): boolean { return this.treeModel.isNodeFocused(this); };
+  @computed get isSelected(): boolean {
     if (this.isSelectable()) {
-        return this.treeModel.isSelected(this);
+      return this.treeModel.isSelected(this);
     } else {
       return some(this.children, (node: TreeNode) => node.isSelected);
     }
   };
-  @computed get isAllSelected() {
+  @computed get isAllSelected(): boolean {
     if (this.isSelectable()) {
       return this.treeModel.isSelected(this);
     } else {
       return every(this.children, (node: TreeNode) => node.isAllSelected);
     }
   };
-  @computed get isPartiallySelected() {
+  @computed get isPartiallySelected(): boolean {
     return this.isSelected && !this.isAllSelected;
   }
 
@@ -37,7 +38,7 @@ export class TreeNode implements ITreeNode {
   @computed get level(): number {
     return this.parent ? this.parent.level + 1 : 0;
   }
-  @computed get path(): string[] {
+  @computed get path(): IDType[] {
     return this.parent ? [...this.parent.path, this.id] : [];
   }
 
@@ -46,10 +47,7 @@ export class TreeNode implements ITreeNode {
       You may use a template to obtain a reference to the element`;
   }
 
-  private _originalNode: any;
-  get originalNode() { return this._originalNode; };
-
-  constructor(public data: any, public parent: TreeNode, public treeModel: TreeModel, index: number) {
+  constructor(public data: T, public parent: TreeNode, public treeModel: TreeModel, index: number) {
     if (this.id === undefined || this.id === null) {
       this.id = uuid();
     } // Make sure there's a unique id without overriding existing ids to work with immutable data structures
@@ -72,26 +70,26 @@ export class TreeNode implements ITreeNode {
 
   // proxy functions:
   get options(): TreeOptions { return this.treeModel.options; }
-  fireEvent(event) { this.treeModel.fireEvent(event); }
+  fireEvent(event: ITreeEvent): void { this.treeModel.fireEvent(event); }
 
   // field accessors:
-  get displayField() {
+  get displayField(): string {
     return this.getField('display');
   }
 
-  get id() {
+  get id(): IDType {
     return this.getField('id');
   }
 
-  set id(value) {
+  set id(value: IDType) {
     this.setField('id', value);
   }
 
-  getField(key) {
+  getField<V>(key: string): V {
     return this.data[this.options[`${key}Field`]];
   }
 
-  setField(key, value) {
+  setField<V>(key: string, value: V): void {
     this.data[this.options[`${key}Field`]] = value;
   }
 
@@ -133,8 +131,8 @@ export class TreeNode implements ITreeNode {
 
   findNextNode(goInside = true, skipHidden = false) {
     return goInside && this.isExpanded && this.getFirstChild(skipHidden) ||
-           this.findNextSibling(skipHidden) ||
-           this.parent && this.parent.findNextNode(false, skipHidden);
+      this.findNextSibling(skipHidden) ||
+      this.parent && this.parent.findNextNode(false, skipHidden);
   }
 
   findPreviousNode(skipHidden = false) {
@@ -159,7 +157,7 @@ export class TreeNode implements ITreeNode {
     return children || [];
   }
 
-  private getIndexInParent(skipHidden = false) {
+  getIndexInParent(skipHidden = false): number {
     return this._getParentsChildren(skipHidden).indexOf(this);
   }
 
@@ -173,7 +171,7 @@ export class TreeNode implements ITreeNode {
   }
 
   getClass(): string {
-    return [this.options.nodeClass(this), `tree-node-level-${ this.level }`].join(' ');
+    return [this.options.nodeClass(this), `tree-node-level-${this.level}`].join(' ');
   }
 
   onDrop($event) {
@@ -214,7 +212,8 @@ export class TreeNode implements ITreeNode {
               child.expand();
             }
           });
-      }}).then(() => {
+        }
+      }).then(() => {
         this.fireEvent({
           eventName: TREE_EVENTS.loadNodeChildren,
           node: this
@@ -290,7 +289,7 @@ export class TreeNode implements ITreeNode {
       );
   }
 
-  dispose() {
+  dispose(): void {
     if (this.children) {
       this.children.forEach((child) => child.dispose());
     }
@@ -301,7 +300,7 @@ export class TreeNode implements ITreeNode {
     this.children = null;
   }
 
-  setIsActive(value, multi = false) {
+  setIsActive(value: boolean, multi = false): this {
     this.treeModel.setActiveNode(this, value, multi);
     if (value) {
       this.focus(this.options.scrollOnActivate);
@@ -310,11 +309,11 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
-  isSelectable() {
+  isSelectable(): boolean {
     return this.isLeaf || !this.children || !this.options.useTriState;
   }
 
-  @action setIsSelected(value) {
+  @action setIsSelected(value: boolean): this {
     if (this.isSelectable()) {
       this.treeModel.setSelectedNode(this, value);
     } else {
@@ -324,7 +323,7 @@ export class TreeNode implements ITreeNode {
     return this;
   }
 
-  toggleSelected() {
+  toggleSelected(): this {
     this.setIsSelected(!this.isSelected);
 
     return this;
@@ -385,7 +384,7 @@ export class TreeNode implements ITreeNode {
     this.setIsHidden(false);
   }
 
-  mouseAction(actionName: string, $event, data: any = null) {
+  mouseAction<E>(actionName: string, $event?: MouseEvent, data: E = null): void {
     this.treeModel.setFocus(true);
 
     const actionMapping = this.options.actionMapping.mouse;
@@ -401,7 +400,7 @@ export class TreeNode implements ITreeNode {
   }
 
   @action _initChildren() {
-    this.children = this.getField('children')
+    this.children = this.getField<TreeNode[]>('children')
       .map((c, index) => new TreeNode(c, this, this.treeModel, index));
   }
 }
