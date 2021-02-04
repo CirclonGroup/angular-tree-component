@@ -5,8 +5,6 @@ import { TreeOptions } from '../models/tree-options.model';
 import { ITreeOptions } from '../defs/api';
 import { TreeViewportComponent } from './tree-viewport.component';
 
-import { includes, pick } from 'lodash-es';
-
 @Component({
   selector: 'Tree, tree-root',
   providers: [TreeModel],
@@ -92,8 +90,7 @@ export class TreeComponent implements OnChanges {
   @HostListener('body: keydown', ['$event'])
   onKeydown($event) {
     if (!this.treeModel.isFocused) return;
-    if (includes(['input', 'textarea'],
-      document.activeElement.tagName.toLowerCase())) return;
+    if (['input', 'textarea'].includes(document.activeElement.tagName.toLowerCase())) return;
 
     const focusedNode = this.treeModel.getFocusedNode();
 
@@ -116,12 +113,21 @@ export class TreeComponent implements OnChanges {
       this.treeModel.setData({
         options: changes.options && changes.options.currentValue,
         nodes: changes.nodes && changes.nodes.currentValue,
-        events: pick(this, this.treeModel.eventNames)
+        events: this.pick(this, this.treeModel.eventNames)
       });
     }
   }
 
   sizeChanged() {
     this.viewportComponent.setViewport();
+  }
+
+  private pick(object, keys) {
+    return keys.reduce((obj, key) => {
+      if (object && object.hasOwnProperty(key)) {
+        obj[key] = object[key];
+      }
+      return obj;
+    }, {});
   }
 }

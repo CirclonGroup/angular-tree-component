@@ -4,8 +4,6 @@ import { TreeOptions } from './tree-options.model';
 import { ITreeNode } from '../defs/api';
 import { TREE_EVENTS } from '../constants/events';
 
-import { first, last, some, every } from 'lodash-es';
-
 export class TreeNode implements ITreeNode {
   private handler: IReactionDisposer;
   @computed get isHidden() { return this.treeModel.isHidden(this); };
@@ -16,14 +14,14 @@ export class TreeNode implements ITreeNode {
     if (this.isSelectable()) {
         return this.treeModel.isSelected(this);
     } else {
-      return some(this.children, (node: TreeNode) => node.isSelected);
+      return this.children.some((node: TreeNode) => node.isSelected);
     }
   };
   @computed get isAllSelected() {
     if (this.isSelectable()) {
       return this.treeModel.isSelected(this);
     } else {
-      return every(this.children, (node: TreeNode) => node.isAllSelected);
+      return this.children.every((node: TreeNode) => node.isAllSelected);
     }
   };
   @computed get isPartiallySelected() {
@@ -122,13 +120,13 @@ export class TreeNode implements ITreeNode {
   getFirstChild(skipHidden = false) {
     let children = skipHidden ? this.visibleChildren : this.children;
 
-    return first(children || []);
+    return [].concat(children || []).shift();
   }
 
   getLastChild(skipHidden = false) {
     let children = skipHidden ? this.visibleChildren : this.children;
 
-    return last(children || []);
+    return [].concat(children || []).pop();
   }
 
   findNextNode(goInside = true, skipHidden = false) {

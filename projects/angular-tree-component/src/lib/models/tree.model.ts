@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { observable, computed, action, autorun } from 'mobx';
 import { Subscription } from 'rxjs';
 import { TreeNode } from './tree-node.model';
@@ -6,8 +6,6 @@ import { TreeOptions } from './tree-options.model';
 import { TreeVirtualScroll } from './tree-virtual-scroll.model';
 import { ITreeModel, IDType, IDTypeDictionary } from '../defs/api';
 import { TREE_EVENTS } from '../constants/events';
-
-import { first, last, compact, find, isString, isFunction } from 'lodash-es';
 
 @Injectable()
 export class TreeModel implements ITreeModel, OnDestroy {
@@ -62,11 +60,11 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
 
   getFirstRoot(skipHidden = false) {
-    return first(skipHidden ? this.getVisibleRoots() : this.roots);
+    return [].concat(skipHidden ? this.getVisibleRoots() : this.roots).shift();
   }
 
   getLastRoot(skipHidden = false) {
-    return last(skipHidden ? this.getVisibleRoots() : this.roots);
+    return [].concat(skipHidden ? this.getVisibleRoots() : this.roots).pop();
   }
 
   get isFocused() {
@@ -90,7 +88,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
       .filter((id) => this.expandedNodeIds[id])
       .map((id) => this.getNodeById(id));
 
-    return compact(nodes);
+    return nodes.filter(Boolean);
   }
 
   @computed get activeNodes() {
@@ -98,7 +96,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
       .filter((id) => this.activeNodeIds[id])
       .map((id) => this.getNodeById(id));
 
-    return compact(nodes);
+    return nodes.filter(Boolean);
   }
 
   @computed get hiddenNodes() {
@@ -106,7 +104,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
         .filter((id) => this.hiddenNodeIds[id])
         .map((id) => this.getNodeById(id));
 
-    return compact(nodes);
+    return nodes.filter(Boolean);
   }
 
   @computed get selectedLeafNodes() {
@@ -114,7 +112,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
         .filter((id) => this.selectedLeafNodeIds[id])
         .map((id) => this.getNodeById(id));
 
-    return compact(nodes);
+    return nodes.filter(Boolean);
   }
 
   // locating nodes
@@ -127,7 +125,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
     if (!startNode.children) return null;
 
     const childId = path.shift();
-    const childNode = find(startNode.children, { id: childId });
+    const childNode = startNode.children.find(c => c.id === childId);
 
     if (!childNode) return null;
 
@@ -145,7 +143,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
 
     if (!startNode.children) return null;
 
-    const found = find(startNode.children, predicate);
+    const found = startNode.children.find(predicate);
 
     if (found) { // found in children
       return found;
@@ -349,10 +347,10 @@ export class TreeModel implements ITreeModel, OnDestroy {
     }
 
     // support function and string filter
-    if (isString(filter)) {
+    if (filter && typeof filter.valueOf() === 'string') {
       filterFn = (node) => node.displayField.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
     }
-    else if (isFunction(filter)) {
+    else if (filter && typeof filter === 'function') {
        filterFn = filter;
     }
     else {

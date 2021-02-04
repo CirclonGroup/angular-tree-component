@@ -524,7 +524,7 @@ export interface ITreeModel {
   getVisibleRoots(): ITreeNode[];
   /**
    * @param     path  array of node IDs to be traversed respectively
-   * @param     statrNode  optional. Which node to start traversing from
+   * @param     startNode  optional. Which node to start traversing from
    * @returns   The node, if found - null otherwise
    */
   getNodeByPath(path: any[], startNode?: ITreeNode): ITreeNode;
@@ -535,8 +535,8 @@ export interface ITreeModel {
   getNodeById(id: IDType): ITreeNode;
   /**
    * @param     predicate - either an object or a function, used as a test condition on all nodes.
-   *            Could be every predicate that's supported by lodash's `find` method
-   * @param     statrNode  optional. Which node to start traversing from
+   *            Could be every predicate that's supported by javaScripts Array.prototype.find() method
+   * @param     startNode  optional. Which node to start traversing from
    * @returns   First node that matches the predicate, if found - null otherwise
    */
   getNodeBy(predicate: any, startNode?: ITreeNode): ITreeNode;
