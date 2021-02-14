@@ -1,32 +1,38 @@
-/*
-  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
-  It is not intended to be used to perform a compilation.
-
-  To learn more about this file see: https://angular.io/config/solution-tsconfig.
-*/
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./projects/example-app/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/example-app/tsconfig.es5.app.json"
-    },
-    {
-      "path": "./projects/example-app/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/angular-tree-component/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/angular-tree-component/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/docs-app/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/docs-app/tsconfig.spec.json"
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "es2020",
+    "moduleResolution": "node",
+    "target": "es2015",
+    "outDir": "/dist/out-tsc",
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "typeRoots": ["node_modules/@types"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "angular-tree-component": [
+        "dist/angular-tree-component",
+        "dist/angular-tree-component"
+      ],
+      "angular-tree-component/*": [
+        "dist/angular-tree-component/*",
+        "dist/angular-tree-component/*"
+      ]
     }
-  ]
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true,
+    "enableIvy": false
+  }
 }

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { StateBindingDemoComponent } from './state-binding-demo.component';
 
@@ -6,7 +6,7 @@ describe('StateBindingDemoComponent', () => {
   let component: StateBindingDemoComponent;
   let fixture: ComponentFixture<StateBindingDemoComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ StateBindingDemoComponent ]
     })
