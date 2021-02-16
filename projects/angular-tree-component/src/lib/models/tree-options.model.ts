@@ -97,9 +97,38 @@ export class TreeOptions {
 
   constructor(private options: ITreeOptions = {}) {
     this.actionMapping = {
-      ...defaultActionMapping,
-      ...this.options.actionMapping,
-    };
+      mouse: {
+        click: this.options?.actionMapping?.mouse?.click ?? defaultActionMapping.mouse.click,
+        dblClick: this.options?.actionMapping?.mouse?.dblClick ?? defaultActionMapping.mouse.dblClick,
+        contextMenu: this.options?.actionMapping?.mouse?.contextMenu ?? defaultActionMapping.mouse.contextMenu,
+        expanderClick: this.options?.actionMapping?.mouse?.expanderClick ?? defaultActionMapping.mouse.expanderClick,
+        checkboxClick: this.options?.actionMapping?.mouse?.checkboxClick ?? defaultActionMapping.mouse.checkboxClick,
+        drop: this.options?.actionMapping?.mouse?.drop ?? defaultActionMapping.mouse.drop,
+        dragStart: this.options?.actionMapping?.mouse?.dragStart ?? undefined,
+        drag: this.options?.actionMapping?.mouse?.drag ?? undefined,
+        dragEnd: this.options?.actionMapping?.mouse?.dragEnd ?? undefined,
+        dragOver: this.options?.actionMapping?.mouse?.dragOver ?? undefined,
+        dragLeave: this.options?.actionMapping?.mouse?.dragLeave ?? undefined,
+        dragEnter: this.options?.actionMapping?.mouse?.dragEnter ?? undefined,
+        mouseOver: this.options?.actionMapping?.mouse?.mouseOver ?? undefined,
+        mouseOut: this.options?.actionMapping?.mouse?.mouseOut ?? undefined,
+      },
+      keys: {
+        [KEYS.RIGHT]: TREE_ACTIONS.DRILL_DOWN,
+        [KEYS.LEFT]: TREE_ACTIONS.DRILL_UP,
+        [KEYS.DOWN]: TREE_ACTIONS.NEXT_NODE,
+        [KEYS.UP]: TREE_ACTIONS.PREVIOUS_NODE,
+        [KEYS.SPACE]: TREE_ACTIONS.TOGGLE_ACTIVE,
+        [KEYS.ENTER]: TREE_ACTIONS.TOGGLE_ACTIVE
+      }
+    }
+
+    if (this.options?.actionMapping?.keys) {
+      this.actionMapping.keys = {
+        ...this.actionMapping.keys,
+        ...this.options.actionMapping.keys
+      }
+    }
 
     if (options.rtl) {
       this.actionMapping.keys[KEYS.RIGHT] = <IActionHandler>options.actionMapping?.keys[KEYS.RIGHT] || TREE_ACTIONS.DRILL_UP;
