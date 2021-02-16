@@ -10,6 +10,15 @@
       true,
       "element",
       "kebab-case"
+    ],
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace",
+      "log"
     ]
   }
 }

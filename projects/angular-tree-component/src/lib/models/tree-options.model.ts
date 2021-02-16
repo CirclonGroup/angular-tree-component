@@ -96,9 +96,6 @@ export class TreeOptions {
   actionMapping: IActionMapping;
 
   constructor(private options: ITreeOptions = {}) {
-    console.log('actionMapping', this.options.actionMapping);
-    console.log('defaultActionMapping', defaultActionMapping);
-
     this.actionMapping = {
       ...defaultActionMapping,
       ...this.options.actionMapping,
