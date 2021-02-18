@@ -120,13 +120,13 @@ export class TreeNode implements ITreeNode {
   getFirstChild(skipHidden = false) {
     let children = skipHidden ? this.visibleChildren : this.children;
 
-    return [].concat(children || []).shift();
+    return children != null && children.length ? children[0] : null;
   }
 
   getLastChild(skipHidden = false) {
     let children = skipHidden ? this.visibleChildren : this.children;
 
-    return [].concat(children || []).pop();
+    return children != null && children.length ? children[children.length - 1] : null;
   }
 
   findNextNode(goInside = true, skipHidden = false) {

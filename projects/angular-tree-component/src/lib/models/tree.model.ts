@@ -60,11 +60,13 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
 
   getFirstRoot(skipHidden = false) {
-    return [].concat(skipHidden ? this.getVisibleRoots() : this.roots).shift();
+    const root = skipHidden ? this.getVisibleRoots() : this.roots;
+    return root != null && root.length ? root[0] : null;
   }
 
   getLastRoot(skipHidden = false) {
-    return [].concat(skipHidden ? this.getVisibleRoots() : this.roots).pop();
+    const root = skipHidden ? this.getVisibleRoots() : this.roots;
+    return root != null && root.length ? root[root.length - 1] : null;
   }
 
   get isFocused() {
