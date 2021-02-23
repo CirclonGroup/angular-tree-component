@@ -4,7 +4,6 @@ import {
   AfterViewInit,
   OnInit,
   OnDestroy,
-  NgZone
 } from '@angular/core';
 import { TreeVirtualScroll } from '../models/tree-virtual-scroll.model';
 import { TREE_EVENTS } from '../constants/events';
@@ -30,7 +29,6 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
 
   constructor(
     private elementRef: ElementRef,
-    private ngZone: NgZone,
     public virtualScroll: TreeVirtualScroll
   ) {
     this.scrollEventHandler = this.setViewport.bind(this);
@@ -46,9 +44,7 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
       this.virtualScroll.fireEvent({ eventName: TREE_EVENTS.initialized });
     });
     let el: HTMLElement = this.elementRef.nativeElement;
-    this.ngZone.runOutsideAngular(() => {
-      el.addEventListener('scroll', this.scrollEventHandler);
-    });
+    el.addEventListener('scroll', this.scrollEventHandler);
   }
 
   ngOnDestroy() {
