@@ -67,7 +67,7 @@
   ],
   "dependencies": {
     "core-js": "^2.5.4",
-    "lodash-es": "^4.17.20",
+    "lodash-es": "^4.17.21",
     "mobx": "~4.14.1"
   },
   "devDependencies": {
