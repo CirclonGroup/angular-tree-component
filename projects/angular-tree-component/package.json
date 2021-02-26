@@ -39,7 +39,7 @@
     "@angular/core": ">=10.0.0 <11.0.0"
   },
   "dependencies": {
-    "lodash-es": "^4.17.20",
+    "lodash-es": "^4.17.21",
     "mobx": "~4.14.1",
     "tslib": "^2.0.0"
   },
