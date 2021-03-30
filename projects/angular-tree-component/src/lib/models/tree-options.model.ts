@@ -25,7 +25,7 @@ export const TREE_ACTIONS = {
   PREVIOUS_NODE: (tree: TreeModel, node: TreeNode, $event: any) =>  tree.focusPreviousNode(),
   MOVE_NODE: (tree: TreeModel, node: TreeNode, $event: any, {from , to}: {from: any, to: any}) => {
     // default action assumes from = node, to = {parent, index}
-    if ($event.ctrlKey) {
+    if ($event.ctrlKey || $event.metaKey) {
       tree.copyNode(from, to);
     } else {
       tree.moveNode(from, to);
