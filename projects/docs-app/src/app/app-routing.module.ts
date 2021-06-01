@@ -12,6 +12,20 @@ import { ApiComponent } from './fundamentals/api/api.component';
 import { StylingComponent } from './fundamentals/styling/styling.component';
 import { FocusComponent } from './fundamentals/focus/focus.component';
 import { IssuesComponent } from './fundamentals/issues/issues.component';
+import { ColumnsExampleComponent } from './examples/columns-example/columns-example.component';
+import { CrudExampleComponent } from './examples/crud-example/crud-example.component';
+import { LoadMoreExampleComponent } from './examples/load-more-example/load-more-example.component';
+import { AsyncGuideComponent } from './guides/async-guide/async-guide.component';
+import { FilterGuideComponent } from './guides/filter-guide/filter-guide.component';
+import { UpdateGuideComponent } from './guides/update-guide/update-guide.component';
+import { DragDropGuideComponent } from './guides/drag-drop-guide/drag-drop-guide.component';
+import { CheckboxesGuideComponent } from './guides/checkboxes-guide/checkboxes-guide.component';
+import { LargeTreeGuideComponent } from './guides/large-tree-guide/large-tree-guide.component';
+import { ReduxGuideComponent } from './guides/redux-guide/redux-guide.component';
+import { RtlGuideComponent } from './guides/rtl-guide/rtl-guide.component';
+import { CustomFieldsGuideComponent } from './guides/custom-fields-guide/custom-fields-guide.component';
+import { ExpandingGuideComponent } from './guides/expanding-guide/expanding-guide.component';
+import { AutoScrollGuideComponent } from './guides/auto-scroll-guide/auto-scroll-guide.component';
 
 const routes: Routes = [
   {
@@ -22,7 +36,26 @@ const routes: Routes = [
   {
     path: 'examples',
     children: [
-      { path: 'basic', component: BasicUsageComponent }
+      { path: 'basic', component: BasicUsageComponent },
+      { path: 'columns', component: ColumnsExampleComponent },
+      { path: 'crud', component: CrudExampleComponent },
+      { path: 'loadmore', component: LoadMoreExampleComponent },
+    ]
+  },
+  {
+    path: 'guides',
+    children: [
+      { path: 'async', component: AsyncGuideComponent },
+      { path: 'filter', component: FilterGuideComponent },
+      { path: 'update', component: UpdateGuideComponent },
+      { path: 'dragdrop', component: DragDropGuideComponent },
+      { path: 'checkboxes', component: CheckboxesGuideComponent },
+      { path: 'largetree', component: LargeTreeGuideComponent },
+      { path: 'redux', component: ReduxGuideComponent },
+      { path: 'rtl', component: RtlGuideComponent },
+      { path: 'customfields', component: CustomFieldsGuideComponent },
+      { path: 'expanding', component: ExpandingGuideComponent },
+      { path: 'autoscroll', component: AutoScrollGuideComponent },
     ]
   },
   {

@@ -1,0 +1,20 @@
+<h1>Redux / Immutable Data</h1>
+
+<h2>Use ID</h2>
+
+<p>Working with the tree using immutable data is possible.</p>
+<p>Make sure that:</p>
+<ol>
+  <li>You provide a unique <code>id</code> property on each node</li>
+  <li>If you have a different key property, then set the <code>idField</code> in the options</li>
+  <li>You override drop action as stated below</li>
+</ol>
+
+<h2>Override drop action</h2>
+<p>Drag and drop by default mutates the children.</p>
+<p>If working with immutable data, you must override the action and supply your custom behaviour:</p>
+<code-example>{{ options }}</code-example>
+
+<h2>Rebuilding the tree</h2>
+<p>Every time the nodes array changes, the entire tree model is rebuilt.</p>
+<p>This might be costly if you have a huge amount of nodes that change very frequently.</p>

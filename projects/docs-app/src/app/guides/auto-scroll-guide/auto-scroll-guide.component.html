@@ -1,0 +1,17 @@
+<h1>Auto Scrolling</h1>
+
+<p>When navigating with keys or clicking a node in the edges of the screen, the tree will automatically try to scroll the selected node into view.</p>
+<p>Also, you can call <code>scrollIntoView</code> on any node to make it visible.</p>
+
+<h2>Inner Scroll</h2>
+<p>Auto scrolling is built-in to the tree. Simply wrap the tree with a container that has a height and you're good.</p>
+<p>The tree has an inner element called viewport that is scrollable.</p>
+
+<h2>External Scroll (Scrolling as part of the body / other container)</h2>
+<p>Sometimes you don't want to wrap the tree with a scrollable container, and want the scrolling to be part of a different element.</p>
+<p>Use the <code>scrollContainer</code> option for this purpose as described in <a [routerLink]="['/', 'fundamentals', 'options']">Options</a></p>
+
+<h2>Demo of scrollContainer</h2>
+<div class="demo-container">
+  <app-auto-scroll></app-auto-scroll>
+</div>

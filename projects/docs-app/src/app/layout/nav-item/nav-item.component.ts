@@ -32,6 +32,10 @@ export class NavItemComponent implements OnChanges {
           // preserve expanded state when display is wide; collapse in mobile.
           (this.isWide && this.isExpanded));
       */
+      if (!this.isSelected && this.nodeChildren && this.nodeChildren.length) {
+        const selectedChild = this.selectedNodes.find(node => this.nodeChildren.some(child => child.title === node.title));
+        this.isSelected = selectedChild !== undefined;
+      }
     } else {
       this.isSelected = false;
     }

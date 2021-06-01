@@ -1,0 +1,39 @@
+<h1>Tree partial loading of children</h1>
+
+<p>
+  Sometimes it does not make sense to load all children at once. Especially if there are hundreds of them.
+  This example shows how to handle loading of children in chunks.
+</p>
+
+<h2>Working tree</h2>
+
+<div class="demo-container">
+  <app-load-more></app-load-more>
+</div>
+
+<h2>How to implement</h2>
+
+<p>
+  This example needs no custom templating in the tree at all. All the logic is in handling the nodes and loading of the nodes.
+  It is based on the assumption that the data gets populated from an api call and the api can handle returning a specific child subset of data and also returns the total amount.
+</p>
+<p>
+  The base logic behind this implementation is to compare the nodes returned and the nodes shown to figure out if there are more nodes that can be loaded.
+  If there are nodes not yet loaded we add a special node to the result before returning the result to the tree.
+  If we already loaded nodes we need to remove the old special load more node and add the results.
+  To show the loading process we change the name of the node that was clicked into a loading indicator.
+</p>
+
+<h3>Node type</h3>
+<p>
+  One way to differentiate nodes we added from normal nodes is to introduce a type.
+  In the example we have an enum with only one entry, the <code>loadMore</code> type because it's the only one we need.
+  The tree itself will not care about this property on each or some nodes and will not rewrite or remove it.
+  We can use this type to check what to do when we click on a node. On our <code>loadMore</code> node we need to load data, on a normal node we maybe need to load or show different data.
+  The example has no custom templating, but we can also use this type to display different types of nodes with a different style.
+</p>
+<p>
+  Besides the <code>loadMore</code> with the handling shown in the example we can also add an <code>error</code> type.
+  If the api calls fails for some reason usually the tree will open a node - but show no results and the user has no opportunity to reload the data.
+  Instead of just returning the error we could catch it and add a special error node. If the user clicks on this node we can reload the data again.
+</p>

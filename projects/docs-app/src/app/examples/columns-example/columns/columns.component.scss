@@ -1,0 +1,106 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1300px
+);
+
+.base-tree-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+
+  .tree-header {
+    display: flex;
+    margin-left: -10px;
+    padding: 2px 5px 0 28px;
+    height: 38px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+    .tree-column {
+      color: #6E6E6E;
+      vertical-align: bottom;
+      font-size: 12px;
+      font-weight: 500;
+      align-items: center;
+    }
+  }
+
+  .tree-wrapper {
+    flex: 1;
+    max-height: calc(80vh - 0.2rem);
+  }
+
+  .tree-node-wrapper {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-left: 0.2rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .node-content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    flex: 1;
+    margin-right: 0.25rem;
+  }
+
+  .tree-header {
+    width: 98% !important;
+  }
+
+  .tree-column-wrapper, .tree-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    span {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .tree-column {
+      flex-grow: 1;
+      display: flex;
+      padding-left: 5px;
+      padding-right: 5px;
+      align-items: center;
+
+      &:first-child {
+        overflow: hidden;
+        margin-right: auto;
+        flex-shrink: 1;
+        min-width: 0;
+
+        span {
+          white-space: initial;
+        }
+      }
+
+      &:not(:first-child) {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 250px;
+
+        @media(max-width: 1440px - 1px) {
+          width: 160px;
+        }
+
+        @media(max-width: map-get($grid-breakpoints, xl) - 1px) {
+          width: 85px !important;
+        }
+
+        @media(max-width: 768px) {
+          display: none !important;
+        }
+      }
+    }
+  }
+}

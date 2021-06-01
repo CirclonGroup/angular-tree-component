@@ -1,0 +1,21 @@
+<h1>Large Trees & Virtual Scroll</h1>
+
+<p>When having a large amount of nodes and experiencing performance issues, it is recommended to use the virtual scroll option.</p>
+<p>To use this option, one must supply the height of the container, and the height of each node in the tree.</p>
+<p>You can also specify height for the dropSlot which is located between nodes.</p>
+<p>Example:</p>
+
+<code-example [header]="'html'">{{ html }}</code-example>
+<code-example [header]="'typescript'">{{ javascript }}</code-example>
+
+<h2>Hidden trees</h2>
+<p>
+  If the tree is hidden (for example inside tab or modal), it will not be rendered when it becomes visible.
+  After it becomes visible (preferably using setTimeout) - you need to call <code>tree.sizeChanged()</code>, which recalculates the rendered nodes according to the actual viewport size.
+</p>
+
+<h2>Demo</h2>
+<p>Initializing 100,000 nodes, please be patient...</p>
+<div class="demo-container">
+  <app-large-tree></app-large-tree>
+</div>

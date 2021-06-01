@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, Title } from '@angular/platform-browser';
 import { NavigationNode } from './navigation/navigation.model';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'docs-app';
+  baseTitle = 'Angular Tree Component';
 
   nav: NavigationNode[] = [
     { title: 'Getting Started', children: null, link: [''] },
@@ -29,9 +29,27 @@ export class AppComponent {
           { title: 'Common issues', url: 'fundamentals/issues', children: null, link: ['fundamentals', 'issues'] },
         ]
     },
+    { title: 'Guides', children:
+        [
+          { title: 'Async Data', url: 'guides/async', children: null, link: ['guides', 'async'] },
+          { title: 'Filtering', url: 'guides/filter', children: null, link: ['guides', 'filter'] },
+          { title: 'Updating the tree', url: 'guides/update', children: null, link: ['guides', 'update'] },
+          { title: 'Drag & Drop', url: 'guides/dragdrop', children: null, link: ['guides', 'dragdrop'] },
+          { title: 'Checkboxes', url: 'guides/checkboxes', children: null, link: ['guides', 'checkboxes'] },
+          { title: 'Large Trees & Virtual Scroll', url: 'guides/largetree', children: null, link: ['guides', 'largetree'] },
+          { title: 'Redux / Immutable Data', url: 'guides/redux', children: null, link: ['guides', 'redux'] },
+          { title: 'RTL', url: 'guides/rtl', children: null, link: ['guides', 'rtl'] },
+          { title: 'Custom Fields', url: 'guides/customfields', children: null, link: ['guides', 'customfields'] },
+          { title: 'Expanding nodes on init', url: 'guides/expanding', children: null, link: ['guides', 'expanding'] },
+          { title: 'Auto Scrolling', url: 'guides/autoscroll', children: null, link: ['guides', 'autoscroll'] },
+        ]
+    },
     { title: 'Examples', children:
         [
           { title: 'Basic', url: 'examples/basic', children: null, link: ['examples', 'basic'] },
+          { title: 'Columns', url: 'examples/columns', children: null, link: ['examples', 'columns'] },
+          { title: 'CRUD', url: 'examples/crud', children: null, link: ['examples', 'crud'] },
+          { title: 'Load more', url: 'examples/loadmore', children: null, link: ['examples', 'loadmore'] },
         ]
     },
   ];
@@ -40,7 +58,8 @@ export class AppComponent {
   constructor(
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
-    private router: Router
+    private router: Router,
+    private titleService: Title,
   ) {
     iconRegistry.addSvgIcon(
       'github',
@@ -71,6 +90,14 @@ export class AppComponent {
         if (newCurrent.length >= 2 && newCurrent.find(n => n.title === this.nav[0].title) !== undefined) {
           newCurrent = newCurrent.filter(n => n.title !== this.nav[0].title);
         }
+
+        // set title on all but landing page
+        if (newCurrent?.length && newCurrent[0].title !== 'Getting Started') {
+          this.titleService.setTitle(`${this.baseTitle} - ${newCurrent[0].title}`);
+        } else {
+          this.titleService.setTitle(this.baseTitle);
+        }
+
         this.currentNodes = newCurrent;
       });
   }

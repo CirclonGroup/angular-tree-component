@@ -1,0 +1,29 @@
+<h1>Tree with columns</h1>
+
+<h2>Working tree</h2>
+
+<div class="demo-container">
+  <app-columns></app-columns>
+</div>
+
+<h2>How to implement</h2>
+
+<p>To create columns inside the tree we need to use the templating options of the tree and style them with css.</p>
+<p>
+  The example component contains two parts. The header and the tree itself. The header is responsible for displaying the column header.
+  This is needed to give the tree the grid style. If you just want the tree to have columns without any header you don't need to build a header.
+</p>
+
+<h3>#treeNodeWrapperTemplate</h3>
+<p>
+  To show the tree in columns it's not needed to use the full templating option. But at least the <code>treeNodeWrapperTemplate</code> is needed.
+  See also the <a [routerLink]="['/', 'fundamentals', 'templates']">Template Fundamentals</a>.
+</p>
+
+<h3>Column definition</h3>
+<p>
+  The example uses a simple array <code>columns = ['city', 'zipCode']</code> to handle the columns.
+  This array includes the property names that should be shown as columns and does not include the name, which is the first column.
+  The name is handled differently as seen in the example. The columns array is just looped over and shown.
+  In a more advanced example you could have the columns array as an input and also handle the name dynamically.
+</p>

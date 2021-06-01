@@ -1,0 +1,15 @@
+<tree-root #tree [nodes]="nodes" [options]="options"
+           (activate)="onActivateNode($event)">
+  <ng-template #treeNodeTemplate let-node let-index="index">
+    <div class="tree-node-content">
+      <div>
+        <span>{{node.data.name}}</span>
+      </div>
+      <div>
+        <button (click)="copyNode(node, tree)">Copy</button>
+        <button (click)="addNode(node)">Add</button>
+        <button (click)="deleteNode(node, tree)">Delete</button>
+      </div>
+    </div>
+  </ng-template>
+</tree-root>

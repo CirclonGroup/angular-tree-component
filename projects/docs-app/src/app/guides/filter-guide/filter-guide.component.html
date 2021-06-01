@@ -1,0 +1,38 @@
+<h1>Filtering</h1>
+
+<h2>Demo</h2>
+
+<div class="demo-container">
+  <app-filter></app-filter>
+</div>
+
+<h2>Intro</h2>
+<p>
+  Filtering on the tree will ensure that if a node is visible, then all its ancestors are also visible.
+  This is being taken care of by the treeModel 'filterNodes' function.
+</p>
+
+<h2>Filter by function</h2>
+<p>
+  The function receives the node and returns true if the node should be hidden, false otherwise.
+</p>
+<code-example>{{functionFilter}}</code-example>
+
+<h2>Filter by string</h2>
+<p>The function filters all nodes whose displayField ('name' by default) contains the given string. The comparison is done case insensitive.</p>
+<code-example>tree.treeModel.filterNodes("text", true);</code-example>
+<p>
+  Note the second field - true by default.
+  This flag makes sure all nodes are visible after searching (i.e. expand all relevant ancestors).
+</p>
+
+<h2>Filtering by AP</h2>
+<p>
+  You can traverse the tree and do your own magic, and call <code>hide()</code>, <code>show()</code>, or <code>setIsHidden(value)</code> on all nodes as you wish.
+</p>
+
+<h2>Filtering by 2-way binding</h2>
+<p>
+  You can bind to the tree state and supply a dictionary of hidden node IDs.
+  See <a [routerLink]="['/', 'fundamentals', 'state']">2-way binding to state</a> for more information.
+</p>

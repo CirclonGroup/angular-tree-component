@@ -1,0 +1,130 @@
+<h1>Drag & Drop</h1>
+
+<h2>Demo</h2>
+<div class="demo-container">
+  <app-drag-drop></app-drag-drop>
+</div>
+
+<h2>Options</h2>
+
+<p>Allow drag & drop using <code>allowDrag</code> flag in tree options</p>
+<code-example [header]="'typescript'">{{ options }}</code-example>
+<code-example [header]="'html'">{{ htmlOptions }}</code-example>
+
+<h3>Dragging</h3>
+<p>Enable dragging with <code>allowDrag</code> option (default false) accepts either a boolean or a function:</p>
+<ul>
+  <li>Boolean value - decides if drop is allowed or not on the tree</li>
+  <li>
+    Function - decides on a per node basis if drop is allowed. The function receives:
+    <ul><li>
+      node - the dragged TreeNode
+    </li></ul>
+  </li>
+</ul>
+
+<h3>Dropping</h3>
+<p>Enable selective dropping with the <code>allowDrop</code> option (default true) accepts either a boolean or a function:</p>
+<ul>
+  <li>Boolean value - decides if drop is allowed or not on the tree</li>
+  <li>
+    Function - decides on a per node basis if drop is allowed. The function receives:
+    <ul>
+      <li>element - the dragged element</li>
+      <li>
+        to - drop location structure
+        <ul>
+          <li>parent - the parent node</li>
+          <li>index - the index inside the parent's children where the element is dropped</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Copying</h3>
+<p>The default behaviour of the tree is to copy the node when <code>ctrl</code> is pressed while dropping the node</p>
+<ul>
+  <li>By default the tree will shallow-clone the node data and generates a random ID</li>
+  <li>if <code>getNodeClone</code> option is supplied, it will be called to get a copy of the node. It receives a TreeNode object, and should return a node object (only the data).</li>
+</ul>
+
+<h2>Event</h2>
+<p>You can listen to <code>moveNode</code> events and get the moved node, and its new location in the tree</p>
+<p>listen to moveNode events</p>
+<code-example [header]="'typescript'">{{ event }}</code-example>
+<code-example [header]="'html'">{{ eventHtml }}</code-example>
+
+
+<h2>Override default behaviour</h2>
+
+<p>Use <code>actionMapping.mouse.drop</code> to override the default drag behaviour.</p>
+<p>You can also listen to all other drag events like <code>dragEnd</code>, <code>dragLeave</code> etc.:</p>
+<p>Override drag & drop action in actionMapping</p>
+
+<code-example [header]="'typescript'">{{ override }}</code-example>
+<code-example [header]="'html'">{{ overrideHtml }}</code-example>
+
+<p>In the drop callback, you get a <code>from</code> and <code>to</code> objects:</p>
+<ul>
+  <li>
+    <code>from</code>
+    <ul>
+      <li>If dragging a node, then from === the dragged node</li>
+      <li>If dragging something else, it is the draggedElement (see treeDrag directive below)</li>
+    </ul>
+  </li>
+  <li>
+    <code>to</code>
+    <ul>
+      <li>parent: the parent node</li>
+      <li>index: the index inside the parent's children where the node should be dropped</li>
+      <li>dropOnNode: distinguish between dropping on the node itself or the drop slot</li>
+    </ul>
+  </li>
+</ul>
+
+
+<h2>Drag and drop between trees</h2>
+<p>This is enabled by default when dragging is enabled.</p>
+
+
+<h2>Drag a node outside of the tree</h2>
+<p>You can use the (treeDrop) directive to allow dragging nodes to an external element.</p>
+<p>For example:</p>
+<p>use (treeDrop) to drag an external element to the tree</p>
+<code-example [header]="'html'">{{ dragOutsideHtml }}</code-example>
+<code-example [header]="'typescript'">{{ dragOutside }}</code-example>
+<p>Use <code>$event.element</code> inside the callback.</p>
+<p>Use <code>[treeAllowDrop]</code> Input to specify a function that runs onDragOver, and decides if the dropping is allowed or not.</p>
+
+
+<h2>Drag an external element into the tree</h2>
+<p>You can use the <code>[treeDrag]</code> directive to allow dragging external elements into the tree.</p>
+<p>Then use a custom action to handle the drop <a [routerLink]="['/', 'fundamentals', 'actions']">(see Action Mapping section)</a>.</p>
+<p>For example:</p>
+
+<code-example [header]="'typescript'">{{ dragExternal }}</code-example>
+<code-example [header]="'html'">{{ dragExternalHtml }}</code-example>
+
+<p>The data that you pass to <code>[treeDrag]</code> will be passed to the handler in the <code>from</code> parameter.</p>
+<p>Use <code>to.parent</code> and <code>to.index</code> to get the drop location.</p>
+<p>Use <code>to.dropOnNode</code> to distinguish between dropping on the node itself or the drop slot.</p>
+<p>If you add a new node to the tree, you'll need to call <code>tree.update()</code> afterwards.</p>
+<p>Use <code>[treeDragEnabled]</code> boolean Input to decide if the drag is enabled or not.</p>
+
+
+<h2>Drag to an empty tree</h2>
+<p>To drag to an empty tree, set your nodes to an empty array.</p>
+<p>If nodes is undefined or null, the drop slot will not appear.</p>
+
+
+<h2>Mobile</h2>
+<p>To support drag and drop on mobile, you can use DragDropTouch polyfill in your project to enable it.</p>
+<p>Download the code from here: <a href="https://github.com/Bernardo-Castilho/dragdroptouch" target="_blank">https://github.com/Bernardo-Castilho/dragdroptouch</a></p>
+<p>Place it somewhere in your code, and import it from polyfills.ts, or just place a script tag to include it.</p>
+
+
+<h2>Performance Issues</h2>
+<p>It there are performance issues on large trees while drag and drop it's possible to detach change detection during the drag.</p>
+<code-example>{{ performance }}</code-example>

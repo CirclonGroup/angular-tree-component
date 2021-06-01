@@ -4,12 +4,6 @@
 
 # angular tree component
 
-## News
-
-We are happy to announce, that starting today, [Circlon | group](https://circlon.de) is taking over this repository.
-We're going on this journey with the strong belief, that this component should not be missed by the community, and we are hoping on your continuous and significant support as always.
-On this new journey we will also receive technical guidance from [Adam](https://github.com/adamkleingit), who will help us to better understand the community, their needs and also to elevate this component to a completely new level of engineering.
-
 ## Getting started
 
 Install `angular-tree-component`:

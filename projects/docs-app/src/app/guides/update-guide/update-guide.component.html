@@ -1,0 +1,18 @@
+<h1>Updating the tree</h1>
+
+<h2>Changing node attributes</h2>
+<p>Changing any attributes on the node itself will be reflected immediately, since change detection will force the tree node components to re-render.</p>
+
+<h2>Adding / Removing nodes</h2>
+<p>After adding or removing nodes from the tree, one must call the <code>update</code> method on the treeModel for it to take affect.</p>
+<p>For example:</p>
+<code-example>{{ adding }}</code-example>
+<p>This is due to the fact that the treeModel builds its own model around the nodes data, to calculate node levels, paths, parent links etc. So it must be informed of any change to the nodes' structure.</p>
+<p>Calling update will have no effect on the tree status, i.e. current selected node, current focused node, current expanded nodes, etc.</p>
+
+<h2>Working with immutable data</h2>
+<p>
+  Changing the reference to nodes will also trigger an <code>update</code> automatically.
+  So if you work for example with immutable data and replace the nodes array instead of mutating it - there is no need to call any method.
+</p>
+<code-example>{{ immutable }}</code-example>

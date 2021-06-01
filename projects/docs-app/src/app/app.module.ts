@@ -17,6 +17,7 @@ import { TreeModule } from 'angular-tree-component';
 import { FundamentalsModule } from './fundamentals/fundamentals.module';
 import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
+import { GuidesModule } from './guides/guides.module';
 
 @NgModule({
   declarations: [AppComponent, GettingStartedComponent],
@@ -36,6 +37,7 @@ import { SharedModule } from './shared/shared.module';
     ExamplesModule,
     TreeModule,
     FundamentalsModule,
+    GuidesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

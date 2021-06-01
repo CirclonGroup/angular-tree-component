@@ -1,0 +1,46 @@
+<div class="base-tree-container">
+  <div #treeHeader class="tree-header">
+    <div class="tree-column tree-header-column"><span>Company name</span></div>
+    <div
+      *ngFor="let columnName of columns"
+      class="tree-column tree-header-column">
+      <span>{{ columnName }}</span>
+    </div>
+  </div>
+  <div class="tree-wrapper">
+    <tree-root
+      #tree
+      [options]="options"
+      [nodes]="nodes">
+      <!-- Node wrapper template to control wrapper classes and cursor behaviour -->
+      <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+        <div class="tree-node-wrapper no-pointer">
+          <tree-node-expander [node]="node"></tree-node-expander>
+          <div class="node-content-wrapper pointer"
+               [class.node-content-wrapper-active]="node.isActive"
+               [class.node-content-wrapper-focused]="node.isFocused"
+               (click)="node.mouseAction('click', $event)"
+               (dblclick)="node.mouseAction('dblClick', $event)"
+               (contextmenu)="node.mouseAction('contextMenu', $event)"
+               (treeDrop)="node.onDrop($event)"
+               [treeAllowDrop]="node.allowDrop"
+               [treeDrag]="node"
+               [treeDragEnabled]="node.allowDrag()">
+
+            <div class="tree-column-wrapper">
+              <div class="tree-column" [title]="node.data.name">
+                <span>{{ node.data.name }}</span>
+              </div>
+              <div
+                *ngFor="let columnName of columns"
+                class="tree-column"
+                [title]="node.data[columnName]">
+                <span>{{node.data[columnName]}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </tree-root>
+  </div>
+</div>
