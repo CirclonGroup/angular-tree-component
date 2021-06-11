@@ -30,6 +30,10 @@ Add css to `styles.scss` or include in `angular.json`:
 ```
 
 ## Docs, Demos & More
+We are redoing the documentation. You can find the new documentation here:
+[https://circlongroup.github.io/angular-tree-component/](https://circlongroup.github.io/angular-tree-component/)
+
+The API Reference is still in our old documentation for now:
 
 [https://angular2-tree.readme.io/docs/](https://angular2-tree.readme.io/docs/)
 
