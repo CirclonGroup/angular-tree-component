@@ -6,7 +6,6 @@
     "target": "es2015",
     "outDir": "/dist/out-tsc",
     "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "inlineSourceMap": true,
     "inlineSources": true,
