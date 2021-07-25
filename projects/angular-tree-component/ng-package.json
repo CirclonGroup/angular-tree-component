@@ -9,5 +9,5 @@
       "lodash-es": "lodash-es"
     }
   },
-  "whitelistedNonPeerDependencies": ["core-js", "lodash-es", "mobx"]
+  "allowedNonPeerDependencies": ["core-js", "lodash-es", "mobx"]
 }
