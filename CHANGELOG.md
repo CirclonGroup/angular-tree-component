@@ -31,11 +31,11 @@
 
 BEFORE:
 
-getNodeById(predicate) - predicate needs to support lodash find method
+getNodeBy(predicate) - predicate needs to support lodash find method
 
 AFTER:
 
-getNodeById(predicate) - predicate needs to support javaScript find method
+getNodeBy(predicate) - predicate needs to support javaScript find method
 
 <a name="10.0.2"></a>
 # 10.0.2 (2020-12-21)
