@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { observable, computed, action, autorun } from 'mobx';
+import { observable, computed, action, autorun, extendObservable } from 'mobx';
 import { Subscription } from 'rxjs';
 import { TreeNode } from './tree-node.model';
 import { TreeOptions } from './tree-options.model';
@@ -496,14 +496,17 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
 
   private _calculateExpandedNodes(startNode = null) {
-    startNode = startNode || this.virtualRoot;
-
-    if (startNode.data[this.options.isExpandedField]) {
-      this.expandedNodeIds = Object.assign({}, this.expandedNodeIds, {[startNode.id]: true});
-    }
-    if (startNode.children) {
-      startNode.children.forEach((child) => this._calculateExpandedNodes(child));
-    }
+    const _calculateExpandedNodesRec = (node) => {
+      node = node || this.virtualRoot;
+      if (node.data[this.options.isExpandedField]) {
+        extendObservable(this.expandedNodeIds, { [node.id]: true });
+      }
+      if (node.children) {
+        node.children.forEach((child) => _calculateExpandedNodesRec(child));
+      }
+    };
+    _calculateExpandedNodesRec(startNode);
+    this.expandedNodeIds = Object.assign({}, this.expandedNodeIds);
   }
 
   private _setActiveNodeSingle(node, value) {
