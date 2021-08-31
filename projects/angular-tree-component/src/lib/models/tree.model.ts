@@ -498,7 +498,6 @@ export class TreeModel implements ITreeModel, OnDestroy {
   private _calculateExpandedNodes(startNode = null) {
     const _calculateExpandedNodesRec = (node) => {
       node = node || this.virtualRoot;
-  
       if (node.data[this.options.isExpandedField]) {
         extendObservable(this.expandedNodeIds, { [node.id]: true });
       }
