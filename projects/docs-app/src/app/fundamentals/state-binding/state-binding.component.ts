@@ -72,18 +72,17 @@ class MyComponent {
 
   api = `
 <tree-root
-  #tree
-  (initialize)="onInit(tree)"
+  (initialize)="onInit($event)"
   [nodes]="nodes">
 </tree-root>
 
 class MyComponent {
-  onInit(tree) {
+  onInit({treeModel}: { eventName: 'initialized'; treeModel: TreeModel }) {
     if (localStorage.treeState) {
-      tree.treeModel.setState(JSON.parse(localStorage.treeState);
+      treeModel.setState(JSON.parse(localStorage.treeState);
     }
-    tree.treeModel.subscribe((state) => {
-      localStorage.treeState = JSON.stringify(state);
+    treeModel.subscribeToState((treeState: ITreeState) => {
+      localStorage.treeState = JSON.stringify(treeState);
     });
   }
 }
