@@ -48,7 +48,7 @@ angular-tree-component supports angular 2 and above, and AoT compilation.
 
 ## Contributing
 
-Run `npm run build` (`npm run build:win` for windows users) to build. Run `npm start:example-app` and open [localhost:4200](http://localhost:4200) to test your code before submitting a pull request.
+Run `npm run build` to build. Run `npm run start:example-app` and open [localhost:4200](http://localhost:4200) to test your code before submitting a pull request.
 
 To run tests locally - make sure port 4200 is available and run:
 
