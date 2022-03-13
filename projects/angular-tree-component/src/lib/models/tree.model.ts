@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, NgZone, OnDestroy } from '@angular/core';
 import { observable, computed, action, autorun } from 'mobx';
 import { Subscription } from 'rxjs';
 import { TreeNode } from './tree-node.model';
@@ -27,6 +27,8 @@ export class TreeModel implements ITreeModel, OnDestroy {
   private firstUpdate = true;
   private events: any;
   private subscriptions: Subscription[] = [];
+
+  constructor(private ngZone: NgZone) {}
 
   // events
   fireEvent(event) {
@@ -215,7 +217,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
 
     this.dispose();
 
-    this.virtualRoot = new TreeNode(virtualRootConfig, null, this, 0);
+    this.virtualRoot = new TreeNode(this.ngZone, virtualRootConfig, null, this, 0);
 
     this.roots = this.virtualRoot.children;
 

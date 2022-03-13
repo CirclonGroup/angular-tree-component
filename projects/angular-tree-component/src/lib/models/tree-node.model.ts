@@ -1,3 +1,5 @@
+import { NgZone } from '@angular/core';
+
 import { observable, computed, reaction, autorun, action, IReactionDisposer } from 'mobx';
 import { TreeModel } from './tree.model';
 import { TreeOptions } from './tree-options.model';
@@ -47,7 +49,13 @@ export class TreeNode implements ITreeNode {
   private _originalNode: any;
   get originalNode() { return this._originalNode; };
 
-  constructor(public data: any, public parent: TreeNode, public treeModel: TreeModel, index: number) {
+  constructor(
+    private ngZone: NgZone,
+    public data: any,
+    public parent: TreeNode,
+    public treeModel: TreeModel,
+    index: number
+  ) {
     if (this.id === undefined || this.id === null) {
       this.id = uuid();
     } // Make sure there's a unique id without overriding existing ids to work with immutable data structures
@@ -390,7 +398,8 @@ export class TreeNode implements ITreeNode {
     const mouseAction = actionMapping[actionName];
 
     if (mouseAction) {
-      mouseAction(this.treeModel, this, $event, data);
+      // If `mouseAction` is already in the zone, calling `run` again won't trigger another change detection.
+      this.ngZone.run(() => mouseAction(this.treeModel, this, $event, data));
     }
   }
 
@@ -400,7 +409,7 @@ export class TreeNode implements ITreeNode {
 
   @action _initChildren() {
     this.children = this.getField('children')
-      .map((c, index) => new TreeNode(c, this, this.treeModel, index));
+      .map((c, index) => new TreeNode(this.ngZone, c, this, this.treeModel, index));
   }
 }
 
