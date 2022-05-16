@@ -40,7 +40,7 @@ export class TemplatesComponent {
 
   treeLoading = `
 <tree-root [nodes]="nodes">
-  <template #loadingTemplate>Loading, please hold....</template>
+  <ng-template #loadingTemplate>Loading, please hold....</ng-template>
 </tree-root>
 `;
 
