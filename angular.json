@@ -22,12 +22,14 @@
             "main": "projects/example-app/src/main.ts",
             "polyfills": "projects/example-app/src/polyfills.ts",
             "tsConfig": "projects/example-app/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "projects/example-app/src/favicon.ico",
               "projects/example-app/src/assets"
             ],
-            "styles": ["projects/example-app/src/styles.scss"],
+            "styles": [
+              "projects/example-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -103,13 +105,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/example-app/tsconfig.app.json",
-              "projects/example-app/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
+            "lintFilePatterns": [
+              "projects/example-app/**/*.ts",
+              "projects/example-app/**/*.html"
+            ]
           }
         }
       }
@@ -123,9 +124,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/angular-tree-component/tsconfig.lib.json",
             "project": "projects/angular-tree-component/ng-package.json"
-          }
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-tree-component/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-tree-component/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -136,13 +145,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/angular-tree-component/tsconfig.lib.json",
-              "projects/angular-tree-component/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
+            "lintFilePatterns": [
+              "projects/angular-tree-component/**/*.ts",
+              "projects/angular-tree-component/**/*.html"
+            ]
           }
         }
       }
@@ -166,12 +174,14 @@
             "main": "projects/docs-app/src/main.ts",
             "polyfills": "projects/docs-app/src/polyfills.ts",
             "tsConfig": "projects/docs-app/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "projects/docs-app/src/favicon.ico",
               "projects/docs-app/src/assets"
             ],
-            "styles": ["projects/docs-app/src/styles.scss"],
+            "styles": [
+              "projects/docs-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -232,23 +242,26 @@
               "projects/docs-app/src/favicon.ico",
               "projects/docs-app/src/assets"
             ],
-            "styles": ["projects/docs-app/src/styles.scss"],
+            "styles": [
+              "projects/docs-app/src/styles.scss"
+            ],
             "scripts": []
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/docs-app/tsconfig.app.json",
-              "projects/docs-app/tsconfig.spec.json",
-              "projects/docs-app/e2e/tsconfig.json"
-            ],
-            "exclude": ["**/node_modules/**"]
+            "lintFilePatterns": [
+              "projects/docs-app/**/*.ts",
+              "projects/docs-app/**/*.html"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "example-app"
+  "defaultProject": "example-app",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

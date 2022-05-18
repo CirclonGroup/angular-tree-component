@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-nodes',
   templateUrl: './nodes.component.html',
   styleUrls: ['./nodes.component.scss']
 })
-export class NodesComponent implements OnInit {
+export class NodesComponent {
 
   nodes = `[
   {
@@ -17,10 +17,4 @@ export class NodesComponent implements OnInit {
     ]
   }
 ]`;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -34,7 +34,7 @@ const actionMapping: IActionMapping = {
   selector: 'app-dragover-styling-fulltree',
   styles: [
     `
-      button: {
+      button {
         line-height: 24px;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
         border: none;

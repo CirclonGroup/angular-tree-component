@@ -34,8 +34,8 @@ const actionMapping: IActionMapping = {
 @Component({
   selector: 'app-fulltree',
   styles: [
-    `button: {
-        line - height: 24px;
+    `button {
+        line-height: 24px;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
         border: none;
         border-radius: 2px;

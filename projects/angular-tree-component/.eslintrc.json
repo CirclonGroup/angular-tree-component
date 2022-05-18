@@ -1,0 +1,62 @@
+{
+  "extends": "../../.eslintrc.json",
+  "ignorePatterns": [
+    "!**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "projects/angular-tree-component/tsconfig.lib.json",
+          "projects/angular-tree-component/tsconfig.spec.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": [
+              "lib",
+              "tree"
+            ],
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": [
+              "lib",
+              "tree"
+            ],
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/no-output-on-prefix": [
+          "off"
+        ],
+        "@angular-eslint/no-output-native": [
+          "off"
+        ],
+        "@angular-eslint/no-input-rename": [
+          "off"
+        ],
+        "@angular-eslint/no-output-rename": [
+          "off"
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "rules": {}
+    }
+  ]
+}

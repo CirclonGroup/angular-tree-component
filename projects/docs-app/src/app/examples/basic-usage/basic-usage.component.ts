@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-basic-usage',
   templateUrl: './basic-usage.component.html',
   styleUrls: ['./basic-usage.component.scss']
 })
-export class BasicUsageComponent implements OnInit {
+export class BasicUsageComponent {
 
   nodes = [
     {
@@ -28,10 +28,4 @@ export class BasicUsageComponent implements OnInit {
     { name: 'root4', children: [] },
     { name: 'root5', children: null }
   ];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
