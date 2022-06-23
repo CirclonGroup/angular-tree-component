@@ -10,7 +10,7 @@ export class DragDropGuideComponent {
 `
 options = {
   allowDrag: (node) => node.isLeaf,
-  allowDrop: (element, { parent, index }) {
+  allowDrop: (element, { parent, index }) => {
     // return true / false based on element, to.parent, to.index. e.g.
     return parent.hasChildren;
   },
