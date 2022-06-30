@@ -42,7 +42,7 @@ export interface ITreeOptions {
       options = { hasChildrenField: 'isDirectory' }
     ```
     */
-   hasChildrenField?: string;
+   hasChildrenField?: string | ((node: ITreeNode) => boolean);
    /**
     * A string representing the attribute of the node that contains the array of children.
 
@@ -53,7 +53,7 @@ export interface ITreeOptions {
       options = { childrenField: 'nodes' }
     ```
     */
-   childrenField?: string;
+   childrenField?: string | ((node: ITreeNode) => ITreeNode[]);
    /**
     * A string representing the attribute of the node to display.
 
@@ -64,7 +64,7 @@ export interface ITreeOptions {
         options = { displayField: 'title' }
       ```
     */
-   displayField?: string;
+   displayField?: string | ((node: ITreeNode) => string);
    /**
     * A string representing the attribute of the node that contains the unique ID.
       This will be used to construct the `path`, which is an array of IDs that point to the node.
@@ -76,7 +76,7 @@ export interface ITreeOptions {
         options = { idField: 'uuid' }
       ```
     */
-   idField?: string;
+   idField?: string| ((node: ITreeNode) => string);
    /**
     * A string representing the attribute of the node that contains whether the node starts as expanded.
 
@@ -87,7 +87,7 @@ export interface ITreeOptions {
         options = { isExpandedField: 'expanded' }
       ```
     */
-   isExpandedField?: string;
+   isExpandedField?: string| ((node: ITreeNode) => boolean);
    /**
     * Function for loading a node's children.
       The function receives a TreeNode, and returns a value or a promise that resolves to the node's children.
