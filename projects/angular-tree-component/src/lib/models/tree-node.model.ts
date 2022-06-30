@@ -53,8 +53,9 @@ export class TreeNode implements ITreeNode {
     } // Make sure there's a unique id without overriding existing ids to work with immutable data structures
     this.index = index;
 
-    if (this.getField('children')) {
-      this._initChildren();
+    const childData = this.getField('children');
+    if (childData) {
+      this._initChildren(childData);
     }
     this.autoLoadChildren();
   }
@@ -86,10 +87,17 @@ export class TreeNode implements ITreeNode {
   }
 
   getField(key) {
+    if(typeof this.options[`${key}Field`] === 'function') {
+      return this.options[`${key}Field`](this);
+    }
     return this.data[this.options[`${key}Field`]];
   }
 
   setField(key, value) {
+    if(typeof this.options[`${key}Field`] === 'function') {
+      console.warn(`Cannot set the value for ${key}Field on TreeNode because ${key}Field is retrieved using a function.`);
+      return;
+    }
     this.data[this.options[`${key}Field`]] = value;
   }
 
@@ -203,7 +211,7 @@ export class TreeNode implements ITreeNode {
       .then((children) => {
         if (children) {
           this.setField('children', children);
-          this._initChildren();
+          this._initChildren(children);
           if (this.options.useTriState && this.treeModel.isSelected(this)) {
             this.setIsSelected(true);
           }
@@ -398,8 +406,8 @@ export class TreeNode implements ITreeNode {
     return this.options.nodeHeight(this);
   }
 
-  @action _initChildren() {
-    this.children = this.getField('children')
+  @action _initChildren(childData) {
+    this.children = childData
       .map((c, index) => new TreeNode(c, this, this.treeModel, index));
   }
 }

@@ -11,7 +11,7 @@ import { TreeNode } from '../models/tree-node.model';
     [ngTemplateOutletContext]="{ $implicit: node, node: node, index: index }">
   </ng-container>`,
 })
-export class TreeNodeContent {
+export class TreeNodeContentComponent {
   @Input() node: TreeNode;
   @Input() index: number;
   @Input() template: TemplateRef<any>;

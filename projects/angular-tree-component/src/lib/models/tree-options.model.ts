@@ -1,7 +1,7 @@
 import { TreeNode } from './tree-node.model';
 import { TreeModel } from './tree.model';
 import { KEYS } from '../constants/keys';
-import { ITreeOptions } from '../defs/api';
+import { ITreeNode, ITreeOptions } from '../defs/api';
 
 export interface IActionHandler {
   (tree: TreeModel, node: TreeNode, $event: any, ...rest);
@@ -75,11 +75,11 @@ export interface IActionMapping {
 }
 
 export class TreeOptions {
-  get hasChildrenField(): string { return this.options.hasChildrenField || 'hasChildren'; }
-  get childrenField(): string { return this.options.childrenField || 'children'; }
-  get displayField(): string { return this.options.displayField || 'name'; }
-  get idField(): string { return this.options.idField || 'id'; }
-  get isExpandedField(): string { return this.options.isExpandedField || 'isExpanded'; }
+  get hasChildrenField(): string | ((node: ITreeNode) => boolean) { return this.options.hasChildrenField || 'hasChildren'; }
+  get childrenField(): string | ((node: ITreeNode) => ITreeNode[]){ return this.options.childrenField || 'children'; }
+  get displayField(): string | ((node: ITreeNode) => string){ return this.options.displayField || 'name'; }
+  get idField(): string | ((node: ITreeNode) => string){ return this.options.idField || 'id'; }
+  get isExpandedField(): string | ((node: ITreeNode) => boolean){ return this.options.isExpandedField || 'isExpanded'; }
   get getChildren(): any { return this.options.getChildren; }
   get levelPadding(): number { return this.options.levelPadding || 0; }
   get useVirtualScroll(): boolean { return this.options.useVirtualScroll; }

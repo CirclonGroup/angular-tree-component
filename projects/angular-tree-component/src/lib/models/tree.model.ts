@@ -206,16 +206,22 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
 
   @action update() {
+
     // Rebuild tree:
     let virtualRootConfig = {
       id: this.options.rootId,
       virtual: true,
-      [this.options.childrenField]: this.nodes
     };
+    if(typeof this.options.childrenField === 'string') {
+      virtualRootConfig[this.options.childrenField] = this.nodes;
+    }
 
     this.dispose();
 
     this.virtualRoot = new TreeNode(virtualRootConfig, null, this, 0);
+    if(typeof this.options.childrenField === 'function') {
+      this.virtualRoot._initChildren(this.nodes);
+    }
 
     this.roots = this.virtualRoot.children;
 
@@ -498,7 +504,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
   private _calculateExpandedNodes(startNode = null) {
     startNode = startNode || this.virtualRoot;
 
-    if (startNode.data[this.options.isExpandedField]) {
+    if (startNode.getField('isExpanded')) {
       this.expandedNodeIds = Object.assign({}, this.expandedNodeIds, {[startNode.id]: true});
     }
     if (startNode.children) {

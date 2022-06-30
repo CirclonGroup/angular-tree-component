@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.scss']
 })
-export class OptionsComponent implements OnInit {
+export class OptionsComponent {
 
   options = `
 import { TREE_ACTIONS, KEYS, IActionMapping, ITreeOptions } from '@circlon/angular-tree-component';
@@ -47,10 +47,5 @@ class MyComponent {
   }
 }
 `;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

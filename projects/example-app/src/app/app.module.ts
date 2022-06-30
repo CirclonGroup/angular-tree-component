@@ -24,6 +24,7 @@ import { ScrollContainerComponent } from './scrollcontainer/scrollcontainer.comp
 import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 import { DragOverStylingComponent } from './dragover-styling/dragover-styling.component';
 import { DragOverStylingFullTreeComponent } from './dragover-styling/dragover-styling-full-tree.component';
+import { FieldFunctionsComponent } from './field-functions/field-functions.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DragOverStylingFullTreeComponent } from './dragover-styling/dragover-st
     FullTreeComponent,
     TemplatesComponent,
     FieldsComponent,
+    FieldFunctionsComponent,
     FilterComponent,
     EmptyComponent,
     RtlTreeComponent,

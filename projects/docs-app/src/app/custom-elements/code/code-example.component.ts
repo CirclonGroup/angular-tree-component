@@ -1,4 +1,4 @@
-/* tslint:disable component-selector */
+/* eslint-disable  @angular-eslint/component-selector */
 import { Component, HostBinding, ElementRef, ViewChild, Input, AfterViewInit } from '@angular/core';
 import { CodeComponent } from './code.component';
 

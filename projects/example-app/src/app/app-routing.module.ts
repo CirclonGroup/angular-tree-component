@@ -19,6 +19,7 @@ import { ScrollContainerComponent } from './scrollcontainer/scrollcontainer.comp
 import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 import { DragOverStylingComponent } from './dragover-styling/dragover-styling.component';
 import { DragOverStylingFullTreeComponent } from './dragover-styling/dragover-styling-full-tree.component';
+import { FieldFunctionsComponent } from './field-functions/field-functions.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'fields',
     component: FieldsComponent
+  },
+  {
+    path: 'field-functions',
+    component: FieldFunctionsComponent
   },
   {
     path: 'templates',

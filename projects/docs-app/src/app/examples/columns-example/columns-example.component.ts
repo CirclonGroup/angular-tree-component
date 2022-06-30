@@ -5,11 +5,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './columns-example.component.html',
   styleUrls: ['./columns-example.component.scss']
 })
-export class ColumnsExampleComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class ColumnsExampleComponent { }

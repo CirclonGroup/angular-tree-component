@@ -14,7 +14,7 @@ import { TreeNode } from '../models/tree-node.model';
     </div>
   `
 })
-export class TreeNodeDropSlot {
+export class TreeNodeDropSlotComponent {
   @Input() node: TreeNode;
   @Input() dropIndex: number;
 
