@@ -2,8 +2,8 @@ import { Component, HostListener } from '@angular/core';
 import { ITreeOptions, TREE_ACTIONS, TreeNode, TreeModel } from 'angular-tree-component';
 
 @Component({
-  selector: 'app-contextmenu',
-  template: `
+    selector: 'app-contextmenu',
+    template: `
     <tree-root [focused]="true" [options]="options" [nodes]="nodes">
       <ng-template #treeNodeTemplate let-node="node">
         <span *ngIf="node === editNode">
@@ -30,28 +30,29 @@ import { ITreeOptions, TREE_ACTIONS, TreeNode, TreeModel } from 'angular-tree-co
     <p>Keys:</p>
     down | up | left | right | space | enter
   `,
-  styles: [
-    `.menu {
+    styles: [
+        `.menu {
       position: absolute;
       background: rgba(255, 255, 255, 0.9);
       padding: 7px;
       border-radius: 5px;
       box-shadow: 0 0 2px 2px rgba(0,0,0,0.2);
     }`,
-    `ul {
+        `ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }`,
-    `li {
+        `li {
       padding: 7px;
       border-radius: 3px;
       cursor: pointer;
     }`,
-    `li:hover {
+        `li:hover {
       background-color: aliceblue;
     }`,
-  ]
+    ],
+    standalone: false
 })
 export class ContextmenuComponent {
   contextMenu: {node: TreeNode, x: number, y: number} = null;

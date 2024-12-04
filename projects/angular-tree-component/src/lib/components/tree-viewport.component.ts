@@ -9,16 +9,17 @@ import { TreeVirtualScroll } from '../models/tree-virtual-scroll.model';
 import { TREE_EVENTS } from '../constants/events';
 
 @Component({
-  selector: 'tree-viewport',
-  styles: [],
-  providers: [TreeVirtualScroll],
-  template: `
+    selector: 'tree-viewport',
+    styles: [],
+    providers: [TreeVirtualScroll],
+    template: `
     <ng-container *treeMobxAutorun="{ dontDetach: true }">
       <div [style.height]="getTotalHeight()">
         <ng-content></ng-content>
       </div>
     </ng-container>
-  `
+  `,
+    standalone: false
 })
 export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
   setViewport = this.throttle(() => {

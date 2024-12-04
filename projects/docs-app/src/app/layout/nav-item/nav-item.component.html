@@ -6,13 +6,13 @@
 </div>
 
 <div *ngIf="node.children">
-    <a *ngIf="node.link != null" [routerLink]="node.link" [ngClass]="classes" title="{{node.tooltip}}"
+    <a *ngIf="!node.link" [routerLink]="node.link" [ngClass]="classes" title="{{node.tooltip}}"
        (click)="headerClicked()" class="vertical-menu-item heading">
         <span>{{node.title}}</span>
         <mat-icon class="rotating-icon">chevron_right</mat-icon>
     </a>
 
-    <button *ngIf="node.link == null" type="button" [ngClass]="classes" title="{{node.tooltip}}"
+    <button *ngIf="node.link" type="button" [ngClass]="classes" title="{{node.tooltip}}"
             (click)="headerClicked()" class="vertical-menu-item heading"
             [attr.aria-pressed]="isExpanded">
         <span>{{node.title}}</span>

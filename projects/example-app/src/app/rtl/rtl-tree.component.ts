@@ -1,12 +1,13 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-basictree',
-  template: `
+    selector: 'app-basictree',
+    template: `
     <tree-root [focused]="true" [nodes]="nodes" [options]="options"></tree-root>
   `,
-  encapsulation: ViewEncapsulation.None,
-  styles: []
+    encapsulation: ViewEncapsulation.None,
+    styles: [],
+    standalone: false
 })
 export class RtlTreeComponent {
   options = {

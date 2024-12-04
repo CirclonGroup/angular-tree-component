@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ITreeOptions } from 'angular-tree-component';
 
 @Component({
-  selector: 'app-templates-demo',
-  templateUrl: './templates-demo.component.html',
-  styleUrls: ['./templates-demo.component.scss']
+    selector: 'app-templates-demo',
+    templateUrl: './templates-demo.component.html',
+    styleUrls: ['./templates-demo.component.scss'],
+    standalone: false
 })
 export class TemplatesDemoComponent {
 

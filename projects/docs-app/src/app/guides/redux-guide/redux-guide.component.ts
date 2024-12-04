@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-redux-guide',
-  templateUrl: './redux-guide.component.html',
-  styleUrls: ['./redux-guide.component.scss']
+    selector: 'app-redux-guide',
+    templateUrl: './redux-guide.component.html',
+    styleUrls: ['./redux-guide.component.scss'],
+    standalone: false
 })
 export class ReduxGuideComponent {
   options = `

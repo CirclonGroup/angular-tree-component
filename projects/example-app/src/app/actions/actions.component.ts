@@ -32,10 +32,9 @@ const actionMapping: IActionMapping = {
 };
 
 @Component({
-  selector: 'app-actions',
-  styles: [
-  ],
-  template: `
+    selector: 'app-actions',
+    styles: [],
+    template: `
     <tree-root
       #tree
       [nodes]="nodes"
@@ -51,7 +50,8 @@ const actionMapping: IActionMapping = {
     shift+click - select multi<br>
     double click - expand / collapse<br>
     right-click - show alert
-  `
+  `,
+    standalone: false
 })
 export class ActionsComponent {
   nodes = [

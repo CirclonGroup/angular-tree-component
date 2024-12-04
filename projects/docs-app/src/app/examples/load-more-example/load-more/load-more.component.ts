@@ -19,9 +19,10 @@ interface ServiceResult {
 }
 
 @Component({
-  selector: 'app-load-more',
-  templateUrl: './load-more.component.html',
-  styleUrls: ['./load-more.component.scss']
+    selector: 'app-load-more',
+    templateUrl: './load-more.component.html',
+    styleUrls: ['./load-more.component.scss'],
+    standalone: false
 })
 export class LoadMoreComponent {
 

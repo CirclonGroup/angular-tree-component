@@ -2,9 +2,10 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { NavigationNode } from '../../navigation/navigation.model';
 
 @Component({
-  selector: 'app-nav-item',
-  templateUrl: './nav-item.component.html',
-  styleUrls: ['./nav-item.component.scss']
+    selector: 'app-nav-item',
+    templateUrl: './nav-item.component.html',
+    styleUrls: ['./nav-item.component.scss'],
+    standalone: false
 })
 export class NavItemComponent implements OnChanges {
 

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ITreeOptions } from 'angular-tree-component';
 
 @Component({
-  selector: 'app-checkboxes',
-  templateUrl: './checkboxes.component.html',
-  styleUrls: ['./checkboxes.component.scss']
+    selector: 'app-checkboxes',
+    templateUrl: './checkboxes.component.html',
+    styleUrls: ['./checkboxes.component.scss'],
+    standalone: false
 })
 export class CheckboxesComponent {
 

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ITreeOptions } from 'angular-tree-component';
 
 @Component({
-  selector: 'app-api-demo',
-  templateUrl: './api-demo.component.html',
-  styleUrls: ['./api-demo.component.scss']
+    selector: 'app-api-demo',
+    templateUrl: './api-demo.component.html',
+    styleUrls: ['./api-demo.component.scss'],
+    standalone: false
 })
 export class ApiDemoComponent {
 

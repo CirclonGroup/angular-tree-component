@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ITreeOptions } from 'angular-tree-component';
 
 @Component({
-  selector: 'app-large-tree',
-  templateUrl: './large-tree.component.html',
-  styleUrls: ['./large-tree.component.scss']
+    selector: 'app-large-tree',
+    templateUrl: './large-tree.component.html',
+    styleUrls: ['./large-tree.component.scss'],
+    standalone: false
 })
 export class LargeTreeComponent {
   nodes: any[];

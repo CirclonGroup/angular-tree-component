@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ITreeState } from 'angular-tree-component';
 
 @Component({
-  selector: 'app-state-binding-demo',
-  templateUrl: './state-binding-demo.component.html',
-  styleUrls: ['./state-binding-demo.component.scss']
+    selector: 'app-state-binding-demo',
+    templateUrl: './state-binding-demo.component.html',
+    styleUrls: ['./state-binding-demo.component.scss'],
+    standalone: false
 })
 export class StateBindingDemoComponent {
 

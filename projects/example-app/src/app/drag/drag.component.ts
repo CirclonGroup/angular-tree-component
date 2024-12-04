@@ -3,12 +3,13 @@ import { ITreeState, ITreeOptions } from 'angular-tree-component';
 import { v4 } from 'uuid';
 
 @Component({
-  selector: 'app-drag',
-  template: `
+    selector: 'app-drag',
+    template: `
     <h4>Allowing to drag only leaf nodes; ctrl-drag to copy</h4>
     <tree-root [state]="state" [options]="options" [focused]="true" [nodes]="nodes"></tree-root>
   `,
-  styles: []
+    styles: [],
+    standalone: false
 })
 export class DragComponent {
   state: ITreeState = {

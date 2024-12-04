@@ -80,8 +80,7 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes,
       {
-    scrollPositionRestoration: 'enabled',
-    relativeLinkResolution: 'legacy'
+    scrollPositionRestoration: 'enabled'
 }
     ),
   ],

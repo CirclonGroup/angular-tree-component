@@ -31,10 +31,10 @@ const actionMapping: IActionMapping = {
 };
 
 @Component({
-  selector: 'app-dragover-styling-fulltree',
-  styles: [
-    `
-      button: {
+    selector: 'app-dragover-styling-fulltree',
+    styles: [
+        `
+      button {
         line-height: 24px;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
         border: none;
@@ -44,8 +44,8 @@ const actionMapping: IActionMapping = {
         margin: 0 3px;
       }
     `
-  ],
-  template: `
+    ],
+    template: `
     <form>
       <input
         #filter
@@ -109,7 +109,8 @@ const actionMapping: IActionMapping = {
     <button (click)="tree.treeModel.expandAll()">Expand All</button>
     <button (click)="tree.treeModel.collapseAll()">Collapse All</button>
     <button (click)="activeNodes(tree.treeModel)">getActiveNodes()</button>
-  `
+  `,
+    standalone: false
 })
 export class DragOverStylingFullTreeComponent implements OnInit {
   nodes: any[];

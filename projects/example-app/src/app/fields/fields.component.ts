@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { ITreeOptions } from 'angular-tree-component';
 
 @Component({
-  selector: 'app-fields',
-  template: `
+    selector: 'app-fields',
+    template: `
     <h3>Overriding displayField & nodeClass</h3>
     <tree-root id="tree1" [focused]="true" [nodes]="nodes" [options]="options"></tree-root>
   `,
-  styles: [
-  ]
+    styles: [],
+    standalone: false
 })
 export class FieldsComponent {
   nodes = [

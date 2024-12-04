@@ -3,8 +3,8 @@ import { ITreeState, ITreeOptions } from 'angular-tree-component';
 import { v4 } from 'uuid';
 
 @Component({
-  selector: 'app-dragover-styling',
-  template: `
+    selector: 'app-dragover-styling',
+    template: `
     <h4>Disabled styling of nodes on dragover</h4>
     <tree-root
       [state]="state"
@@ -13,7 +13,8 @@ import { v4 } from 'uuid';
       [nodes]="nodes"
     ></tree-root>
   `,
-  styles: []
+    styles: [],
+    standalone: false
 })
 export class DragOverStylingComponent {
   state: ITreeState = {

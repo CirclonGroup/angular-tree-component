@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-large-tree-guide',
-  templateUrl: './large-tree-guide.component.html',
-  styleUrls: ['./large-tree-guide.component.scss']
+    selector: 'app-large-tree-guide',
+    templateUrl: './large-tree-guide.component.html',
+    styleUrls: ['./large-tree-guide.component.scss'],
+    standalone: false
 })
 export class LargeTreeGuideComponent {
 

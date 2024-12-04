@@ -2,10 +2,10 @@ import { Component , Input , ViewEncapsulation } from '@angular/core';
 import { TreeNode } from '../models/tree-node.model';
 
 @Component({
-  selector: 'tree-node-wrapper' ,
-  encapsulation: ViewEncapsulation.None ,
-  styles: [] ,
-  template: `
+    selector: 'tree-node-wrapper',
+    encapsulation: ViewEncapsulation.None,
+    styles: [],
+    template: `
       <div *ngIf="!templates.treeNodeWrapperTemplate" class="node-wrapper" [style.padding-left]="node.getNodePadding()">
           <tree-node-checkbox *ngIf="node.options.useCheckbox" [node]="node"></tree-node-checkbox>
           <tree-node-expander [node]="node"></tree-node-expander>
@@ -34,7 +34,8 @@ import { TreeNode } from '../models/tree-node.model';
               [ngTemplateOutlet]="templates.treeNodeWrapperTemplate"
               [ngTemplateOutletContext]="{ $implicit: node, node: node, index: index, templates: templates }">
       </ng-container>
-  `
+  `,
+    standalone: false
 })
 
 export class TreeNodeWrapperComponent {

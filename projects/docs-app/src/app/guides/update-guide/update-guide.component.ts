@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-update-guide',
-  templateUrl: './update-guide.component.html',
-  styleUrls: ['./update-guide.component.scss']
+    selector: 'app-update-guide',
+    templateUrl: './update-guide.component.html',
+    styleUrls: ['./update-guide.component.scss'],
+    standalone: false
 })
 export class UpdateGuideComponent {
 

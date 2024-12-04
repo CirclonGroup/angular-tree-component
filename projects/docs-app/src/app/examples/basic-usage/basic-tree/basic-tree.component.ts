@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-basic-tree',
-  templateUrl: './basic-tree.component.html',
-  styleUrls: ['./basic-tree.component.scss']
+    selector: 'app-basic-tree',
+    templateUrl: './basic-tree.component.html',
+    styleUrls: ['./basic-tree.component.scss'],
+    standalone: false
 })
 export class BasicTreeComponent {
 

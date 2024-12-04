@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { TreeModel, TreeNode } from 'angular-tree-component';
 
 @Component({
-  selector: 'app-filter',
-  templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss']
+    selector: 'app-filter',
+    templateUrl: './filter.component.html',
+    styleUrls: ['./filter.component.scss'],
+    standalone: false
 })
 export class FilterComponent {
 

@@ -2,10 +2,10 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { TreeNode } from '../models/tree-node.model';
 
 @Component({
-  selector: 'tree-node-expander',
-  encapsulation: ViewEncapsulation.None,
-  styles: [],
-  template: `
+    selector: 'tree-node-expander',
+    encapsulation: ViewEncapsulation.None,
+    styles: [],
+    template: `
     <ng-container *treeMobxAutorun="{ dontDetach: true }">
       <span
         *ngIf="node.hasChildren"
@@ -19,7 +19,8 @@ import { TreeNode } from '../models/tree-node.model';
       <span *ngIf="!node.hasChildren" class="toggle-children-placeholder">
       </span>
     </ng-container>
-  `
+  `,
+    standalone: false
 })
 export class TreeNodeExpanderComponent {
   @Input() node: TreeNode;

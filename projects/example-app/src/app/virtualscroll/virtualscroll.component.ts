@@ -2,10 +2,9 @@ import { Component, Input } from '@angular/core';
 import { TreeNode, TreeModel, ITreeOptions } from 'angular-tree-component';
 
 @Component({
-  selector: 'app-virtualscroll',
-  styles: [
-  ],
-  template: `
+    selector: 'app-virtualscroll',
+    styles: [],
+    template: `
   <div style="height: 800px; width: 500px; overflow: hidden;">
 
     <tree-root
@@ -16,7 +15,8 @@ import { TreeNode, TreeModel, ITreeOptions } from 'angular-tree-component';
     >
     </tree-root>
   </div>
-  `
+  `,
+    standalone: false
 })
 export class VirtualscrollComponent {
   nodes: any[];

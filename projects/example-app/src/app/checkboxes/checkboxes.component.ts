@@ -2,8 +2,8 @@ import { ITreeOptions } from 'angular-tree-component';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-checkboxes',
-  template: `
+    selector: 'app-checkboxes',
+    template: `
     <h3>tri-state checkboxes</h3>
     <tree-root
       id="tree1"
@@ -25,8 +25,8 @@ import { Component } from '@angular/core';
       [options]="optionsDisabled">
     </tree-root>
   `,
-  styles: [
-  ]
+    styles: [],
+    standalone: false
 })
 export class CheckboxesComponent {
   nodes = [

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-api',
-  templateUrl: './api.component.html',
-  styleUrls: ['./api.component.scss']
+    selector: 'app-api',
+    templateUrl: './api.component.html',
+    styleUrls: ['./api.component.scss'],
+    standalone: false
 })
 export class ApiComponent {
   html = `

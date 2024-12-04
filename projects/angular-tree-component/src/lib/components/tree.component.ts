@@ -6,10 +6,10 @@ import { ITreeOptions } from '../defs/api';
 import { TreeViewportComponent } from './tree-viewport.component';
 
 @Component({
-  selector: 'Tree, tree-root',
-  providers: [TreeModel],
-  styles: [],
-  template: `
+    selector: 'Tree, tree-root',
+    providers: [TreeModel],
+    styles: [],
+    template: `
       <tree-viewport #viewport>
           <div
                   class="angular-tree-component"
@@ -34,7 +34,8 @@ import { TreeViewportComponent } from './tree-viewport.component';
               </tree-node-drop-slot>
           </div>
       </tree-viewport>
-  `
+  `,
+    standalone: false
 })
 export class TreeComponent implements OnChanges {
   _nodes: any[];

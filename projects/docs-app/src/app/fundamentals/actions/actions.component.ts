@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-actions',
-  templateUrl: './actions.component.html',
-  styleUrls: ['./actions.component.scss']
+    selector: 'app-actions',
+    templateUrl: './actions.component.html',
+    styleUrls: ['./actions.component.scss'],
+    standalone: false
 })
 export class ActionsComponent {
 
